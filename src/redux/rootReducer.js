@@ -1,5 +1,5 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import authReducer from './auth/auth-slice';
+import { authReducer } from './auth/auth-slice';
 import transactionReducer from './transaction/transaction-slice';
 import userReducer from './user/user-slice';
 
