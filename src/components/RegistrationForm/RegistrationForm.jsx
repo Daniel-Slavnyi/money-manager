@@ -3,6 +3,7 @@ import { register } from 'redux/auth/auth-operation';
 
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 
 export const RegistrationForm = () => {
   const schema = Yup.object().shape({
@@ -74,7 +75,7 @@ export const RegistrationForm = () => {
           </Form>
         )}
       </Formik>
-      <button type="button">LOG IN</button>
+      <Link to="/auth/login">Login</Link>
     </>
   );
 };
