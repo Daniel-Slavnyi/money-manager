@@ -1,12 +1,12 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 // import { lazy } from 'react';
 
-import RegisterPage from 'pages/RegisterPage';
-import Layout from 'pages/Layout';
-import LoginPage from 'pages/LoginPage';
-import DashboardPage from 'pages/DashboardPage';
-import HomePage from 'pages/HomePage';
-import StatisticsPage from 'pages/StatisticsPage';
+import RegisterPage from 'pages/RegisterPage/RegisterPage';
+import Layout from 'pages/Layout/Layout';
+import LoginPage from 'pages/LoginPage/LoginPage';
+import DashboardPage from 'pages/DashboardPage/DashboardPage';
+import HomePage from 'pages/HomePage/HomePage';
+import StatisticsPage from 'pages/StatisticsPage/StatisticsPage';
 
 export const App = () => {
   return (
