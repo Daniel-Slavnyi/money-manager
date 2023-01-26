@@ -7,19 +7,25 @@ import LoginPage from 'pages/LoginPage';
 import DashboardPage from 'pages/DashboardPage';
 import HomePage from 'pages/HomePage';
 import StatisticsPage from 'pages/StatisticsPage';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import PublicRoute from './PublicRoute/PublicRoute';
 
 export const App = () => {
   return (
     <Routes>
-      <Route path="/auth" element={<Layout />}>
-        <Route index element={<Navigate to="/auth/register" />} />
-        <Route path="register" element={<RegisterPage />} />
-        <Route path="login" element={<LoginPage />} />
+      <Route path="/" element={<PublicRoute />}>
+        <Route path="/auth" element={<Layout />}>
+          <Route index element={<Navigate to="/auth/register" />} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="login" element={<LoginPage />} />
+        </Route>
       </Route>
 
-      <Route path="/" element={<DashboardPage />}>
-        <Route index element={<HomePage />} />
-        <Route path="statistics" element={<StatisticsPage />} />
+      <Route path="/" element={<PrivateRoute />}>
+        <Route path="/" element={<DashboardPage />}>
+          <Route index element={<HomePage />} />
+          <Route path="statistics" element={<StatisticsPage />} />
+        </Route>
       </Route>
     </Routes>
   );
