@@ -1,15 +1,15 @@
-import css from './Loader.module.css';
+import { LoaderWrapper } from './Loader.styled';
 import { RotatingLines } from 'react-loader-spinner';
 
-export function Loader() {
+export default function Loader() {
   return (
-    <div className={css.wrapper}>
+    <LoaderWrapper>
       <RotatingLines
         height="100"
         width="100"
         strokeColor="#24CCA7"
         ariaLabel="loader"
       ></RotatingLines>
-    </div>
+    </LoaderWrapper>
   );
 }
