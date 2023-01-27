@@ -1,6 +1,3 @@
-
-
-
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,7 +7,7 @@ import {
 } from 'redux/transaction/transaction-operation';
 import { selectTransactions } from 'redux/transaction/transaction-selector';
 import DataTable from './TableOnly';
-import { Container, MainTable } from './TransactionTable.styled';
+import { Container } from './TransactionTable.styled';
 
 const NEW_TRANSACTION_QUERY_EXAMPLE = {
   transactionDate: '20190907',
@@ -38,13 +35,10 @@ export default function TransactionTable() {
   }, [allTransactions]);
 
   return (
-   
     <Container>
-       <DataTable/>
+      <DataTable />
       <div>
-        <form>
-
-        </form>
+        <form></form>
 
         <button onClick={showAllTransactions} type="button">
           Show All Transactions
