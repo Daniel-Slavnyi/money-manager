@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/money-manager/static/css/main.9447fd85.css",
-    "main.js": "/money-manager/static/js/main.092aa9f8.js",
+    "main.js": "/money-manager/static/js/main.a575fc37.js",
     "static/media/Circe-Regular.woff": "/money-manager/static/media/Circe-Regular.b3583e41e063203a7e74.woff",
     "static/media/sprite.svg": "/money-manager/static/media/sprite.5940fbcc6cbbdb12050198942888e168.svg",
     "index.html": "/money-manager/index.html",
     "main.9447fd85.css.map": "/money-manager/static/css/main.9447fd85.css.map",
-    "main.092aa9f8.js.map": "/money-manager/static/js/main.092aa9f8.js.map"
+    "main.a575fc37.js.map": "/money-manager/static/js/main.a575fc37.js.map"
   },
   "entrypoints": [
     "static/css/main.9447fd85.css",
-    "static/js/main.092aa9f8.js"
+    "static/js/main.a575fc37.js"
   ]
 }
