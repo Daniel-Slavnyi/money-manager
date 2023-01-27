@@ -1,3 +1,4 @@
+import { Navigation } from 'components/Navigation/Navigation';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from '../../components/Header/Header';
@@ -9,13 +10,12 @@ export default function DashboardPage() {
         <Header />
       </header>
       <main>
-        <nav>
-          <ul>
-            <li></li>
-            <li></li>
-          </ul>
-        </nav>
-        <Outlet />
+        <section>
+          <Navigation />
+        </section>
+        <section>
+          <Outlet />
+        </section>
       </main>
     </div>
   );
