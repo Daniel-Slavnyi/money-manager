@@ -9,7 +9,7 @@ import GlobalStyle from 'globalStyles';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="money-manager">
+      <BrowserRouter>
         <GlobalStyle />
         <App />
       </BrowserRouter>
