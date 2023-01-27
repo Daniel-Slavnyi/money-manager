@@ -1,10 +1,12 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://wallet.goit.ua/';
+export const backend = axios.create({
+  baseURL: 'https://wallet.goit.ua/api',
+});
 
 export const registerUser = async body => {
   try {
-    const { data } = await axios.post('/api/auth/sign-up', body);
+    const { data } = await backend.post('/auth/sign-up', body);
     return data;
   } catch (error) {
     return error;
@@ -13,7 +15,7 @@ export const registerUser = async body => {
 
 export const loginUser = async body => {
   try {
-    const { data } = await axios.post('/api/auth/sign-in', body);
+    const { data } = await backend.post('/auth/sign-in', body);
     return data;
   } catch (error) {
     return error;
@@ -22,7 +24,7 @@ export const loginUser = async body => {
 
 export const logoutUser = async () => {
   try {
-    const { data } = await axios.delete('/api/auth/sign-out');
+    const { data } = await backend.delete('/auth/sign-out');
     return data;
   } catch (error) {
     return error;

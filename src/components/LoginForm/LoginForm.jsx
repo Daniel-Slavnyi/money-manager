@@ -58,7 +58,7 @@ export const LoginForm = () => {
         />
         <Button type="submit">LOG IN</Button>
       </form>
-      <Button variant="secondarybutton" href="/auth/register">
+      <Button variant="secondarybutton" href="/money-manager/auth/register">
         Register
       </Button>
     </>
