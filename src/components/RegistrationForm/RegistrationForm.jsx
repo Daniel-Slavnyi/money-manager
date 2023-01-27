@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/auth-operation';
 
-import { Formik, Field, Form } from 'formik';
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
+import { Button, TextField } from '@mui/material';
 
 export const RegistrationForm = () => {
   const schema = Yup.object().shape({
@@ -30,52 +30,70 @@ export const RegistrationForm = () => {
     resetForm();
   };
 
+  const formik = useFormik({
+    initialValues,
+    validationSchema: schema,
+    onSubmit: handleSubmit,
+  });
+
   return (
     <>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-        validationSchema={schema}
-      >
-        {({ errors, touched }) => (
-          <Form>
-            <label htmlFor="email"></label>
-            <Field
-              id="email"
-              name="email"
-              placeholder="E-mail"
-              type="email"
-              required
-            />
-            <label htmlFor="password"></label>
-            <Field
-              id="password"
-              name="password"
-              placeholder="Password"
-              required
-            />
-            <label htmlFor="confirmPassword"></label>
-            <Field
-              id="confirmPassword"
-              name="confirmPassword"
-              placeholder="Confirm password"
-              required
-            />
-            {touched.confirmPassword && errors.confirmPassword && (
-              <div>{errors.confirmPassword}</div>
-            )}
-            <label htmlFor="username"></label>
-            <Field
-              id="username"
-              name="username"
-              placeholder="First name"
-              required
-            />
-            <button type="submit">Submit</button>
-          </Form>
-        )}
-      </Formik>
-      <Link to="/auth/login">Login</Link>
+      <form onSubmit={formik.handleSubmit}>
+        <TextField
+          variant="standard"
+          label="E-mail"
+          id="email"
+          name="email"
+          type="email"
+          required
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          error={formik.touched.email && Boolean(formik.errors.email)}
+          helperText={formik.touched.email && formik.errors.email}
+        />
+        <TextField
+          variant="standard"
+          label="Password"
+          id="password"
+          name="password"
+          required
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          error={formik.touched.password && Boolean(formik.errors.password)}
+          helperText={formik.touched.password && formik.errors.password}
+        />
+        <TextField
+          variant="standard"
+          label="Confirm Password"
+          id="confirmPassword"
+          name="confirmPassword"
+          required
+          value={formik.values.confirmPassword}
+          onChange={formik.handleChange}
+          error={
+            formik.touched.confirmPassword &&
+            Boolean(formik.errors.confirmPassword)
+          }
+          helperText={
+            formik.touched.confirmPassword && formik.errors.confirmPassword
+          }
+        />
+        <TextField
+          variant="standard"
+          label="Username"
+          id="username"
+          name="username"
+          required
+          value={formik.values.username}
+          onChange={formik.handleChange}
+          error={formik.touched.username && Boolean(formik.errors.username)}
+          helperText={formik.touched.username && formik.errors.username}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
+      <Button variant="secondarybutton" href="/auth/login">
+        Login
+      </Button>
     </>
   );
 };
