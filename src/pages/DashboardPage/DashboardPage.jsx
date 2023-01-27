@@ -1,3 +1,4 @@
+import { Navigation } from 'components/Navigation/Navigation';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
@@ -6,13 +7,12 @@ export default function DashboardPage() {
     <div>
       <header></header>
       <main>
-        <nav>
-          <ul>
-            <li></li>
-            <li></li>
-          </ul>
-        </nav>
-        <Outlet />
+        <section>
+          <Navigation />
+        </section>
+        <section>
+          <Outlet />
+        </section>
       </main>
     </div>
   );
