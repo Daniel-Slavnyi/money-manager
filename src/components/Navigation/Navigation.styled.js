@@ -1,6 +1,7 @@
 import styled from '@emotion/styled/macro';
+import { NavLink } from 'react-router-dom';
 
-export const NavItem = styled.ul`
+export const NavListEl = styled.ul`
   display: flex;
   justify-content: center;
   gap: 38px;
@@ -14,9 +15,37 @@ export const NavItem = styled.ul`
   }
 `;
 
-export const IconWrapper = styled.div`
-  height: 38px;
+export const NavItemEl = styled.li``;
+
+export const LinkEl = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #000000;
+  outline: transparent;
+
+  transition: font-weight 250ms linear;
+
+  &:hover,
+  &:focus {
+    font-weight: 700;
+  }
+
+  &.active {
+    // filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+  }
+
+  &.active svg {
+    fill: #4a56e2;
+  }
+`;
+
+export const IconWrapperEl = styled.div``;
+
+export const SvgEl = styled.svg`
   width: 38px;
+  height: 38px;
 
   fill: #6e78e8;
 
@@ -30,20 +59,10 @@ export const IconWrapper = styled.div`
 export const TextEl = styled.span`
   display: none;
 
-  fill: #6e78e8;
-
   @media screen and (min-width: 768px) {
     display: block;
 
     font-size: 18px;
     line-height: 1.5;
-  }
-`;
-
-export const SvgEl = styled.svg`
-  @media screen and (min-width: 768px) {
-    width: 18px;
-    height: 18px;
-    margin-right: 23px;
   }
 `;
