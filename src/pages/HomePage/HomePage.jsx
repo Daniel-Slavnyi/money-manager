@@ -1,4 +1,4 @@
-import Table from 'components/Table/Table';
+import Table from 'components/TransactionTable/TransactionTable';
 import React from 'react';
 import { Navigation } from '../../components/Navigation/Navigation';
 
