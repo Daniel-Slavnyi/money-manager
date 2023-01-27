@@ -6,7 +6,7 @@ import Layout from 'pages/Layout';
 import LoginPage from 'pages/LoginPage';
 import DashboardPage from 'pages/DashboardPage/DashboardPage';
 import HomePage from 'pages/HomePage/HomePage';
-import StatisticsPage from 'pages/StatisticsPage';
+import StatisticsPage from 'pages/StatisticsPage/StatisticsPage';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
 
