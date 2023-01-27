@@ -1,10 +1,12 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { createNewTransaction, getAllTransactions } from 'services/apiTransaction';
+import {
+  createNewTransaction,
+  getAllTransactions,
+} from 'services/apiTransaction';
 
-const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
+// const setAuthHeader = token => {
+//   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+// };
 
 export const refreshTransactions = createAsyncThunk(
   'transaction/refresh',
@@ -20,7 +22,6 @@ export const refreshTransactions = createAsyncThunk(
 
     try {
       // If there is a token, add it to the HTTP header and perform the request
-      setAuthHeader(persistedToken);
       const res = await getAllTransactions();
       return res;
     } catch (error) {
@@ -30,14 +31,14 @@ export const refreshTransactions = createAsyncThunk(
 );
 
 export const newTransaction = createAsyncThunk(
-    'transaction/createNew',
-    async (transferOptions, thunkAPI) => {
-      try {
-        const res = await createNewTransaction(transferOptions);
-        // After successful login, add the token to the HTTP header
-        return res;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-      }
+  'transaction/createNew',
+  async (transferOptions, thunkAPI) => {
+    try {
+      const res = await createNewTransaction(transferOptions);
+      // After successful login, add the token to the HTTP header
+      return res;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
-  );
+  }
+);

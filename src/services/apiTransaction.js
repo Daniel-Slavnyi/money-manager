@@ -1,10 +1,8 @@
-import axios from 'axios';
-
-axios.defaults.baseURL = 'https://wallet.goit.ua/';
+import { backend } from './apiAuth';
 
 export const getAllTransactions = async () => {
   try {
-    const { data } = await axios.get('/api/transactions');
+    const { data } = await backend.get('/transactions');
     return data;
   } catch (error) {
     return error;
@@ -12,12 +10,10 @@ export const getAllTransactions = async () => {
 };
 
 export const createNewTransaction = async transferOptions => {
-    try {
-      const { data } = await axios.post('/api/transactions', transferOptions);
-      return data;
-    } catch (error) {
-      return error;
-    }
-  };
-
-  
+  try {
+    const { data } = await backend.post('/transactions', transferOptions);
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
