@@ -6,6 +6,10 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@mui/styled-engine-sc": "^5.11.0",
+    "@mui/x-data-grid": "^5.17.21",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.6",
     "@reduxjs/toolkit": "^1.9.1",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
@@ -21,6 +25,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.7.0",
     "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
     "redux-persist": "^6.0.0",
     "styled-normalize": "^8.0.7",
     "web-vitals": "^2.1.3",

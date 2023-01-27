@@ -1,18 +1,15 @@
-import axios from 'axios';
+import { backend } from '../../services/apiAuth';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { registerUser, loginUser, logoutUser } from '../../services/apiAuth';
 
-// export const backend = axios.create({
-//   baseURL: 'https://wallet.goit.ua/api',
-// });
 // Utility to add JWT
 const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  backend.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 // Utility to remove JWT
 const clearAuthHeader = () => {
-  axios.defaults.headers.common.Authorization = '';
+  backend.defaults.headers.common.Authorization = '';
 };
 
 /*
@@ -84,7 +81,7 @@ export const refreshUser = createAsyncThunk(
     try {
       // If there is a token, add it to the HTTP header and perform the request
       setAuthHeader(persistedToken);
-      const res = await axios.get('/api/users/current');
+      const res = await backend.get('/users/current');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
