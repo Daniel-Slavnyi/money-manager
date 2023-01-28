@@ -5,8 +5,6 @@ export const NavListEl = styled.ul`
   display: flex;
   justify-content: center;
   gap: 38px;
-  margin: 0;
-  padding: 0;
 
   @media screen and (min-width: 768px) {
     align-items: flex-start;
@@ -25,19 +23,23 @@ export const LinkEl = styled(NavLink)`
   color: #000000;
   outline: transparent;
 
-  transition: font-weight 250ms linear;
+  transition: font-weight, fill 250ms linear;
 
   &:hover,
-  &:focus {
+  &:hover svg,
+  &:focus,
+  &:focus svg {
     font-weight: 700;
-  }
 
-  &.active {
-    // filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
-  }
-
-  &.active svg {
     fill: #4a56e2;
+  }
+
+  &.active,
+  &.active svg {
+    font-weight: 700;
+
+    fill: #4a56e2;
+    // filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
   }
 `;
 
