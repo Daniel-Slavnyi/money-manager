@@ -1,10 +1,12 @@
-import Table from 'components/TransactionTable/TransactionTable';
+import TransactionTable from 'components/TransactionTable/TransactionTable';
 import React from 'react';
+import { Balance } from '../../components/Balance/Balance'
 
 export default function HomePage() {
   return (
     <>
-      <Table />
+      <Balance />
+      <TransactionTable />
     </>
   );
 }
