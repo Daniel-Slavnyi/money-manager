@@ -6,61 +6,85 @@ import { newTransaction } from 'redux/transaction/transaction-operation';
 import { Button, TextField } from '@mui/material';
 import mainTheme from 'styles/theme';
 import BasicDatePicker from './DatePicker';
-import { FormBox } from './TransactionForm.styled';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import BasicSelect from './Categories';
+import { ExpenseActive, FormBox, IncomeActive, SpanPassive, SwitchBox } from './TransactionForm.styled';
+import Categories from './Categories';
+import { useState } from 'react';
 
 export default function TransactionForm() {
   const dispatch = useDispatch();
+  const [transactionDate, setTransactionDate] = useState('');
+  const [type, setType] = useState('INCOME');
+  const [categoryId, setCategoryId] = useState(
+    '063f1132-ba5d-42b4-951d-44011ca46262'
+  );
+  const [comment, setComment] = useState('');
+  const [amount, setAmount] = useState(0);
 
-  const NEW_TRANSACTION_QUERY_EXAMPLE = {
-    transactionDate: '20190907',
-    type: 'EXPENSE',
-    categoryId: 'c9d9e447-1b83-4238-8712-edc77b18b739',
-    comment: 'string',
-    amount: -400,
+  const handleDate = date => {
+    setTransactionDate(date);
   };
 
+  const switchChange = e => {
+    if (e.target.checked) {
+      setType('EXPENSE');
+      return;
+    }
+    setType('INCOME');
+    setCategoryId('063f1132-ba5d-42b4-951d-44011ca46262');
+  };
+
+  const changeCategoryId = category => {
+    setCategoryId(category);
+  };
+
+ const onNumberChange = (e) => {
+  type === 'INCOME'? setAmount(Number(e.target.value)) : setAmount((Number(e.target.value)) * -1)  }
+
+
   const createNewTransaction = () => {
-    dispatch(newTransaction(NEW_TRANSACTION_QUERY_EXAMPLE));
+    const objTransaction = {transactionDate, type, categoryId, comment, amount}
+    dispatch(newTransaction(objTransaction));
   };
 
   return (
     <FormBox>
       <FormGroup>
         <h1>Add transaction</h1>
-        <FormControlLabel
-          control={
-            <PinkSwitch
-              inputProps={{ 'aria-label': 'controlled' }}
-              {...label}
-              defaultChecked
-              size="big"
-            />
-          }
-          label="Expense"
-        />
-
-<BasicSelect/>
+        <SwitchBox>
+          {type === 'INCOME'? <IncomeActive>Income</IncomeActive> : <SpanPassive>Income</SpanPassive>}
+          <FormControlLabel
+            control={
+              <PinkSwitch
+                inputProps={{ 'aria-label': 'controlled' }}
+                {...label}
+                size="big"
+                onChange={switchChange}
+              />
+            }
+          />
+           {type === "EXPENSE" ? <ExpenseActive>Expense</ExpenseActive> : <SpanPassive>Expense</SpanPassive>}
+         
+        </SwitchBox>
+        {type === 'INCOME' ? null : (
+          <Categories changeCategoryId={changeCategoryId} />
+        )}
 
         <TextField
+        onChange={onNumberChange}
           theme={mainTheme}
           type="number"
           placeholder="0.00"
           inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
         />
 
-        <BasicDatePicker />
+        <BasicDatePicker handleDate={handleDate} />
 
         <TextField
+         onChange={(e)=>{setComment(e.target.value)}}
           variant="standard"
           label="Comment"
           id="comment"
           name="comment"
-          onChange={console.log('Text field')}
           helperText={'Helper text'}
         />
 

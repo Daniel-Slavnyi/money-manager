@@ -4,9 +4,15 @@ import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-export default function BasicDatePicker() {
-  const [value, setValue] = React.useState(null);
+export default function BasicDatePicker({handleDate}) {
+  const [value, setValue] = useState(null);
+
+useEffect(() => {
+  if(value === null) return;
+  handleDate(value.toISOString())}, [handleDate, value])
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>

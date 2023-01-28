@@ -16,15 +16,3 @@ export const PinkSwitch = styled(Switch)(({ theme }) => ({
 }));
 
 export const label = { inputProps: { 'aria-label': 'Color switch demo' } };
-
-export default function ColorSwitches() {
-  return (
-    <div>
-      <Switch {...label} defaultChecked />
-      <Switch {...label} defaultChecked color="secondary" />
-      <Switch {...label} defaultChecked color="warning" />
-      <Switch {...label} defaultChecked color="default" />
-      <PinkSwitch {...label} defaultChecked />
-    </div>
-  );
-}
