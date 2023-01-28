@@ -1,15 +1,16 @@
 import { useSelector } from 'react-redux';
-import { getTotalBalance } from '../../redux/transaction/transaction-selector';
 
 import { BalanceWrapper, BalanceText, BalanceValue } from './Balance.styled';
 
 export const Balance = () => {
-  const totalBalance = useSelector(getTotalBalance);
+  const totalBalance = useSelector(state => state.auth.user.balance);
 
   return (
     <BalanceWrapper>
       <BalanceText>YOUR BALANCE</BalanceText>
-      <BalanceValue>₴ {totalBalance ? totalBalance : 0}</BalanceValue>
+      <BalanceValue>
+        ₴ {totalBalance ? totalBalance.toFixed(2) : 0}
+      </BalanceValue>
     </BalanceWrapper>
   );
 };
