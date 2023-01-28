@@ -28,19 +28,28 @@ const columns = [
   }
 ];
 
-
 export default function DataTable() {
-
     const allTransactions = useSelector(selectTransactions);
+    // const categories = useSelector(selectCategories);
+
     
+//     console.log(categories);
+
+// const newArray = allTransactions.map(transfer => {
+// const newObj = categories.find(obj => transfer.categoryId === obj.id)
+// console.log(newObj);
+// return newObj
+// })
+
   return (
     <div style={{ height: 400, width: '100%' }}>
       <DataGrid
         rows={allTransactions}
         columns={columns}
-        pageSize={20}
+        pageSize={100}
         rowsPerPageOptions={[5]}
       />
     </div>
   );
 }
+

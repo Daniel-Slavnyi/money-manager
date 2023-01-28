@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   createNewTransaction,
   getAllTransactions,
+  getTransactionCategories,
 } from 'services/apiTransaction';
 
 // const setAuthHeader = token => {
@@ -40,5 +41,17 @@ export const newTransaction = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
-);
+  });
+
+  export const getCategories = createAsyncThunk(
+    'transaction/getCategories',
+    async (_, thunkAPI) => {
+      try {
+        const res = await getTransactionCategories();
+        // After successful login, add the token to the HTTP header
+        return res;
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    }
+  );

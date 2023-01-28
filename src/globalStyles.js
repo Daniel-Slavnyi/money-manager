@@ -4,6 +4,10 @@ import { normalize } from 'styled-normalize';
 const GlobalStyle = createGlobalStyle`
     ${normalize}
 
+    .css-1yjjitx-MuiSwitch-track  {
+        background-color: yellow;
+    }
+
     body {
         box-sizing: border-box;
         margin: 0;
