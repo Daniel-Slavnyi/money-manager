@@ -41,3 +41,16 @@ export const newTransaction = createAsyncThunk(
       }
     }
   );
+
+  export const getTransactionCategories = createAsyncThunk(
+    'transaction/getCategories',
+    async (transferOptions, thunkAPI) => {
+      try {
+        const res = await createNewTransaction(transferOptions);
+        // After successful login, add the token to the HTTP header
+        return res;
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    }
+  );

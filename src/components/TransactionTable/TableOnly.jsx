@@ -28,17 +28,15 @@ const columns = [
   }
 ];
 
-
 export default function DataTable() {
 
     const allTransactions = useSelector(selectTransactions);
-    
   return (
     <div style={{ height: 400, width: '100%' }}>
       <DataGrid
         rows={allTransactions}
         columns={columns}
-        pageSize={20}
+        pageSize={100}
         rowsPerPageOptions={[5]}
       />
     </div>
