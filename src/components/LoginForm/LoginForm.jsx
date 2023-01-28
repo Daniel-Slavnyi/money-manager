@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/auth-operation';
 
-import { Formik, Field, Form } from 'formik';
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
+import { Button, TextField } from '@mui/material';
 
 export const LoginForm = () => {
   const schema = Yup.object().shape({
@@ -19,37 +19,48 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = ({ email, password }, { resetForm }) => {
+    console.log(1);
     dispatch(logIn({ email, password }));
     resetForm();
   };
 
+  const formik = useFormik({
+    initialValues,
+    validationSchema: schema,
+    onSubmit: handleSubmit,
+  });
+
   return (
     <>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-        validationSchema={schema}
-      >
-        <Form>
-          <label htmlFor="email"></label>
-          <Field
-            id="email"
-            name="email"
-            placeholder="E-mail"
-            type="email"
-            required
-          />
-          <label htmlFor="password"></label>
-          <Field
-            id="password"
-            name="password"
-            placeholder="Password"
-            required
-          />
-          <button type="submit">Submit</button>
-        </Form>
-      </Formik>
-      <Link to="/auth/register">Register</Link>
+      <form onSubmit={formik.handleSubmit}>
+        <TextField
+          variant="standard"
+          label="E-mail"
+          id="email"
+          name="email"
+          type="email"
+          required
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          error={formik.touched.email && Boolean(formik.errors.email)}
+          helperText={formik.touched.email && formik.errors.email}
+        />
+        <TextField
+          variant="standard"
+          label="Password"
+          id="password"
+          name="password"
+          required
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          error={formik.touched.password && Boolean(formik.errors.password)}
+          helperText={formik.touched.password && formik.errors.password}
+        />
+        <Button type="submit">LOG IN</Button>
+      </form>
+      <Button variant="secondarybutton" href="/money-manager/auth/register">
+        Register
+      </Button>
     </>
   );
 };

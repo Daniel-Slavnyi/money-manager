@@ -1,49 +1,53 @@
 import Media from 'react-media';
 import sprite from '../../images/sprite.svg';
 import { mediaScreen } from '../../utils/constants';
-import { NavLink } from 'react-router-dom';
-
-import css from './Navigation.module.css';
-import { NavItem, IconWrapper, TextEl, SvgEl } from './Navigation.styled';
+import {
+  NavListEl,
+  NavItemEl,
+  LinkEl,
+  IconWrapperEl,
+  SvgEl,
+  TextEl,
+} from './Navigation.styled';
 
 export const Navigation = () => {
   return (
-    <NavItem>
-      <li>
-        <NavLink to="/" className={css.navLink}>
-          <IconWrapper>
+    <NavListEl>
+      <NavItemEl>
+        <LinkEl to="/">
+          <IconWrapperEl>
             <SvgEl>
               <use href={`${sprite}#icon-home`}></use>
             </SvgEl>
-          </IconWrapper>
+          </IconWrapperEl>
           <TextEl>Home</TextEl>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="statistics" className={css.navLink}>
-          <IconWrapper>
+        </LinkEl>
+      </NavItemEl>
+      <NavItemEl>
+        <LinkEl to="statistics">
+          <IconWrapperEl>
             <SvgEl>
               <use href={`${sprite}#icon-statistic`}></use>
             </SvgEl>
-          </IconWrapper>
+          </IconWrapperEl>
           <TextEl>Statistics</TextEl>
-        </NavLink>
-      </li>
+        </LinkEl>
+      </NavItemEl>
       <Media queries={mediaScreen}>
         {matches =>
           (matches.mobile || matches.response) && (
-            <li>
-              <NavLink to="wallet" className={css.navLink}>
-                <IconWrapper>
+            <NavItemEl>
+              <LinkEl to="wallet">
+                <IconWrapperEl>
                   <SvgEl>
                     <use href={`${sprite}#icon-wallet`}></use>
                   </SvgEl>
-                </IconWrapper>
-              </NavLink>
-            </li>
+                </IconWrapperEl>
+              </LinkEl>
+            </NavItemEl>
           )
         }
       </Media>
-    </NavItem>
+    </NavListEl>
   );
 };
