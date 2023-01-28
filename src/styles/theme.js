@@ -91,7 +91,7 @@ mainTheme.components = {
         },
         [mainTheme.breakpoints.up('desktop')]: {
           width: '1280px',
-          padding: '0 188px',
+          padding: '0 18px',
         },
       },
     },

@@ -91,7 +91,7 @@ export const RegistrationForm = () => {
         />
         <Button type="submit">Submit</Button>
       </form>
-      <Button variant="secondarybutton" href="/auth/login">
+      <Button variant="secondarybutton" href="/money-manager/auth/login">
         Login
       </Button>
     </>
