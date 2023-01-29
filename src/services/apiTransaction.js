@@ -18,9 +18,16 @@ export const createNewTransaction = async transferOptions => {
   }
 };
 
+<<<<<<< Updated upstream
 export const getTransactionCategories = async () => {
   try {
     const { data } = await backend.get('/transaction-categories');
+=======
+
+export const getSummaryTransaction = async (month, year) => {
+  try {
+    const { data } = await backend.get(`/transactions-summary?month=${month}&year=${year}`);
+>>>>>>> Stashed changes
     return data;
   } catch (error) {
     return error;

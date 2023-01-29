@@ -2,7 +2,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   createNewTransaction,
   getAllTransactions,
+<<<<<<< Updated upstream
   getTransactionCategories,
+=======
+  getSummaryTransaction,
+>>>>>>> Stashed changes
 } from 'services/apiTransaction';
 
 // const setAuthHeader = token => {
@@ -41,6 +45,7 @@ export const newTransaction = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
+<<<<<<< Updated upstream
   });
 
   export const getCategories = createAsyncThunk(
@@ -55,3 +60,20 @@ export const newTransaction = createAsyncThunk(
       }
     }
   );
+=======
+  }
+);
+
+export const transactionSummary = createAsyncThunk(
+  'transaction/transactionSummary',
+  async (transferOptions, thunkAPI) => {
+    try {
+      const res = await getSummaryTransaction(transferOptions.month, transferOptions.year);
+      // After successful login, add the token to the HTTP header
+      return res;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+>>>>>>> Stashed changes
