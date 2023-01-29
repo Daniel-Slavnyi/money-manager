@@ -1,53 +1,52 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { useSelector } from 'react-redux';
-import { selectTransactions } from 'redux/transaction/transaction-selector';
 
+import { selectCategories, selectTransactions } from 'redux/transaction/transaction-selector';
+import { useSelector } from 'react-redux';
 
 const columns = [
-  { field: 'transactionDate', headerName: 'Date', width: 100 },
-  { field: 'type', headerName: 'Type', width: 120 },
+  { field: 'transactionDate', headerName: 'Date', width: 200 },
+  { field: 'type', headerName: 'Type', width: 100 },
   { field: 'categoryId', headerName: 'Category', width: 120 },
   {
     field: 'comment',
     headerName: 'Comment',
     type: 'string',
-    width: 90,
+    width: 200,
   },
   {
     field: 'amount',
     headerName: 'Sum',
     type: 'string',
-    width: 90,
+    width: 100,
   },
   {
     field: 'balanceAfter',
     headerName: 'Balance',
     type: 'number',
-    width: 160,
+    width: 100,
   }
 ];
 
 export default function DataTable() {
+
     const allTransactions = useSelector(selectTransactions);
     // const categories = useSelector(selectCategories);
 
-    
-//     console.log(categories);
 
-// const newArray = allTransactions.map(transfer => {
-// const newObj = categories.find(obj => transfer.categoryId === obj.id)
-// console.log(newObj);
-// return newObj
+// allTransactions.forEach(transfer => {
+
+//  const name = ((categories.find(category => category.id === transfer.categoryId)).name)
+// return transfer.categoryId = name
 // })
 
   return (
-    <div style={{ height: 400, width: '100%' }}>
+    <div style={{ height: 500, width: 900 }}>
       <DataGrid
         rows={allTransactions}
         columns={columns}
         pageSize={100}
-        rowsPerPageOptions={[5]}
+        rowsPerPageOptions={[12]}
       />
     </div>
   );

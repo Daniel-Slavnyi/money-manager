@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'redux/auth/auth-selector';
 import {
+  getCategories,
   refreshTransactions,
 } from 'redux/transaction/transaction-operation';
 import DataTable from './TableOnly';
@@ -17,6 +18,11 @@ export default function TransactionTable() {
   const showAllTransactions = () => {
     dispatch(refreshTransactions());
   };
+
+  useEffect(() => {
+    if(!logedIn) return;
+    dispatch(getCategories());
+  }, [dispatch, logedIn]);
 
   useEffect(() => {
 if(!logedIn) return;

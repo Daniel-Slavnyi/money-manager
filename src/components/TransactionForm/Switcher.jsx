@@ -1,4 +1,4 @@
-import * as React from 'react';
+
 import { alpha, styled } from '@mui/material/styles';
 import { pink } from '@mui/material/colors';
 import Switch from '@mui/material/Switch';
