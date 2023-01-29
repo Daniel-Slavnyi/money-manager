@@ -16,13 +16,13 @@ const columns = [
     field: 'comment',
     headerName: 'Comment',
     type: 'string',
-    width: 90,
+    width: 200,
   },
   {
     field: 'amount',
     headerName: 'Sum',
     type: 'string',
-    width: 90,
+    width: 100,
   },
   {
     field: 'balanceAfter',
@@ -43,12 +43,12 @@ export default function DataTable() {
   }));
 
   return (
-    <div style={{ height: 400, width: '100%' }}>
+    <div style={{ height: 500, width: 900 }}>
       <DataGrid
         rows={newArray}
         columns={columns}
         pageSize={100}
-        rowsPerPageOptions={[5]}
+        rowsPerPageOptions={[12]}
       />
     </div>
   );

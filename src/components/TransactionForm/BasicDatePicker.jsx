@@ -12,12 +12,12 @@ export default function BasicDatePicker({
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
-        label="Basic example"
+      inputFormat="DD.MM.YY"
         value={transactionDate}
         onChange={newValue => {
           setTransactionDate(newValue.toISOString());
         }}
-        renderInput={params => <TextField {...params} />}
+        renderInput={params => <TextField sx={{width: '181px'}} {...params} />}
       />
     </LocalizationProvider>
   );
