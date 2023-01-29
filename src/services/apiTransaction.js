@@ -17,3 +17,12 @@ export const createNewTransaction = async transferOptions => {
     return error;
   }
 };
+
+export const getTransactionCategories = async () => {
+  try {
+    const { data } = await backend.get('/transaction-categories');
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
