@@ -26,3 +26,13 @@ export const getTransactionCategories = async () => {
     return error;
   }
 };
+
+
+export const getSummaryTransaction = async (month, year) => {
+  try {
+    const { data } = await backend.get(`/transactions-summary?month=${month}&year=${year}`);
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
