@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { FormControlLabel, FormGroup } from '@mui/material';
+import { FormControlLabel } from '@mui/material';
 import { Button, TextField } from '@mui/material';
 
 import BasicDatePicker from './BasicDatePicker';
@@ -21,7 +21,6 @@ import {
   SumAndDateBox,
   SwitchBox,
 } from './TransactionForm.styled';
-import { useEffect } from 'react';
 
 export default function TransactionForm({ onClose }) {
   const dispatch = useDispatch();
