@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCategories, newTransaction, refreshTransactions, transactionSummary, } from './transaction-operation';
+import {
+  getCategories,
+  newTransaction,
+  refreshTransactions,
+  transactionSummary,
+} from './transaction-operation';
 
 const pending = state => {
   state.isLoading = true;
@@ -21,7 +26,7 @@ const initialState = {
   summaryItem: {},
   error: null,
   isLoading: null,
-  categories: []
+  categories: [],
 };
 
 const transactionSlice = createSlice({
@@ -35,6 +40,7 @@ const transactionSlice = createSlice({
 
       .addCase(refreshTransactions.fulfilled, (state, action) => {
         state.items = action.payload;
+        console.log(action.payload);
       })
 
       .addCase(getCategories.fulfilled, (state, action) => {

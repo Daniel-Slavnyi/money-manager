@@ -1,17 +1,17 @@
 import Chart from 'components/Chart/Chart';
 import React from 'react';
-import { Balance } from '../../components/Balance/Balance';
 import { useEffect } from 'react';
 import { transactionSummary } from 'redux/transaction/transaction-operation';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsLoggedIn, selectToken } from 'redux/auth/auth-selector';
+import { selectToken } from 'redux/auth/auth-selector';
 import { useState } from 'react';
 import { selectStatistic } from 'redux/transaction/transaction-selector';
 
 export default function StatisticsPage() {
   const [month, setMonth] = useState('01');
   const [year, setYear] = useState('2023');
-
+  console.log(setMonth);
+  console.log(setYear);
   const dispatch = useDispatch();
 
   const token = useSelector(selectToken);
@@ -29,11 +29,5 @@ export default function StatisticsPage() {
     dispatch(transactionSummary(dataOfTransaction));
   }, [dispatch, token, month, year]);
 
-
-  return (
-    <>
-      <Balance />
-      {summaryItem.categoriesSummary && <Chart />}
-    </>
-  );
+  return <>{summaryItem.categoriesSummary && <Chart />}</>;
 }

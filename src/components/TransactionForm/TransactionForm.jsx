@@ -21,6 +21,7 @@ import {
   SumAndDateBox,
   SwitchBox,
 } from './TransactionForm.styled';
+import { refreshUser } from 'redux/auth/auth-operation';
 
 export default function TransactionForm({ onClose }) {
   const dispatch = useDispatch();
@@ -61,7 +62,7 @@ export default function TransactionForm({ onClose }) {
       amount,
     };
     dispatch(newTransaction(objTransaction));
-    
+    dispatch(refreshUser());
   };
 
   return (
@@ -103,7 +104,7 @@ export default function TransactionForm({ onClose }) {
             type="number"
             placeholder="0.00"
             inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-            sx={{ width: '190px'}}
+            sx={{ width: '190px' }}
           />
           <BasicDatePicker
             setTransactionDate={setTransactionDate}
@@ -121,11 +122,7 @@ export default function TransactionForm({ onClose }) {
           name="comment"
         />
 
-        <Button
-          theme={mainTheme}
-          variant="mainbutton"
-          type="submit"
-        >
+        <Button theme={mainTheme} variant="mainbutton" type="submit">
           ADD
         </Button>
 

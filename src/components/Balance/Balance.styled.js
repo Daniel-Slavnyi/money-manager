@@ -26,7 +26,7 @@ export const BalanceText = styled.p`
   color: #a6a6a6;
 `;
 
-export const BalanceValue = styled.h1`
+export const BalanceValue = styled.p`
   font-family: poppins;
   font-weight: 700;
   font-size: 30px;
