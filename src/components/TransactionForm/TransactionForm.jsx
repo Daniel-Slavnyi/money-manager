@@ -62,7 +62,7 @@ export default function TransactionForm({ onClose }) {
       amount,
     };
     dispatch(newTransaction(objTransaction));
-    e.reset();
+    
   };
 
   return (
