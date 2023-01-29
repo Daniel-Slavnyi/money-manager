@@ -6,6 +6,8 @@ import {
   selectCategories,
 } from 'redux/transaction/transaction-selector';
 
+import moment from 'moment/moment';
+
 const columns = [
   { field: 'transactionDate', headerName: 'Date', width: 100 },
   { field: 'type', headerName: 'Type', width: 120 },
@@ -37,6 +39,7 @@ export default function DataTable() {
   const newArray = allTransactions.map(transaction => ({
     ...allCategories.find(obj => transaction.categoryId === obj.id),
     ...transaction,
+    transactionDate: moment(transaction.transactionDate).format('L'),
   }));
 
   return (
