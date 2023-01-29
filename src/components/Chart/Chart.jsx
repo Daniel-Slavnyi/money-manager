@@ -2,48 +2,19 @@ import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { DoughnutWrapper } from './Chart.styled';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { transactionSummary } from 'redux/transaction/transaction-operation';
+import { useSelector } from 'react-redux';
 import { selectStatistic } from 'redux/transaction/transaction-selector';
-import { selectIsLoggedIn } from 'redux/auth/auth-selector';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Chart() {
-
-
-  const dispatch = useDispatch();
   const summaryItem = useSelector(selectStatistic);
 
-  
-const isLogedIn = useSelector(selectIsLoggedIn);
-console.log(isLogedIn)
-
-
-  // console.log('summaryItem', summaryItem)
-
-  useEffect(() => {
-    if (!isLogedIn) {
-      return
-    }
-    const obj = {
-      month: '09',
-      year: '2019',
-    };
-    
-    dispatch(transactionSummary(obj));
-  }, [dispatch, isLogedIn]);
-
-// {Array.isArray(summaryItem)}
-console.log('summaryItem', summaryItem);
-console.log('summaryItem.categoriesSummary', summaryItem.categoriesSummary);
-
   const data = {
-    labels: summaryItem?.categoriesSummary.map(el => el.name),
-     datasets: [
+    labels: summaryItem.categoriesSummary.map(el => el.name),
+    datasets: [
       {
-        data: summaryItem?.categoriesSummary.map(el => el.total),
+        data: summaryItem.categoriesSummary.map(el => el.total),
         backgroundColor: [
           '#00AD84',
           '#24CCA7',
