@@ -1,13 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-<<<<<<< Updated upstream
-import { getCategories, newTransaction, refreshTransactions } from './transaction-operation';
-=======
-import {
-  newTransaction,
-  refreshTransactions,
-  transactionSummary,
-} from './transaction-operation';
->>>>>>> Stashed changes
+import { getCategories, newTransaction, refreshTransactions, transactionSummary, } from './transaction-operation';
 
 const pending = state => {
   state.isLoading = true;
@@ -44,12 +36,10 @@ const transactionSlice = createSlice({
       .addCase(refreshTransactions.fulfilled, (state, action) => {
         state.items = action.payload;
       })
-<<<<<<< Updated upstream
 
       .addCase(getCategories.fulfilled, (state, action) => {
         state.categories = action.payload;
       })
-=======
       //Maryna Summary transactions
       .addCase(transactionSummary.pending, pending)
       .addCase(transactionSummary.rejected, rejected)
@@ -57,7 +47,6 @@ const transactionSlice = createSlice({
         state.summaryItem = action.payload;
         state.error = null;
       }),
->>>>>>> Stashed changes
 });
 
 export const transactionReducer = transactionSlice.reducer;
