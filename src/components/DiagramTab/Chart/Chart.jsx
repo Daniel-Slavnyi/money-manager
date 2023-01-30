@@ -20,13 +20,20 @@ const diagramColor = [
 
 export default function Chart() {
   const summaryItem = useSelector(selectStatistic);
-  const totalBalance = useSelector(state => state.auth.user.balance);
+  console.log('summaryItem', summaryItem);
+
+
+  const categories = summaryItem.categoriesSummary;
 
   const data = {
-    labels: summaryItem.categoriesSummary?.map(el => el.name),
+    labels: categories.length
+      ? summaryItem.categoriesSummary.map(el => el.name)
+      : ['nothing'],
     datasets: [
       {
-        data: summaryItem.categoriesSummary.map(el => el.total),
+        data: categories.length
+          ? summaryItem.categoriesSummary.map(el => el.total)
+          : [0],
         backgroundColor: diagramColor.map(el => el),
         borderColor: ['transparent'],
         borderWidth: 1,
@@ -54,8 +61,8 @@ export default function Chart() {
       ctx.textBaseline = 'middle';
       ctx.textAlign = 'center';
       ctx.fillText(
-        // ₴ totalBalance ? totalBalance.toFixed(2) : 0,
-        totalBalance ? totalBalance.toFixed(2) : 0,
+        summaryItem.periodTotal ? `₴ ${summaryItem.periodTotal.toFixed(2)}` : 0,
+
         chart.getDatasetMeta(0).data[0].x,
         chart.getDatasetMeta(0).data[0].y
       );
