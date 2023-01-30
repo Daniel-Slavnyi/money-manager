@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 // import { lazy } from 'react';
 
-import RegisterPage from 'pages/RegisterPage';
+import RegisterPage from 'pages/RegisterPage/RegisterPage';
 import Layout from 'pages/Layout';
 import LoginPage from 'pages/LoginPage/LoginPage';
 import DashboardPage from 'pages/DashboardPage/DashboardPage';

@@ -9,7 +9,7 @@ const theme = createTheme({
       phone: 320,
       phablet: 480,
       tablet: 768,
-      desktop: 1440,
+      desktop: 1280,
     },
   },
   palette: {
@@ -40,7 +40,7 @@ theme.components = {
           font-weight: 400;
         }
         body {
-          background-image: url(https://designshack.net/wp-content/uploads/gradient-background.jpg);
+          background-image: url(https://mobimg.b-cdn.net/v3/fetch/70/703e3aefd9500eff0f63294bc383ac2a.jpeg);
           background-repeat: no-repeat;
           background-size: cover;
           display: flex;

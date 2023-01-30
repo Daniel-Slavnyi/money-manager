@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { styled, Typography } from '@mui/material';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 import React from 'react';
 
@@ -11,6 +11,11 @@ import {
   StyledContainer,
   Wrapper,
 } from './LoginPage.styled';
+
+const BlurWrapper = styled('div')(({ theme }) => ({
+  backdropFilter: 'blur(25px)',
+  height: '100%',
+}));
 
 export default function LoginPage() {
   return (
@@ -26,12 +31,14 @@ export default function LoginPage() {
         </PictureTextWrapper>
       </section>
       <section>
-        <Wrapper>
-          <LogoContainer>
-            <ReactLogo />
-          </LogoContainer>
-          <LoginForm />
-        </Wrapper>
+        <BlurWrapper>
+          <Wrapper>
+            <LogoContainer>
+              <ReactLogo />
+            </LogoContainer>
+            <LoginForm />
+          </Wrapper>
+        </BlurWrapper>
       </section>
     </StyledContainer>
   );

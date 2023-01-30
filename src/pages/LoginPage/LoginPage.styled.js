@@ -1,8 +1,9 @@
 import { Container, styled } from '@mui/material';
 export const LogoContainer = styled('div')({
-  margin: 'auto',
   marginTop: '40px',
-  width: '50%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 });
 
 export const Wrapper = styled('div')(({ theme }) => ({
@@ -49,7 +50,10 @@ export const StyledContainer = styled(Container)(({ theme }) => ({
   [theme.breakpoints.up('desktop')]: {
     display: 'flex',
     padding: '0 76px',
-    marginTop: '180px',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
   },
 }));
 
