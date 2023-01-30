@@ -19,6 +19,27 @@ const theme = createTheme({
       white: '#FFFFFF',
       green: '#24CCA7',
       blue: '#4A56E2',
+      lightgrey: '#E7EAF2',
+    },
+
+    primary: {
+      main: '#000000',
+      light: '#BDBDBD',
+      contrastText: '#FFFFFF',
+    },
+    background: {
+      default: '#E7EAF2',
+      paper: 'rgba(120, 120, 120, 0.22)',
+    },
+    text: {
+      primary: '#000000',
+      secondary: '#BDBDBD',
+    },
+    secondary: {
+      main: '#BDBDBD',
+    },
+    error: {
+      main: '#49012E',
     },
   },
   spacing: [0, 4, 8, 16, 32, 64],
@@ -40,9 +61,6 @@ theme.components = {
           font-weight: 400;
         }
         body {
-          background-color: #E7EAF2;
-          background-repeat: no-repeat;
-          
           display: flex;
           flex-direction: column;
           min-height: 100vh;
@@ -141,6 +159,7 @@ theme.components = {
   MuiTextField: {
     defaultProps: {
       sx: {
+        color: theme.palette.primary.light,
         [theme.breakpoints.up('phablet')]: {
           width: '410px',
         },

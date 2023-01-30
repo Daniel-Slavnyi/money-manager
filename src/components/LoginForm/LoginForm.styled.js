@@ -1,6 +1,8 @@
 import { styled, TextField } from '@mui/material';
 
 export const CssTextField = styled(TextField)(theme => ({
+  color: '#E0E0E0',
+
   '&:first-of-type': {
     marginTop: '60px',
   },
