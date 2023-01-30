@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
+  deleteTransaction,
+  editTransaction,
   getCategories,
   newTransaction,
   refreshTransactions,
@@ -40,7 +42,6 @@ const transactionSlice = createSlice({
 
       .addCase(refreshTransactions.fulfilled, (state, action) => {
         state.items = action.payload;
-        console.log(action.payload);
       })
 
       .addCase(getCategories.fulfilled, (state, action) => {
@@ -52,7 +53,19 @@ const transactionSlice = createSlice({
       .addCase(transactionSummary.fulfilled, (state, action) => {
         state.summaryItem = action.payload;
         state.error = null;
-      }),
+      })
+      .addCase(deleteTransaction.pending, pending)
+      .addCase(deleteTransaction.rejected, rejected)
+      .addCase(deleteTransaction.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.items = state.items.filter(transaction => transaction.id !== action.payload);
+      })
+      .addCase(editTransaction.pending, pending)
+      .addCase(editTransaction.rejected, rejected)
+      .addCase(editTransaction.fulfilled, (state, action) => {
+       state.items = state.items.map(transaction => transaction.id === action.payload.id ? action.payload : transaction)
+      })
 });
 
 export const transactionReducer = transactionSlice.reducer;

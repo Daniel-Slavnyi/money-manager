@@ -4,6 +4,8 @@ import {
   getAllTransactions,
   getTransactionCategories,
   getSummaryTransaction,
+  deleteTransactionByID,
+  editTransactionByID,
 } from 'services/apiTransaction';
 
 // const setAuthHeader = token => {
@@ -70,3 +72,25 @@ export const transactionSummary = createAsyncThunk(
     }
   }
 );
+
+export const deleteTransaction = createAsyncThunk(
+  'transaction/delete',
+  async (transactionId, thunkAPI) => {
+    try {
+       await deleteTransactionByID(transactionId);
+      return transactionId;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  });
+
+  export const editTransaction = createAsyncThunk(
+    'transaction/edit',
+    async (transactionId, thunkAPI) => {
+      try {
+        const res = await editTransactionByID(transactionId);
+        return res;
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    });

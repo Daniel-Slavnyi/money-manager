@@ -37,3 +37,21 @@ export const getSummaryTransaction = async (month, year) => {
     return error;
   }
 };
+
+export const deleteTransactionByID = async transactionId => {
+  try {
+    const { data } = await backend.delete(`/transactions/${transactionId}`);
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const editTransactionByID = async transactionId => {
+  try {
+    const { data } = await backend.patch(`/transactions/${transactionId}`);
+    return data;
+  } catch (error) {
+    return error;
+  }
+};

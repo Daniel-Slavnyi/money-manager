@@ -4,6 +4,13 @@ import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { styled } from '@mui/material';
+
+const DateField = styled('input')({
+  widt: '40px',
+  height: '40px',
+  background: 'red',
+});
 
 export default function BasicDatePicker({
   setTransactionDate,

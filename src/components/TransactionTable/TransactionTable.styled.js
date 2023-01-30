@@ -23,3 +23,4 @@ export const List = styled.ul`
 export const Item = styled.li`
   display: flex;
 `;
+

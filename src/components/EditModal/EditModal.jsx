@@ -2,7 +2,8 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import TransactionForm from 'components/TransactionForm/TransactionForm';
-import { OpenModalButton } from './Modal.styled';
+import { Button } from '@mui/material';
+import mainTheme from 'styles/theme';
 
 const style = {
   position: 'absolute',
@@ -17,25 +18,28 @@ const style = {
   borderRadius: '20px',
 };
 
-export default function BasicModal() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
+export default function EditModal({params}) {
+  const [editOpen, setEditOpen] = React.useState(false);
+  const handleOpen = () => setEditOpen(true);
+  const handleClose = () => setEditOpen(false);
   return (
     <div>
-      <OpenModalButton sx={{}} onClick={handleOpen}>
-        +
-      </OpenModalButton>
+      <Button
+        theme={mainTheme}
+        variant="secondarybutton"
+        sx={{ height: '10px', width: '30px!important' }}
+        onClick={handleOpen}
+      >
+        EDIT
+      </Button>
       <Modal
-        keepMounted
-        open={open}
+        open={editOpen}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <TransactionForm onClose={handleClose} />
+          <TransactionForm params={params} editOpen={editOpen} onClose={handleClose} />
         </Box>
       </Modal>
     </div>
