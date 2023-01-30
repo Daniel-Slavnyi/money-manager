@@ -73,9 +73,10 @@ export const Currency = () => {
                 ))}
           </TableBody>
         </TableContainer>
-        <Image src={image} alt="" width="400px" height="118px" />
+        <Image src={image} alt="" />
+        {isLoad && <Loader />}
       </Background>
-      {isLoad && <Loader />}
+      
     </>
   );
 };

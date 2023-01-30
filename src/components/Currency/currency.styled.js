@@ -9,18 +9,40 @@ export const TableContainer = styled.table`
   border-radius: 30px;
   position: relative;
   table-layout: fixed;
-  width: 400px;
-  height: 330px;
+  width: 393px;
+  height: 331px;
+  @media screen and (max-width: 768px) {
+    width: 336px;
+  height: 182px;
+  };
+  @media screen and (max-width: 380px) {
+    width: 280px;
+  height: 174px;
+  margin-top: 30px;
+  };
 `;
 
 export const TableTop = styled.td`
   height: 50px;
+  @media screen and (max-width: 768px) {
+ 
+  };
+  @media screen and (max-width: 380px) {
+    
+  };
 `;
 export const TablePurchase = styled.td``;
 
 export const TableArray = styled.td`
   height: 50px;
   padding-top: 20px;
+  @media screen and (max-width: 768px) {
+    padding-top: 12px;
+    height: 40px;
+};
+@media screen and (max-width: 380px) {
+  
+};
 `;
 
 export const TableHead = styled.thead`
@@ -30,11 +52,14 @@ export const TableHead = styled.thead`
     rgba(255, 255, 255, 0) 100%
   );
   color: white;
+  font-family: 'Circe';
+font-style: normal;
   text-align: center;
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
-  line-height: 27px;
+  line-height: 1.5;
+ 
 `;
 
 export const TableBody = styled.tbody`
@@ -42,19 +67,36 @@ export const TableBody = styled.tbody`
   font-weight: 400;
   font-size: 16px;
   text-align: center;
+  line-height: 1.7;
 `;
 
 export const TableRow = styled.tr`
   vertical-align: text-top;
+  
 `;
 
 export const Image = styled.img`
+display: block;
   position: absolute;
   bottom: 0%;
   left: 50%;
   transform: translate(-50%, 0%);
+  @media screen and (max-width: 768px) {
+
+ 
+};
+@media screen and (max-width: 380px) {
+  width: 280px;
+    height: 93px;
+};
 `;
 
 export const Background = styled.div`
   position: relative;
+   @media screen and (max-width: 768px) {
+ 
+  };
+  @media screen and (max-width: 380px) {
+    
+  };
 `;
