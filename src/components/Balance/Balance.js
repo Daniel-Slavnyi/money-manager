@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { BalanceWrapper, BalanceText, BalanceValue } from './Balance.styled';
 
 export const Balance = () => {
-  const totalBalance = useSelector(state => state.auth.total);
+  const totalBalance = useSelector(state => state.transactions.total);
   console.log('totalbalance', totalBalance);
   return (
     <BalanceWrapper>
