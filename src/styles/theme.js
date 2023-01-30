@@ -39,18 +39,18 @@ const theme = createTheme({
     //   main: '#49012E',
     // },
   },
-  typography: {
-    fontFamily: ['Circe', 'sans-serif'].join(','),
-    fontSize: 12,
-    h1: {
-      fontFamily: ['Circe', 'sans-serif'].join(','),
-      fontSize: 30,
-    },
-    a: {
-      fontFamily: ['Circe', 'sans-serif'].join(','),
-      fontSize: 12,
-    },
-  },
+  // typography: {
+  //   fontFamily: ['Circe', 'sans-serif'].join(','),
+  //   fontSize: 12,
+  //   h1: {
+  //     fontFamily: ['Circe', 'sans-serif'].join(','),
+  //     fontSize: 30,
+  //   },
+  //   a: {
+  //     fontFamily: ['Circe', 'sans-serif'].join(','),
+  //     fontSize: 12,
+  //   },
+  // },
   spacing: [0, 4, 8, 16, 32, 64],
 });
 
@@ -169,6 +169,37 @@ theme.components = {
       },
     },
   },
+};
+
+//typography settings
+theme.typography.caption = {
+  fontWeight: 200,
+};
+
+theme.typography.body1 = {
+  htmlFontSize: 16,
+  fontFamily: 'Circe',
+  fontSize: 14,
+  fontWeight: 400,
+};
+theme.typography.body2 = {
+  opacity: 0.6,
+};
+theme.typography.h1 = {
+  fontSize: '20px',
+  fontWeight: 700,
+};
+theme.typography.h2 = {
+  fontSize: '18px',
+  fontWeight: 700,
+};
+theme.typography.h3 = {
+  fontSize: '16px',
+  fontWeight: 600,
+};
+theme.typography.button = {
+  fontSize: '14px',
+  fontWeight: 500,
 };
 
 export default theme;
