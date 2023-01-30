@@ -51,12 +51,11 @@ export const RegistrationForm = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <EmailIcon />
+                <EmailIcon sx={{ color: '#BDBDBD' }} />
               </InputAdornment>
             ),
           }}
           margin="normal"
-          variant="standard"
           label="E-mail"
           id="email"
           name="email"
@@ -71,12 +70,11 @@ export const RegistrationForm = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <LockIcon />
+                <LockIcon sx={{ color: '#BDBDBD' }} />
               </InputAdornment>
             ),
           }}
           margin="normal"
-          variant="standard"
           label="Password"
           id="password"
           name="password"
@@ -90,12 +88,11 @@ export const RegistrationForm = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <LockIcon />
+                <LockIcon sx={{ color: '#BDBDBD' }} />
               </InputAdornment>
             ),
           }}
           margin="normal"
-          variant="standard"
           label="Confirm Password"
           id="confirmPassword"
           name="confirmPassword"
@@ -114,12 +111,11 @@ export const RegistrationForm = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <AccountBoxIcon />
+                <AccountBoxIcon sx={{ color: '#BDBDBD' }} />
               </InputAdornment>
             ),
           }}
           margin="normal"
-          variant="standard"
           label="Username"
           id="username"
           name="username"

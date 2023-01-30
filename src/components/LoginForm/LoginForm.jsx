@@ -40,7 +40,7 @@ export const LoginForm = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <EmailIcon />
+                <EmailIcon sx={{ color: '#BDBDBD' }} />
               </InputAdornment>
             ),
           }}
@@ -59,7 +59,7 @@ export const LoginForm = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <LockIcon />
+                <LockIcon sx={{ color: '#BDBDBD' }} />
               </InputAdornment>
             ),
           }}
