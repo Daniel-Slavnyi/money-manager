@@ -12,7 +12,6 @@ const persistConfig = {
 
 const initialState = {
   user: { username: null, email: null },
-  total: null,
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
@@ -43,8 +42,6 @@ const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-        state.total = action.payload.balance;
-        console.log(state.total);
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })

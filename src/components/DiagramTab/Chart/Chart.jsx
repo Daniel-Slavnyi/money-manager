@@ -5,7 +5,6 @@ import { DoughnutWrapper } from './Chart.styled';
 import { useSelector } from 'react-redux';
 import { selectStatistic } from 'redux/transaction/transaction-selector';
 
-
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const diagramColor = [
@@ -22,10 +21,9 @@ const diagramColor = [
 export default function Chart() {
   const summaryItem = useSelector(selectStatistic);
   const totalBalance = useSelector(state => state.auth.user.balance);
- 
 
   const data = {
-    labels: summaryItem.categoriesSummary.map(el => el.name),
+    labels: summaryItem.categoriesSummary?.map(el => el.name),
     datasets: [
       {
         data: summaryItem.categoriesSummary.map(el => el.total),
@@ -68,10 +66,7 @@ export default function Chart() {
     <>
       <DoughnutWrapper>
         <Doughnut data={data} plugins={[textCenter]} options={options} />
-       
       </DoughnutWrapper>
-
-     
     </>
   );
 }
