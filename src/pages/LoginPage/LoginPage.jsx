@@ -2,8 +2,8 @@ import { styled, Typography } from '@mui/material';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 import React from 'react';
 
-import { ReactComponent as ReactLogo } from 'styles/pictures/logo.svg';
-import { ReactComponent as BgPicture } from 'styles/pictures/bgPicture.svg';
+import { ReactComponent as ReactLogo } from 'styles/images/logo.svg';
+import { ReactComponent as BgPicture } from 'styles/images/bgPicture.svg';
 import {
   LogoContainer,
   PictureTextWrapper,

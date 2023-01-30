@@ -40,9 +40,9 @@ theme.components = {
           font-weight: 400;
         }
         body {
-          background-image: url(https://mobimg.b-cdn.net/v3/fetch/70/703e3aefd9500eff0f63294bc383ac2a.jpeg);
+          background-color: #E7EAF2;
           background-repeat: no-repeat;
-          background-size: cover;
+          
           display: flex;
           flex-direction: column;
           min-height: 100vh;
