@@ -29,7 +29,7 @@ const theme = createTheme({
     },
     background: {
       default: '#E7EAF2',
-      paper: 'rgba(120, 120, 120, 0.22)',
+      paper: 'background: rgba(0, 0, 0, 0.25);',
     },
     text: {
       primary: '#000000',
