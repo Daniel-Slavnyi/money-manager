@@ -6,7 +6,7 @@ export const BalanceWrapper = styled.div`
   padding: 8px 32px 12px 32px;
   margin-bottom: 32px;
 
-  background-color: #1515;
+  background-color: #ffffff;
   border-radius: 30px;
 
   @media (min-width: 768px) {
@@ -19,8 +19,8 @@ export const BalanceWrapper = styled.div`
 `;
 
 export const BalanceText = styled.p`
+  margin: 0;
   margin-bottom: 12px;
-
   font-size: 12px;
   line-height: 1.5;
   color: #a6a6a6;
