@@ -9,12 +9,12 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Chart() {
   const summaryItem = useSelector(selectStatistic);
-
+  console.log('summaryItem', summaryItem);
   const data = {
-    labels: summaryItem.categoriesSummary.map(el => el.name),
+    labels: summaryItem.categoriesSummary?.map(el => el.name),
     datasets: [
       {
-        data: summaryItem.categoriesSummary.map(el => el.total),
+        data: summaryItem.categoriesSummary?.map(el => el.total),
         backgroundColor: [
           '#00AD84',
           '#24CCA7',

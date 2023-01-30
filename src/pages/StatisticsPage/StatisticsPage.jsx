@@ -27,6 +27,11 @@ export default function StatisticsPage() {
       year,
     };
     dispatch(transactionSummary(dataOfTransaction));
+
+    // ======= коли треба результат роботи попередньої інфи
+    // dispatch(transactionSummary(dataOfTransaction))
+    //   .unwrap()
+    //   .then(data => console.log('unWrapDispatch', data));
   }, [dispatch, token, month, year]);
 
   return <>{summaryItem.categoriesSummary && <Chart />}</>;

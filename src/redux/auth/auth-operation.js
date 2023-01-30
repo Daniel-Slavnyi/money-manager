@@ -1,6 +1,7 @@
 import { backend } from '../../services/apiAuth';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { registerUser, loginUser, logoutUser } from '../../services/apiAuth';
+import { transactionSummary } from 'redux/transaction/transaction-operation';
 
 // Utility to add JWT
 const setAuthHeader = token => {
@@ -82,6 +83,7 @@ export const refreshUser = createAsyncThunk(
       // If there is a token, add it to the HTTP header and perform the request
       setAuthHeader(persistedToken);
       const res = await backend.get('/users/current');
+      // thunkAPI.dispatch(transactionSummary({ month: '01', year: '2023' }));
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

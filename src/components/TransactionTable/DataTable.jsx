@@ -39,7 +39,7 @@ export default function DataTable() {
   const newArray = allTransactions.map(transaction => ({
     ...allCategories.find(obj => transaction.categoryId === obj.id),
     ...transaction,
-    transactionDate: moment(transaction.transactionDate).format('L'),
+    transactionDate: moment(transaction.transactionDate).format('DD.MM.YY'),
   }));
 
   return (
