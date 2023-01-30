@@ -2,10 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { FormControlLabel, FormGroup } from '@mui/material';
+import { FormControlLabel } from '@mui/material';
 import { Button, TextField } from '@mui/material';
 
-import BasicDatePicker from './DatePicker';
+import BasicDatePicker from './BasicDatePicker';
 import Categories from './Categories';
 import { label, PinkSwitch } from 'components/TransactionForm/Switcher';
 import { newTransaction } from 'redux/transaction/transaction-operation';
@@ -14,12 +14,16 @@ import mainTheme from 'styles/theme';
 import {
   ExpenseActive,
   FormBox,
+  FormTitle,
   IncomeActive,
   SpanPassive,
+  SubmitingForm,
+  SumAndDateBox,
   SwitchBox,
 } from './TransactionForm.styled';
+import { refreshUser } from 'redux/auth/auth-operation';
 
-export default function TransactionForm() {
+export default function TransactionForm({ onClose }) {
   const dispatch = useDispatch();
   const [transactionDate, setTransactionDate] = useState(
     new Date().toISOString()
@@ -34,19 +38,22 @@ export default function TransactionForm() {
   const switchChange = e => {
     if (e.target.checked) {
       setType('EXPENSE');
+      setAmount(-Math.abs(amount));
       return;
     }
     setType('INCOME');
+    setAmount(Math.abs(amount));
     setCategoryId('063f1132-ba5d-42b4-951d-44011ca46262');
   };
 
   const onNumberChange = e => {
     type === 'INCOME'
-      ? setAmount(Number(e.target.value))
-      : setAmount(Number(e.target.value) * -1);
+      ? setAmount(Math.abs(Number(e.target.value)))
+      : setAmount(-Math.abs(Number(e.target.value)));
   };
 
-  const createNewTransaction = () => {
+  const createNewTransaction = e => {
+    e.preventDefault();
     const objTransaction = {
       transactionDate,
       type,
@@ -55,12 +62,13 @@ export default function TransactionForm() {
       amount,
     };
     dispatch(newTransaction(objTransaction));
+    dispatch(refreshUser());
   };
 
   return (
     <FormBox>
-      <FormGroup>
-        <h1>Add transaction</h1>
+      <SubmitingForm onSubmit={createNewTransaction}>
+        <FormTitle>Add transaction</FormTitle>
         <SwitchBox>
           {type === 'INCOME' ? (
             <IncomeActive>Income</IncomeActive>
@@ -89,19 +97,20 @@ export default function TransactionForm() {
             categoryId={categoryId}
           />
         )}
-
-        <TextField
-          onChange={onNumberChange}
-          theme={mainTheme}
-          type="number"
-          placeholder="0.00"
-          inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-        />
-
-        <BasicDatePicker
-          setTransactionDate={setTransactionDate}
-          transactionDate={transactionDate}
-        />
+        <SumAndDateBox>
+          <TextField
+            onChange={onNumberChange}
+            theme={mainTheme}
+            type="number"
+            placeholder="0.00"
+            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+            sx={{ width: '190px' }}
+          />
+          <BasicDatePicker
+            setTransactionDate={setTransactionDate}
+            transactionDate={transactionDate}
+          />
+        </SumAndDateBox>
 
         <TextField
           onChange={e => {
@@ -111,22 +120,16 @@ export default function TransactionForm() {
           label="Comment"
           id="comment"
           name="comment"
-          helperText={'Helper text'}
         />
 
-        <Button
-          theme={mainTheme}
-          onClick={createNewTransaction}
-          variant="mainbutton"
-          type="submit"
-        >
+        <Button theme={mainTheme} variant="mainbutton" type="submit">
           ADD
         </Button>
 
-        <Button theme={mainTheme} variant="secondarybutton" href="/auth/login">
+        <Button onClick={onClose} theme={mainTheme} variant="secondarybutton">
           CANCEL
         </Button>
-      </FormGroup>
+      </SubmitingForm>
     </FormBox>
   );
 }

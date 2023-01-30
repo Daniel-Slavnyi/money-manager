@@ -8,8 +8,8 @@ import {
   refreshTransactions,
 } from 'redux/transaction/transaction-operation';
 
-import TransactionForm from 'components/TransactionForm/TransactionForm';
-import DataTable from './TableOnly';
+import DataTable from './DataTable';
+import BasicModal from 'components/Modal/Modal';
 
 import { Container } from './TransactionTable.styled';
 
@@ -25,7 +25,7 @@ export default function TransactionTable() {
 
   return (
     <Container>
-      <TransactionForm />
+      <BasicModal />
       <DataTable />
     </Container>
   );
