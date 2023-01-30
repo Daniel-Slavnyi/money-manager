@@ -3,7 +3,10 @@ import { logIn } from 'redux/auth/auth-operation';
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Button, TextField } from '@mui/material';
+import { Button, InputAdornment } from '@mui/material';
+import { CssTextField, StyledForm } from './LoginForm.styled';
+import EmailIcon from '@mui/icons-material/Email';
+import LockIcon from '@mui/icons-material/Lock';
 
 export const LoginForm = () => {
   const schema = Yup.object().shape({
@@ -32,10 +35,17 @@ export const LoginForm = () => {
 
   return (
     <>
-      <form onSubmit={formik.handleSubmit}>
-        <TextField
-          variant="standard"
-          label="E-mail"
+      <StyledForm onSubmit={formik.handleSubmit}>
+        <CssTextField
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <EmailIcon sx={{ color: '#BDBDBD' }} />
+              </InputAdornment>
+            ),
+          }}
+          margin="normal"
+          placeholder="E-mail"
           id="email"
           name="email"
           type="email"
@@ -45,9 +55,16 @@ export const LoginForm = () => {
           error={formik.touched.email && Boolean(formik.errors.email)}
           helperText={formik.touched.email && formik.errors.email}
         />
-        <TextField
-          variant="standard"
-          label="Password"
+        <CssTextField
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <LockIcon sx={{ color: '#BDBDBD' }} />
+              </InputAdornment>
+            ),
+          }}
+          margin="normal"
+          placeholder="Password"
           id="password"
           name="password"
           required
@@ -57,7 +74,7 @@ export const LoginForm = () => {
           helperText={formik.touched.password && formik.errors.password}
         />
         <Button type="submit">LOG IN</Button>
-      </form>
+      </StyledForm>
       <Button variant="secondarybutton" href="/money-manager/auth/register">
         Register
       </Button>
