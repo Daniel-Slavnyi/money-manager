@@ -4,7 +4,7 @@ import { registerUser, loginUser, logoutUser } from '../../services/apiAuth';
 import { transactionSummary } from 'redux/transaction/transaction-operation';
 
 // Utility to add JWT
-const setAuthHeader = token => {
+export const setAuthHeader = token => {
   backend.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 

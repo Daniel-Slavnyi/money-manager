@@ -19,12 +19,12 @@ export default function StatisticsPage() {
 
   const token = useSelector(selectToken);
   const summaryItem = useSelector(selectStatistic);
-
+  console.log('summaryItem', summaryItem);
   useEffect(() => {
-    if (!token) {
-      console.log('isLogedIn');
-      return;
-    }
+    // if (!token) {
+    //   console.log('isLogedIn');
+    //   return;
+    // }
     const dataOfTransaction = {
       month,
       year,
@@ -37,14 +37,12 @@ export default function StatisticsPage() {
     //   .then(data => console.log('unWrapDispatch', data));
   }, [dispatch, token, month, year]);
 
-
   return (
     <>
       <Balance />
       {summaryItem.categoriesSummary && <Chart />}
-      <Select/>
-      {summaryItem.categoriesSummary &&  <Table/>}
-    
+      <Select setMonth={setMonth} setYear={setYear} />
+      {summaryItem.categoriesSummary && <Table />}
     </>
   );
 }

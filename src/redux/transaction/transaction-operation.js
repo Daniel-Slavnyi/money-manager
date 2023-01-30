@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { setAuthHeader } from 'redux/auth/auth-operation';
 import {
   createNewTransaction,
   getAllTransactions,
@@ -42,27 +43,34 @@ export const newTransaction = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  });
+  }
+);
 
-  export const getCategories = createAsyncThunk(
-    'transaction/getCategories',
-    async (_, thunkAPI) => {
-      try {
-        const res = await getTransactionCategories();
-        // After successful login, add the token to the HTTP header
-        return res;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-      }
+export const getCategories = createAsyncThunk(
+  'transaction/getCategories',
+  async (_, thunkAPI) => {
+    try {
+      const res = await getTransactionCategories();
+      // After successful login, add the token to the HTTP header
+      return res;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
-  );
-
+  }
+);
 
 export const transactionSummary = createAsyncThunk(
   'transaction/transactionSummary',
   async (transferOptions, thunkAPI) => {
+    const token = thunkAPI.getState().auth.token;
+    if (!token) return thunkAPI.rejectWithValue('no token');
+    setAuthHeader(token);
+
     try {
-      const res = await getSummaryTransaction(transferOptions.month, transferOptions.year);
+      const res = await getSummaryTransaction(
+        transferOptions.month,
+        transferOptions.year
+      );
       // After successful login, add the token to the HTTP header
       return res;
     } catch (error) {
