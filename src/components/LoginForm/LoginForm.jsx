@@ -3,7 +3,10 @@ import { logIn } from 'redux/auth/auth-operation';
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Button, TextField } from '@mui/material';
+import { Button, InputAdornment } from '@mui/material';
+import { CssTextField } from './LoginForm.styled';
+import EmailIcon from '@mui/icons-material/Email';
+import LockIcon from '@mui/icons-material/Lock';
 
 export const LoginForm = () => {
   const schema = Yup.object().shape({
@@ -33,8 +36,15 @@ export const LoginForm = () => {
   return (
     <>
       <form onSubmit={formik.handleSubmit}>
-        <TextField
-          variant="standard"
+        <CssTextField
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <EmailIcon />
+              </InputAdornment>
+            ),
+          }}
+          margin="normal"
           label="E-mail"
           id="email"
           name="email"
@@ -45,8 +55,15 @@ export const LoginForm = () => {
           error={formik.touched.email && Boolean(formik.errors.email)}
           helperText={formik.touched.email && formik.errors.email}
         />
-        <TextField
-          variant="standard"
+        <CssTextField
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <LockIcon />
+              </InputAdornment>
+            ),
+          }}
+          margin="normal"
           label="Password"
           id="password"
           name="password"

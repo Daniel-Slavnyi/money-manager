@@ -1,8 +1,8 @@
 import { createTheme } from '@mui/material';
-import CirceRegular from './fonts/Circe/Circe-Regular.ttf';
-import PoppinsRegular from './fonts/Poppins/Poppins-Regular.ttf';
+import CirceRegularTtf from './fonts/Circe/Circe-Regular.ttf';
+import PoppinsRegularTtf from './fonts/Poppins/Poppins-Regular.ttf';
 
-const mainTheme = createTheme({
+const theme = createTheme({
   breakpoints: {
     keys: ['phone', 'phablet', 'tablet', 'desktop'],
     values: {
@@ -40,32 +40,32 @@ const mainTheme = createTheme({
     // },
   },
   typography: {
-    fontFamily: ['CirceRegular', 'sans-serif'].join(','),
+    fontFamily: ['Circe', 'sans-serif'].join(','),
     fontSize: 12,
     h1: {
-      fontFamily: ['Montserrat', 'sans-serif'].join(','),
+      fontFamily: ['Circe', 'sans-serif'].join(','),
       fontSize: 30,
     },
     a: {
-      fontFamily: ['CirceRegular', 'sans-serif'].join(','),
+      fontFamily: ['Circe', 'sans-serif'].join(','),
       fontSize: 12,
     },
   },
   spacing: [0, 4, 8, 16, 32, 64],
 });
 
-mainTheme.components = {
+theme.components = {
   MuiCssBaseline: {
     styleOverrides: `
         @font-face {
-          font-family: 'CirceRegular';
-          src: url(${CirceRegular}) format('truetype');
+          font-family: 'Circe';
+          src: url(${CirceRegularTtf}) format('truetype');
           font-style: normal;
           font-weight: 400;
         }
         @font-face {
-          font-family: 'CirceRegular';
-          src: url(${PoppinsRegular}) format('truetype');
+          font-family: 'Poppins';
+          src: url(${PoppinsRegularTtf}) format('truetype');
           font-style: normal;
           font-weight: 400;
         }
@@ -79,17 +79,17 @@ mainTheme.components = {
         margin: '0 auto',
         padding: '0 20px',
 
-        [mainTheme.breakpoints.down('phablet')]: {
+        [theme.breakpoints.down('phablet')]: {
           maxWidth: '480px',
         },
-        [mainTheme.breakpoints.up('phablet')]: {
+        [theme.breakpoints.up('phablet')]: {
           width: '480px',
         },
-        [mainTheme.breakpoints.up('tablet')]: {
+        [theme.breakpoints.up('tablet')]: {
           width: '768px',
           padding: '0 32px',
         },
-        [mainTheme.breakpoints.up('desktop')]: {
+        [theme.breakpoints.up('desktop')]: {
           width: '1280px',
           padding: '0 18px',
         },
@@ -102,17 +102,26 @@ mainTheme.components = {
       {
         props: { variant: 'mainbutton' },
         style: {
-          color: mainTheme.palette.colorList.white,
-          background: mainTheme.palette.colorList.green,
+          fontFamily: 'Circe',
+          fontStyle: 'normal',
+          fontWeight: '400',
+          fontSize: '18px',
+          lineHeight: '27px',
+          textAlign: 'center',
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+
+          color: theme.palette.colorList.white,
+          background: theme.palette.colorList.green,
           paddingTop: '13px',
           paddingBottom: '13px',
           width: '100%',
           marginBottom: '20px',
           borderRadius: '20px',
           '&:hover': {
-            background: mainTheme.palette.colorList.lightgreen,
+            background: theme.palette.colorList.lightgreen,
           },
-          [mainTheme.breakpoints.up('phablet')]: {
+          [theme.breakpoints.up('phablet')]: {
             width: '300px',
           },
         },
@@ -120,17 +129,26 @@ mainTheme.components = {
       {
         props: { variant: 'secondarybutton' },
         style: {
-          color: mainTheme.palette.colorList.blue,
-          background: mainTheme.palette.colorList.white,
+          fontFamily: 'Circe',
+          fontStyle: 'normal',
+          fontWeight: '400',
+          fontSize: '18px',
+          lineHeight: '27px',
+          textAlign: 'center',
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+
+          color: theme.palette.colorList.blue,
+          background: theme.palette.colorList.white,
           paddingTop: '13px',
           paddingBottom: '13px',
           width: '100%',
           borderRadius: '20px',
-          border: `1px solid ${mainTheme.palette.colorList.blue}`,
+          border: `1px solid ${theme.palette.colorList.blue}`,
           '&:hover': {
-            background: mainTheme.palette.colorList.lightgreen,
+            background: theme.palette.colorList.lightgreen,
           },
-          [mainTheme.breakpoints.up('phablet')]: {
+          [theme.breakpoints.up('phablet')]: {
             width: '300px',
           },
         },
@@ -145,13 +163,7 @@ mainTheme.components = {
   MuiTextField: {
     defaultProps: {
       sx: {
-        color: mainTheme.palette.colorList.grey,
-        fontWeight: '400',
-        fontSize: '18px',
-        lineHeight: '27px',
-        width: '100%',
-        marginBottom: '40px',
-        [mainTheme.breakpoints.up('phablet')]: {
+        [theme.breakpoints.up('phablet')]: {
           width: '410px',
         },
       },
@@ -159,4 +171,4 @@ mainTheme.components = {
   },
 };
 
-export default mainTheme;
+export default theme;
