@@ -8,9 +8,7 @@ import Header from '../../components/Header/Header';
 export default function DashboardPage() {
   return (
     <div>
-      <header>
-        <Header />
-      </header>
+      <Header />
       <main>
         <div style={{ display: 'flex' }}>
           <section>
