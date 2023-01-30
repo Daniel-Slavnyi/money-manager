@@ -2,7 +2,6 @@ import React from 'react';
 
 export default function Select({ setMonth, setYear }) {
   const handleChangeMonth = e => {
-    console.log('dateStatistic', e.target.value);
     setMonth(e.target.value);
   };
 
@@ -12,8 +11,6 @@ export default function Select({ setMonth, setYear }) {
 
   return (
     <>
-      <div>Select</div>
-
       <select onChange={handleChangeMonth} name="month" id="month-select">
         <option value="01">January</option>
         <option value="02">February</option>
@@ -30,11 +27,11 @@ export default function Select({ setMonth, setYear }) {
       </select>
 
       <select onChange={handleChangeYear} name="year" id="year-select">
-        <option value="2018">2024</option>
+        <option value="2023">2023</option>
+        <option value="2018">2018</option>
         <option value="2019">2019</option>
         <option value="2021">2021</option>
         <option value="2022">2022</option>
-        <option value="2023">2023</option>
       </select>
     </>
   );
