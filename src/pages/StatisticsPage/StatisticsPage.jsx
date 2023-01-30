@@ -1,4 +1,4 @@
-import Chart from 'components/Chart/Chart';
+import Chart from 'components/DiagramTab/Chart/Chart';
 import React from 'react';
 import { useEffect } from 'react';
 import { transactionSummary } from 'redux/transaction/transaction-operation';
@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectToken } from 'redux/auth/auth-selector';
 import { useState } from 'react';
 import { selectStatistic } from 'redux/transaction/transaction-selector';
+import Table from 'components/DiagramTab/Table/Table';
+import Select from 'components/DiagramTab/Select/Select';
+import { Balance } from 'components/Balance/Balance';
 
 export default function StatisticsPage() {
   const [month, setMonth] = useState('01');
@@ -34,5 +37,14 @@ export default function StatisticsPage() {
     //   .then(data => console.log('unWrapDispatch', data));
   }, [dispatch, token, month, year]);
 
-  return <>{summaryItem.categoriesSummary && <Chart />}</>;
+
+  return (
+    <>
+      <Balance />
+      {summaryItem.categoriesSummary && <Chart />}
+      <Select/>
+      {summaryItem.categoriesSummary &&  <Table/>}
+    
+    </>
+  );
 }
