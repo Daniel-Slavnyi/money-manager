@@ -40,9 +40,9 @@ export default function Chart() {
     animation: {
       animateScale: true,
     },
-    // plugins: {
-    //   legend: false,
-    // },
+    plugins: {
+      legend: false,
+    },
     cutout: '70%',
   };
 
