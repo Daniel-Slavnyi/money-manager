@@ -45,7 +45,7 @@ export const LoginForm = () => {
             ),
           }}
           margin="normal"
-          label="E-mail"
+          placeholder="E-mail"
           id="email"
           name="email"
           type="email"
@@ -64,7 +64,7 @@ export const LoginForm = () => {
             ),
           }}
           margin="normal"
-          label="Password"
+          placeholder="Password"
           id="password"
           name="password"
           required

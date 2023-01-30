@@ -56,7 +56,7 @@ export const RegistrationForm = () => {
             ),
           }}
           margin="normal"
-          label="E-mail"
+          placeholder="E-mail"
           id="email"
           name="email"
           type="email"
@@ -75,7 +75,7 @@ export const RegistrationForm = () => {
             ),
           }}
           margin="normal"
-          label="Password"
+          placeholder="Password"
           id="password"
           name="password"
           required
@@ -93,7 +93,7 @@ export const RegistrationForm = () => {
             ),
           }}
           margin="normal"
-          label="Confirm Password"
+          placeholder="Confirm Password"
           id="confirmPassword"
           name="confirmPassword"
           required
@@ -116,7 +116,7 @@ export const RegistrationForm = () => {
             ),
           }}
           margin="normal"
-          label="Username"
+          placeholder="Username"
           id="username"
           name="username"
           required

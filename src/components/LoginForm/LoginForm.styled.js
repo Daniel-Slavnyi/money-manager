@@ -3,17 +3,18 @@ import { styled, TextField } from '@mui/material';
 export const CssTextField = styled(TextField)(theme => ({
   color: '#E0E0E0',
 
+  width: '100%',
   '&:first-of-type': {
     marginTop: '60px',
   },
-  width: '100%',
-
-  marginBottom: '40px',
+  '&:last-of-type': {
+    marginBottom: '40px',
+  },
   '& label.Mui-focused': {
-    color: 'green',
+    color: '#24CCA7',
   },
   '& .MuiInput-underline:after': {
-    borderBottomColor: 'green',
+    borderBottomColor: '#24CCA7',
   },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
@@ -24,12 +25,13 @@ export const CssTextField = styled(TextField)(theme => ({
     },
     '& .MuiInputBase-input': {
       margin: 0,
+      marginLeft: '20px',
     },
     '&:hover fieldset': {
-      borderColor: 'yellow',
+      borderColor: '#4A56E2',
     },
     '&.Mui-focused fieldset': {
-      borderColor: 'green',
+      borderColor: '#24CCA7',
     },
   },
 }));
