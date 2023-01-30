@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store, persistor } from 'redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
-import { ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import theme from 'styles/theme';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -14,6 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter basename="money-manager">
           <ThemeProvider theme={theme}>
+            <CssBaseline />
             <App />
           </ThemeProvider>
         </BrowserRouter>

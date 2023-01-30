@@ -4,7 +4,7 @@ import { logIn } from 'redux/auth/auth-operation';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Button, InputAdornment } from '@mui/material';
-import { CssTextField } from './LoginForm.styled';
+import { CssTextField, StyledForm } from './LoginForm.styled';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
 
@@ -35,9 +35,7 @@ export const LoginForm = () => {
 
   return (
     <>
-      {/* <Example />
-      <Example2 /> */}
-      <form onSubmit={formik.handleSubmit}>
+      <StyledForm onSubmit={formik.handleSubmit}>
         <CssTextField
           InputProps={{
             startAdornment: (
@@ -76,7 +74,7 @@ export const LoginForm = () => {
           helperText={formik.touched.password && formik.errors.password}
         />
         <Button type="submit">LOG IN</Button>
-      </form>
+      </StyledForm>
       <Button variant="secondarybutton" href="/money-manager/auth/register">
         Register
       </Button>

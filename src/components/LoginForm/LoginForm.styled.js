@@ -1,4 +1,3 @@
-// import styled from '@emotion/styled/macro';
 import { styled, TextField } from '@mui/material';
 
 export const CssTextField = styled(TextField)(theme => ({
@@ -23,9 +22,6 @@ export const CssTextField = styled(TextField)(theme => ({
     },
     '& .MuiInputBase-input': {
       margin: 0,
-      // paddingBottom: '8px',
-      // paddingTop: '1px',
-      // padding: '40px',
     },
     '&:hover fieldset': {
       borderColor: 'yellow',
@@ -34,4 +30,10 @@ export const CssTextField = styled(TextField)(theme => ({
       borderColor: 'green',
     },
   },
+}));
+
+export const StyledForm = styled('form')(({ theme }) => ({
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
 }));

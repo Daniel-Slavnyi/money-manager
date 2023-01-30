@@ -20,37 +20,7 @@ const theme = createTheme({
       green: '#24CCA7',
       blue: '#4A56E2',
     },
-    // primary: {
-    //   main: '#839364',
-    //   light: '#BDBDBD',
-    //   contrastText: '#FFFFFF',
-    // },
-    // background: {
-    //   default: '#FFFFFF',
-    //   green: '#839364',
-    // },
-    // text: {
-    //   primary: '#000000',
-    // },
-    // secondary: {
-    //   main: '#FFFFFF',
-    // },
-    // error: {
-    //   main: '#49012E',
-    // },
   },
-  // typography: {
-  //   fontFamily: ['Circe', 'sans-serif'].join(','),
-  //   fontSize: 12,
-  //   h1: {
-  //     fontFamily: ['Circe', 'sans-serif'].join(','),
-  //     fontSize: 30,
-  //   },
-  //   a: {
-  //     fontFamily: ['Circe', 'sans-serif'].join(','),
-  //     fontSize: 12,
-  //   },
-  // },
   spacing: [0, 4, 8, 16, 32, 64],
 });
 
@@ -68,6 +38,14 @@ theme.components = {
           src: url(${PoppinsRegularTtf}) format('truetype');
           font-style: normal;
           font-weight: 400;
+        }
+        body {
+          background-image: url(https://designshack.net/wp-content/uploads/gradient-background.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
         }
       `,
   },
@@ -119,7 +97,7 @@ theme.components = {
           marginBottom: '20px',
           borderRadius: '20px',
           '&:hover': {
-            background: theme.palette.colorList.lightgreen,
+            background: theme.palette.colorList.grey,
           },
           [theme.breakpoints.up('phablet')]: {
             width: '300px',
@@ -146,7 +124,7 @@ theme.components = {
           borderRadius: '20px',
           border: `1px solid ${theme.palette.colorList.blue}`,
           '&:hover': {
-            background: theme.palette.colorList.lightgreen,
+            background: theme.palette.colorList.grey,
           },
           [theme.breakpoints.up('phablet')]: {
             width: '300px',
@@ -186,8 +164,11 @@ theme.typography.body2 = {
   opacity: 0.6,
 };
 theme.typography.h1 = {
-  fontSize: '20px',
-  fontWeight: 700,
+  fontFamily: 'Poppins',
+  fontStyle: 'normal',
+  fontWeight: '400',
+  fontSize: ' 30px',
+  lineHeight: '1.5',
 };
 theme.typography.h2 = {
   fontSize: '18px',
