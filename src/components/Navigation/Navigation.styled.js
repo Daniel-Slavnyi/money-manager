@@ -5,11 +5,13 @@ export const NavListEl = styled.ul`
   display: flex;
   justify-content: center;
   gap: 38px;
+  margin-bottom: 12px;
 
   @media screen and (min-width: 768px) {
     align-items: flex-start;
     flex-direction: column;
     gap: 12px;
+    margin-bottom: 28px;
   }
 `;
 
@@ -20,7 +22,6 @@ export const LinkEl = styled(NavLink)`
   align-items: center;
   justify-content: center;
 
-  color: #000000;
   outline: transparent;
 
   transition: font-weight, fill 250ms linear;
@@ -39,7 +40,6 @@ export const LinkEl = styled(NavLink)`
     font-weight: 700;
 
     fill: #4a56e2;
-    // filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
   }
 `;
 
@@ -60,6 +60,8 @@ export const SvgEl = styled.svg`
 
 export const TextEl = styled.span`
   display: none;
+
+  color: #000000;
 
   @media screen and (min-width: 768px) {
     display: block;

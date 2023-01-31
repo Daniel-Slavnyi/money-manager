@@ -12,10 +12,18 @@ export const Head = styled.header`
 export const HeaderWrapper = styled.div`
   padding-top: 15px;
   padding-bottom: 15px;
+  margin-bottom: 12px;
 
   @media (min-width: 768px) {
     padding-top: 20px;
     padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+
+  @media (min-width: 1280px) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
   }
 
   display: flex;
@@ -37,6 +45,7 @@ export const UserNickName = styled.span`
   align-items: center;
 
   @media (min-width: 768px) {
+    border-right: 1px solid #bdbdbd;
     padding-right: 12px;
   }
 `;
@@ -49,9 +58,9 @@ export const ButtonExit = styled.button`
 
   font-family: 'Circe';
   font-size: 18px;
-  line-height: 1.5;
   background-color: transparent;
   border: transparent;
+  outline: transparent;
 
   transition: color 250ms linear;
 `;
@@ -61,7 +70,6 @@ export const LogOutButton = styled.button`
   gap: 8px;
   align-items: center;
 
-  line-height: 1.5;
   border: transparant;
   background-color: transparent;
 

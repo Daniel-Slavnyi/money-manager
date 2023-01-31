@@ -1,4 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { backend } from '../../services/apiAuth';
+import { Notify } from 'notiflix';
 import {
   createNewTransaction,
   getAllTransactions,
@@ -42,31 +44,62 @@ export const newTransaction = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  });
+  }
+);
 
-  export const getCategories = createAsyncThunk(
-    'transaction/getCategories',
-    async (_, thunkAPI) => {
-      try {
-        const res = await getTransactionCategories();
-        // After successful login, add the token to the HTTP header
-        return res;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-      }
+export const getCategories = createAsyncThunk(
+  'transaction/getCategories',
+  async (_, thunkAPI) => {
+    try {
+      const res = await getTransactionCategories();
+      // After successful login, add the token to the HTTP header
+      return res;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
-  );
-
+  }
+);
 
 export const transactionSummary = createAsyncThunk(
   'transaction/transactionSummary',
   async (transferOptions, thunkAPI) => {
     try {
-      const res = await getSummaryTransaction(transferOptions.month, transferOptions.year);
+      const res = await getSummaryTransaction(
+        transferOptions.month,
+        transferOptions.year
+      );
       // After successful login, add the token to the HTTP header
       return res;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateTransaction = createAsyncThunk(
+  'transaction/updateTransaction',
+  async ({ id, ...transaction }, { rejectWithValue }) => {
+    try {
+      const { data } = await backend.patch(`/transactions/${id}`, transaction);
+      Notify.success('Comment was updated!');
+      return data;
+    } catch (error) {
+      Notify.failure('Something Went Wrong');
+      return rejectWithValue(error);
+    }
+  }
+);
+
+export const deleteTransaction = createAsyncThunk(
+  'transaction/deleteTransaction',
+  async (id, { rejectWithValue }) => {
+    try {
+      await backend.delete(`/transactions/${id}`);
+      Notify.success('Transaction successfully deleted!');
+      return id;
+    } catch (error) {
+      Notify.failure('Something Went Wrong');
+      return rejectWithValue(error);
     }
   }
 );

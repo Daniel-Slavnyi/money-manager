@@ -4,6 +4,8 @@ import {
   newTransaction,
   refreshTransactions,
   transactionSummary,
+  updateTransaction,
+  deleteTransaction,
 } from './transaction-operation';
 
 const pending = state => {
@@ -52,6 +54,31 @@ const transactionSlice = createSlice({
       .addCase(transactionSummary.fulfilled, (state, action) => {
         state.summaryItem = action.payload;
         state.error = null;
+      })
+      .addCase(updateTransaction.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(updateTransaction.fulfilled, (state, { payload }) => {
+        const index = state.items.findIndex(({ id }) => id === payload.id);
+        state.items[index] = payload;
+        state.isLoading = false;
+      })
+      .addCase(updateTransaction.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      })
+      .addCase(deleteTransaction.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(deleteTransaction.fulfilled, (state, { payload }) => {
+        state.items = state.items.filter(({ id }) => id !== payload);
+        state.isLoading = false;
+      })
+      .addCase(deleteTransaction.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
       }),
 });
 

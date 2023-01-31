@@ -4,11 +4,17 @@ export const LogoLink = styled.a`
   display: flex;
   gap: 15px;
   align-items: center;
+
   text-decoration: none;
-  line-height: 1.5;
+  font-weight: 700;
+  font-size: 22px;
+
+  cursor: pointer;
 
   @media (min-width: 768px) {
     gap: 20px;
+
+    font-size: 30px;
   }
 `;
 
