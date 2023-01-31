@@ -24,7 +24,7 @@ export const Navigation = () => {
         </LinkEl>
       </NavItemEl>
       <NavItemEl>
-        <LinkEl to="statistics">
+        <LinkEl to="/statistics">
           <IconWrapperEl>
             <SvgEl>
               <use href={`${sprite}#icon-statistic`}></use>
@@ -37,7 +37,7 @@ export const Navigation = () => {
         {matches =>
           (matches.mobile || matches.response) && (
             <NavItemEl>
-              <LinkEl to="wallet">
+              <LinkEl to="/currency">
                 <IconWrapperEl>
                   <SvgEl>
                     <use href={`${sprite}#icon-wallet`}></use>
