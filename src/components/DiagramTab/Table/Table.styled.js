@@ -1,5 +1,10 @@
 import styled from '@emotion/styled/macro';
 
+export const List = styled.ul`
+  margin: 0;
+  padding: 0;
+`;
+
 export const Item = styled.li`
   display: flex;
   justify-content: space-between;
@@ -52,9 +57,9 @@ export const SummaryTable = styled.p`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 0 24px  0 24px;
- 
- /* gap: 14px; */
+  padding: 0 24px 0 24px;
+
+  /* gap: 14px; */
   /* &:not(:last-child) {
     margin-bottom: 14px;
   } */

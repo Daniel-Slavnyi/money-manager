@@ -1,16 +1,17 @@
 import styled from '@emotion/styled/macro';
 
-
 export const SelectsWrapper = styled.div`
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
 
-
-@media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     display: flex;
     justify-content: center;
-  align-items: center;
-  width: 395px;
-  margin-right: 0;
-gap: 16px;
+    align-items: center;
+    width: 395px;
+    margin-right: 0;
+    gap: 16px;
   }
 
   @media screen and (min-width: 1280px) {
