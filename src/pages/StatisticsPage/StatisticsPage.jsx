@@ -40,7 +40,12 @@ export default function StatisticsPage() {
           {summaryItem.categoriesSummary && <Chart />}
         </WrappCart>
         <WrappTable>
-          <SelectSmall setMonth={setMonth} setYear={setYear} month={month} year={year}/>
+          <SelectSmall
+            setMonth={setMonth}
+            setYear={setYear}
+            month={month}
+            year={year}
+          />
           {summaryItem.categoriesSummary && <Table />}
         </WrappTable>
       </FlexWrapper>

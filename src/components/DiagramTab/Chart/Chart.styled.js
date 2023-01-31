@@ -1,9 +1,8 @@
 import styled from '@emotion/styled/macro';
 
 export const DoughnutWrapper = styled.div`
-  width: 280px;
-  height: 280px;
-
+  width: 100%;
+  margin-bottom: 32px;
   @media screen and (min-width: 768px) {
     width: 336px;
     height: 336px;

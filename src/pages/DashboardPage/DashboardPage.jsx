@@ -5,26 +5,29 @@ import { Navigation } from 'components/Navigation/Navigation';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Container } from '@mui/material';
+import { WrapCurency } from './DashboardPage.styled';
 
 export default function DashboardPage() {
   return (
     <div>
       <Header />
       <main>
-        <Container>
-          <div style={{ display: 'flex' }}>
-            <section>
-              <Container>
-                <Navigation />
-                <Balance />
-                <Currency />
-              </Container>
-            </section>
-            <section>
-              <Outlet />
-            </section>
-          </div>
-        </Container>
+        {/* <Container> */}
+        <section>
+          <Container>
+            <Navigation />
+            <Balance />
+            <WrapCurency>
+              <Currency />
+            </WrapCurency>
+          </Container>
+        </section>
+        <section>
+          <Container>
+            <Outlet />
+          </Container>
+        </section>
+        {/* </Container> */}
       </main>
     </div>
   );

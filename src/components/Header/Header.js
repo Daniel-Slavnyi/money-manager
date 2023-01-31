@@ -13,6 +13,7 @@ import {
   UserNickName,
   ButtonExit,
 } from './Header.styled';
+import { Container } from '@mui/material';
 
 export const Header = () => {
   const userName = useSelector(getUserName);
@@ -22,19 +23,21 @@ export const Header = () => {
 
   return (
     <Head>
-      <HeaderWrapper>
-        <Logo />
-        <HeaderUserWrapper>
-          <UserNickName>{userName}</UserNickName>
-          <ButtonExit type="button" onClick={handleShow}>
-            <IconContext.Provider value={{ className: 'icon' }}>
-              <TbLogout />
-            </IconContext.Provider>
-            <span>Exit</span>
-          </ButtonExit>
-          {show && <ModalLogout handleClose={handleHide} />}
-        </HeaderUserWrapper>
-      </HeaderWrapper>
+      <Container>
+        <HeaderWrapper>
+          <Logo />
+          <HeaderUserWrapper>
+            <UserNickName>{userName}</UserNickName>
+            <ButtonExit type="button" onClick={handleShow}>
+              <IconContext.Provider value={{ className: 'icon' }}>
+                <TbLogout />
+              </IconContext.Provider>
+              <span>Exit</span>
+            </ButtonExit>
+            {show && <ModalLogout handleClose={handleHide} />}
+          </HeaderUserWrapper>
+        </HeaderWrapper>
+      </Container>
     </Head>
   );
 };

@@ -2,10 +2,9 @@ import styled from '@emotion/styled/macro';
 
 export const BalanceWrapper = styled.div`
   height: 80px;
-  width: 280px;
-  padding: 8px 32px 12px 32px;
+  width: 100%;
+  padding: 8px 32px 18px 32px;
   margin-bottom: 32px;
-
   background-color: #ffffff;
   border-radius: 30px;
 
@@ -24,7 +23,7 @@ export const BalanceWrapper = styled.div`
 export const BalanceText = styled.p`
   padding: 0;
   margin: 0;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   font-size: 12px;
   color: #a6a6a6;
 `;

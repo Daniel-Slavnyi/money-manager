@@ -8,6 +8,7 @@ import {
   Expenses,
   Income,
   Item,
+  List,
   SpanCaption,
   SummaryTable,
   Transaction,
@@ -29,7 +30,7 @@ export default function ChartTable() {
 
   return (
     <>
-      <ul>
+      <List>
         <CaptionWrapper>
           <SpanCaption>Category</SpanCaption>
           <SpanCaption>Sum</SpanCaption>
@@ -57,7 +58,7 @@ export default function ChartTable() {
               : 0}
           </Income>
         </SummaryTable>
-      </ul>
+      </List>
     </>
   );
 }
