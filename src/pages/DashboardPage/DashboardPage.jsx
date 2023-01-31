@@ -5,6 +5,7 @@ import { Navigation } from 'components/Navigation/Navigation';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Container } from '@mui/material';
+import { WrapCurency } from './DashboardPage.styled';
 
 export default function DashboardPage() {
   return (
@@ -16,7 +17,9 @@ export default function DashboardPage() {
             <section>
               <Navigation />
               <Balance />
+              <WrapCurency>
               <Currency />
+            </WrapCurency>
             </section>
             <section>
               <Outlet />

@@ -4,11 +4,28 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Arrow from '@mui/icons-material/KeyboardArrowDownRounded';
-import { OutlinedInput } from '@mui/material';
+import { OutlinedInput, styled } from '@mui/material';
+import { SelectsWrapper } from './Select.styled';
 
-export default function SelectSmall({setMonth, month, setYear, year}) {
+export const StyledFormControl = styled(FormControl)(({ theme }) => ({
+  width: '100%',
+  [theme.breakpoints.up('tablet')]: {
+    width: '395px',
+  },
+}));
+
+export const StyledSelect = styled(Select)(({ theme }) => ({
+  width: '100%',
+  borderRadius: '50px',
+  height: '50',
+  [theme.breakpoints.up('tablet')]: {
+    width: '182px',
+  },
+}));
+
+export default function SelectSmall({ setMonth, month, setYear, year }) {
   const ITEM_HEIGHT = 35;
-const ITEM_PADDING_TOP = 4;
+  const ITEM_PADDING_TOP = 4;
   const MenuProps = {
     PaperProps: {
       style: {
@@ -18,77 +35,68 @@ const ITEM_PADDING_TOP = 4;
         boxSshadow: '0px 6px 15px rgba(0, 0, 0, 0.1)',
         // backdropFilter: 'blur(25px)',
         borderRadius: 25,
-        
-
       },
     },
   };
 
-  const handleMonthChange = (event) => {
+  const handleMonthChange = event => {
     setMonth(event.target.value);
   };
 
-  const handleYearChange = (event) => {
+  const handleYearChange = event => {
     setYear(event.target.value);
   };
 
   return (
-   <div>
-     <FormControl sx={{ m: 1, minWidth: 120, backgroundColor: 'transparent'}} >
-       <Select
-        value={moment(month).format('MM')}
-        label="Month"
-        IconComponent={Arrow}
-        onChange={handleMonthChange}
-        style={{ borderRadius: 50, width: 182, height: 50}}
-        input={<OutlinedInput />}
-        MenuProps={MenuProps}
+    <SelectsWrapper>
+      <StyledFormControl
+        sx={{ m: 1, minWidth: 120, backgroundColor: 'transparent' }}
       >
-       
-        <MenuItem value={'01'}>January</MenuItem>
-        <MenuItem value={'02'}>February</MenuItem>
-        <MenuItem value={'03'}>March</MenuItem>
-        <MenuItem value={'04'}>April</MenuItem>
-        <MenuItem value={'05'}>May</MenuItem>
-        <MenuItem value={'06'}>June</MenuItem>
-        <MenuItem value={'07'}>July</MenuItem>
-        <MenuItem value={'08'}>August</MenuItem>
-        <MenuItem value={'09'}>September</MenuItem>
-        <MenuItem value={'10'}>October</MenuItem>
-        <MenuItem value={'11'}>November</MenuItem>
-        <MenuItem value={'12'}>December</MenuItem>
-      </Select>
-    </FormControl>
+        <StyledSelect
+          value={moment(month).format('MM')}
+          label="Month"
+          IconComponent={Arrow}
+          onChange={handleMonthChange}
+          // style={{ borderRadius: 50, width: 182, height: 50 }}
+          input={<OutlinedInput />}
+          MenuProps={MenuProps}
+        >
+          <MenuItem value={'01'}>January</MenuItem>
+          <MenuItem value={'02'}>February</MenuItem>
+          <MenuItem value={'03'}>March</MenuItem>
+          <MenuItem value={'04'}>April</MenuItem>
+          <MenuItem value={'05'}>May</MenuItem>
+          <MenuItem value={'06'}>June</MenuItem>
+          <MenuItem value={'07'}>July</MenuItem>
+          <MenuItem value={'08'}>August</MenuItem>
+          <MenuItem value={'09'}>September</MenuItem>
+          <MenuItem value={'10'}>October</MenuItem>
+          <MenuItem value={'11'}>November</MenuItem>
+          <MenuItem value={'12'}>December</MenuItem>
+        </StyledSelect>
+      </StyledFormControl>
 
-<FormControl sx={{ m: 1, minWidth: 120,  backgroundColor: 'transparent' }} >
-<Select
- value={moment(year).format('YYYY')}
- label="Year"
- IconComponent={Arrow}
- onChange={handleYearChange}
- style={{ borderRadius: 50, width: 182, height: 50}}
- input={<OutlinedInput />}
- MenuProps={MenuProps}
-
->
-
- <MenuItem value={'2020'}>2020</MenuItem>
- <MenuItem value={'2021'}>2021</MenuItem>
- <MenuItem value={'2022'}>2022</MenuItem>
- <MenuItem value={'2023'}>2023</MenuItem>
-
-</Select>
-</FormControl>
-   </div>
+      <StyledFormControl
+        sx={{ m: 1, minWidth: 120, backgroundColor: 'transparent' }}
+      >
+        <StyledSelect
+          value={moment(year).format('YYYY')}
+          label="Year"
+          IconComponent={Arrow}
+          onChange={handleYearChange}
+          // style={{ borderRadius: 50, width: 182, height: 50 }}
+          input={<OutlinedInput />}
+          MenuProps={MenuProps}
+        >
+          <MenuItem value={'2020'}>2020</MenuItem>
+          <MenuItem value={'2021'}>2021</MenuItem>
+          <MenuItem value={'2022'}>2022</MenuItem>
+          <MenuItem value={'2023'}>2023</MenuItem>
+        </StyledSelect>
+      </StyledFormControl>
+    </SelectsWrapper>
   );
 }
-
-
-
-
-
-
-
 
 // import * as React from 'react';
 // // import { useTheme } from '@mui/material/styles';
@@ -111,7 +119,6 @@ const ITEM_PADDING_TOP = 4;
 //     },
 //   },
 // };
-
 
 // const years = ['2023', '2022', '2021', '2020'];
 
@@ -166,7 +173,7 @@ const ITEM_PADDING_TOP = 4;
 //               MenuProps={MenuProps}
 //               IconComponent={Arrow}
 //               style={{ borderRadius: 50 }}
-//           
+//
 //             >
 //               {monthes.map(name => (
 //                 <MenuItem

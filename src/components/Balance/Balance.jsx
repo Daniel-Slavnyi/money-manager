@@ -9,12 +9,9 @@ export const Balance = () => {
   return (
     <BalanceWrapper>
       <BalanceText>YOUR BALANCE</BalanceText>
-      <BalanceValue variant="h1" component="p">
+      <BalanceValue>
         ₴ {totalBalance ? totalBalance.toFixed(2) : 0}
       </BalanceValue>
-      {/* <Typography variant="h1" component="p">
-        ₴ {totalBalance ? totalBalance.toFixed(2) : 0}
-      </Typography> */}
     </BalanceWrapper>
   );
 };

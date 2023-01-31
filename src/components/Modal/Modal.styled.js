@@ -1,6 +1,9 @@
 import styled from '@emotion/styled/macro';
 
 export const OpenModalButton = styled.button`
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
   width: 44px;
   height: 44px;
   border-radius: 50%;
