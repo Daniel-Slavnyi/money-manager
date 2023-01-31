@@ -8,10 +8,13 @@ import {
   TableArray,
   TableBody,
   TableContainer,
+  TableCurrency,
   TableFirstLetter,
   TableHead,
+  TableLeft,
   TablePurchase,
   TableRow,
+  TableRowTop,
   TableTop,
 } from './currency.styled';
 import { privatbankApi } from '../../services/currencyApi';
@@ -19,7 +22,7 @@ import image from '../../images/templateMountains.png';
 
 export const Currency = () => {
   const [currency, setCurrency] = useState(
-    JSON.parse(localStorage.getItem('currency')) ?? []
+    JSON.parse(localStorage.getItem('currency'))
   );
   const [isLoad, setIsLoad] = useState(false);
 
@@ -57,9 +60,9 @@ export const Currency = () => {
         <TableContainer>
           <TableHead>
             <tr>
-              <TableTop>Currency</TableTop>
+              <TableCurrency>Currency</TableCurrency>
               <TablePurchase>Purchase</TablePurchase>
-              <td>Sale</td>
+              <TableTop>Sale</TableTop>
             </tr>
           </TableHead>
 
@@ -71,11 +74,11 @@ export const Currency = () => {
                     euro.currencyCodeA === 840 && euro.currencyCodeB === 980
                 )
                 .map(el => (
-                  <TableRow key={el.currencyCodeA}>
+                  <TableRowTop key={el.currencyCodeA}>
                     <TableFirstLetter>USD</TableFirstLetter>
-                    <TableArray>{el.rateBuy.toFixed(2)}</TableArray>
+                    <td>{el.rateBuy.toFixed(2)}</td>
                     <TableArray>{el.rateSell.toFixed(2)}</TableArray>
-                  </TableRow>
+                  </TableRowTop>
                 ))}
 
             {currency &&
@@ -88,7 +91,7 @@ export const Currency = () => {
                   <TableRow key={el.currencyCodeA}>
                     <TableFirstLetter>EUR</TableFirstLetter>
                     <td>{el.rateBuy.toFixed(2)}</td>
-                    <td>{el.rateSell.toFixed(2)}</td>
+                    <TableLeft>{el.rateSell.toFixed(2)}</TableLeft>
                   </TableRow>
                 ))}
           </TableBody>
