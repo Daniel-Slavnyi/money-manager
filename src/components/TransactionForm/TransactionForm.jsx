@@ -66,7 +66,6 @@ export default function TransactionForm({ onClose, editOpen, params }) {
       amount,
     };
     dispatch(newTransaction(objTransaction));
-    dispatch(refreshUser());
   };
 
   const saveEditChanges = () => {

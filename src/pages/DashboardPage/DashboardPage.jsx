@@ -1,3 +1,5 @@
+import { Container } from '../../../src/globalStyles';
+import { Header } from 'components/Header/Header';
 import { Balance } from '../../components/Balance/Balance';
 import { Currency } from 'components/Currency/currency';
 import { Navigation } from 'components/Navigation/Navigation';
@@ -9,17 +11,19 @@ export default function DashboardPage() {
     <div>
       <header></header>
       <main>
+        <Container>
+        <Header />
         <div style={{ display: 'flex' }}>
           <section>
             <Navigation />
             <Balance />
             <Currency />
           </section>
-
           <section>
             <Outlet />
           </section>
         </div>
+        </Container >
       </main>
     </div>
   );
