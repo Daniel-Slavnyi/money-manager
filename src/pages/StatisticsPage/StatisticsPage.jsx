@@ -1,15 +1,18 @@
-import Chart from 'components/DiagramTab/Chart/Chart';
-import React from 'react';
-import { useEffect } from 'react';
-import { transactionSummary } from 'redux/transaction/transaction-operation';
+import moment from 'moment/moment';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectToken } from 'redux/auth/auth-selector';
-import { useState } from 'react';
-import moment from 'moment/moment';
+import { transactionSummary } from 'redux/transaction/transaction-operation';
 import { selectStatistic } from 'redux/transaction/transaction-selector';
+import Chart from 'components/DiagramTab/Chart/Chart';
 import Table from 'components/DiagramTab/Table/Table';
-import Select from 'components/DiagramTab/Select/Select';
-import { Caption, FlexWrapper, WrappCart, WrappTable } from './StatisticsPage.styled';
+import MultipleSelect from 'components/DiagramTab/Select/Select';
+import {
+  Caption,
+  FlexWrapper,
+  WrappCart,
+  WrappTable,
+} from './StatisticsPage.styled';
 
 export default function StatisticsPage() {
   const [month, setMonth] = useState(new Date().toISOString());
@@ -36,7 +39,7 @@ export default function StatisticsPage() {
           {summaryItem.categoriesSummary && <Chart />}
         </WrappCart>
         <WrappTable>
-          <Select setMonth={setMonth} setYear={setYear} />
+          <MultipleSelect setMonth={setMonth} setYear={setYear} />
           {summaryItem.categoriesSummary && <Table />}
         </WrappTable>
       </FlexWrapper>
