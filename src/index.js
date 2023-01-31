@@ -7,6 +7,7 @@ import { store, persistor } from 'redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import theme from 'styles/theme';
+import GlobalStyle from 'globalStyles';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter basename="money-manager">
           <ThemeProvider theme={theme}>
+          <GlobalStyle />
             <CssBaseline />
             <App />
           </ThemeProvider>

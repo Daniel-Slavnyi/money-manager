@@ -16,12 +16,13 @@ export const FlexWrapper = styled.div`
     justify-content: space-between;
     gap: 32px;
     width: 704px;
-    margin: 0 32px 0 32px;
+      padding: 0 32px; 
   }
 
   @media screen and (min-width: 1280px) {
     width: 715px;
-    margin: 0 16px 0 69px;
+    padding: 0 16px 0 69px;
+    
   }
 `;
 
