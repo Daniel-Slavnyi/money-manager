@@ -1,6 +1,9 @@
 import styled from '@emotion/styled/macro';
 
 export const OpenModalButton = styled.button`
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -12,6 +15,6 @@ export const OpenModalButton = styled.button`
   font-weight: 100;
   cursor: pointer;
   &:hover {
-    scale: 1.1;
+    scale: 1.2;
   }
 `;

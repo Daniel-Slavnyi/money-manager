@@ -8,7 +8,10 @@ import { Button, TextField } from '@mui/material';
 import BasicDatePicker from './BasicDatePicker';
 import Categories from './Categories';
 import { label, PinkSwitch } from 'components/TransactionForm/Switcher';
-import { editTransaction, newTransaction } from 'redux/transaction/transaction-operation';
+import {
+  editTransaction,
+  newTransaction,
+} from 'redux/transaction/transaction-operation';
 
 import mainTheme from 'styles/theme';
 import {
@@ -26,7 +29,9 @@ import { useEffect } from 'react';
 
 export default function TransactionForm({ onClose, editOpen, params }) {
   const dispatch = useDispatch();
-  const [transactionDate, setTransactionDate] = useState( editOpen ? params.row.transactionDate : new Date().toISOString('DD.MM.YY'));
+  const [transactionDate, setTransactionDate] = useState(
+    editOpen ? params.row.transactionDate : new Date().toISOString('DD.MM.YY')
+  );
   const [type, setType] = useState('INCOME');
   const [categoryId, setCategoryId] = useState(
     '063f1132-ba5d-42b4-951d-44011ca46262'
@@ -64,26 +69,26 @@ export default function TransactionForm({ onClose, editOpen, params }) {
     dispatch(refreshUser());
   };
 
-const saveEditChanges = () => {
-  const objTransaction = {
-    transactionDate,
-    type,
-    categoryId,
-    comment,
-    amount,
+  const saveEditChanges = () => {
+    const objTransaction = {
+      transactionDate,
+      type,
+      categoryId,
+      comment,
+      amount,
+    };
+    dispatch(editTransaction(objTransaction));
   };
-  dispatch(editTransaction(objTransaction));
-}
 
-useEffect(()=>{
-  if(editOpen){
-    setTransactionDate(params.row.transactionDate);
-    setType(params.row.type);
-    setCategoryId(params.row.categoryId);
-    setComment(params.row.comment);
-    setAmount(params.row.amount)
-  }
-},[editOpen])
+  useEffect(() => {
+    if (editOpen) {
+      setTransactionDate(params.row.transactionDate);
+      setType(params.row.type);
+      setCategoryId(params.row.categoryId);
+      setComment(params.row.comment);
+      setAmount(params.row.amount);
+    }
+  }, [editOpen]);
 
   return (
     <FormBox>
@@ -124,6 +129,7 @@ useEffect(()=>{
         )}
         <SumAndDateBox>
           <TextField
+            required
             onChange={onNumberChange}
             theme={mainTheme}
             type="number"
@@ -133,6 +139,7 @@ useEffect(()=>{
             sx={{ width: '190px' }}
           />
           <BasicDatePicker
+            required
             setTransactionDate={setTransactionDate}
             transactionDate={transactionDate}
             value={transactionDate}
@@ -148,12 +155,18 @@ useEffect(()=>{
           label="Comment"
           id="comment"
           name="comment"
+          required
         />
 
         {editOpen ? (
           <>
             {' '}
-            <Button onClick={saveEditChanges} theme={mainTheme} variant="mainbutton" type="button">
+            <Button
+              onClick={saveEditChanges}
+              theme={mainTheme}
+              variant="mainbutton"
+              type="button"
+            >
               SAVE CHANGES
             </Button>
             <Button

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
   selectTransactions,
   selectCategories,
@@ -8,17 +8,17 @@ import {
 
 import moment from 'moment/moment';
 import { Button } from '@mui/material';
-import mainTheme from 'styles/theme';
-import { deleteTransaction } from 'redux/transaction/transaction-operation';
+
+
 import EditModal from 'components/EditModal/EditModal';
 import ModalConfirmDelete from 'components/ModalConfirmDelete/ModalConfirmDelete';
 
 export default function DataTable() {
-  const dispatch = useDispatch();
+
 
   const columns = [
-    { field: 'transactionDate', headerName: 'Date', width: 100 },
-    { field: 'type', headerName: 'Type', width: 120 },
+    { field: 'transactionDate', headerName: 'Date', width: 90 },
+    { field: 'type', headerName: 'Type', width: 100 },
     { field: 'name', headerName: 'Category', width: 120 },
     {
       field: 'comment',
@@ -30,13 +30,13 @@ export default function DataTable() {
       field: 'amount',
       headerName: 'Sum',
       type: 'string',
-      width: 80,
+      width: 90,
     },
     {
       field: 'balanceAfter',
       headerName: 'Balance',
       type: 'number',
-      width: 100,
+      width: 120,
     },
     {
       field: 'action',
@@ -64,7 +64,7 @@ export default function DataTable() {
   }));
 
   return (
-    <div style={{ height: 500, width: 1000 }}>
+    <div style={{ height: 500, width: 890, padding: '46px 16px 0 69px' }}>
       <DataGrid
         rows={newArray}
         columns={columns}
@@ -74,7 +74,7 @@ export default function DataTable() {
         disableDensitySelector={true}
         disableSelectionOnClick
         BaseButton={Button}
-        sx={{ fontSize: '16px' }}
+        sx={{ fontSize: '16px', border: 'none' }}
       />
     </div>
   );
