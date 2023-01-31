@@ -10,23 +10,25 @@ import { WrapCurency } from './DashboardPage.styled';
 export default function DashboardPage() {
   return (
     <div>
-      <Container>
+      <main>
         <Header />
-        <main>
-          <div style={{ display: 'flex' }}>
-            <section>
-              <Navigation />
-              <Balance />
-              <WrapCurency>
+        {/* <Container> */}
+        <section>
+          <Container>
+            <Navigation />
+            <Balance />
+            <WrapCurency>
               <Currency />
             </WrapCurency>
-            </section>
-            <section>
-              <Outlet />
-            </section>
-          </div>
-        </main>
-      </Container>
+          </Container>
+        </section>
+        <section>
+          <Container>
+            <Outlet />
+          </Container>
+        </section>
+        {/* </Container> */}
+      </main>
     </div>
   );
 }

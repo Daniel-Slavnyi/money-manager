@@ -49,7 +49,7 @@ export const LinkEl = styled(NavLink)`
 `;
 
 export const IconWrapperEl = styled.div`
-  height: 38px;
+  display: flex;
 `;
 
 export const SvgEl = styled.svg`
