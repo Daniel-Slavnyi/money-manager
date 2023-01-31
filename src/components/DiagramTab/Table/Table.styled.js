@@ -51,7 +51,7 @@ export const ColorBox = styled.span`
 export const SummaryTable = styled.p`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   padding: 0 24px  0 24px;
  
  /* gap: 14px; */
@@ -68,7 +68,6 @@ export const Transaction = styled.span`
 `;
 
 export const Expenses = styled.span`
-  margin-top: 24px;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.5;

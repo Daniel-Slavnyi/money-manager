@@ -6,17 +6,18 @@ import { transactionSummary } from 'redux/transaction/transaction-operation';
 import { selectStatistic } from 'redux/transaction/transaction-selector';
 import Chart from 'components/DiagramTab/Chart/Chart';
 import Table from 'components/DiagramTab/Table/Table';
-import MultipleSelect from 'components/DiagramTab/Select/Select';
+
 import {
   Caption,
   FlexWrapper,
   WrappCart,
   WrappTable,
 } from './StatisticsPage.styled';
+import SelectSmall from 'components/DiagramTab/Select/Select';
 
 export default function StatisticsPage() {
-  const [month, setMonth] = useState(new Date().toISOString());
-  const [year, setYear] = useState(new Date().toISOString());
+  const [month, setMonth] = useState(new Date());
+  const [year, setYear] = useState(new Date());
 
   const dispatch = useDispatch();
 
@@ -39,7 +40,7 @@ export default function StatisticsPage() {
           {summaryItem.categoriesSummary && <Chart />}
         </WrappCart>
         <WrappTable>
-          <MultipleSelect setMonth={setMonth} setYear={setYear} />
+          <SelectSmall setMonth={setMonth} setYear={setYear} month={month} year={year}/>
           {summaryItem.categoriesSummary && <Table />}
         </WrappTable>
       </FlexWrapper>

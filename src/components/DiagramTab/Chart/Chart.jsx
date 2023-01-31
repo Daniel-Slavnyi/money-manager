@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { DoughnutWrapper } from './Chart.styled';
@@ -24,14 +24,10 @@ export default function Chart() {
   const periodTotal = summaryItem.periodTotal;
 
   const data = {
-    labels: categories.length
-      ? categories.map(el => el.name)
-      : ['nothing'],
+    labels: categories.length ? categories.map(el => el.name) : ['nothing'],
     datasets: [
       {
-        data: categories.length
-          ? categories.map(el => el.total)
-          : [0],
+        data: categories.length ? categories.map(el => el.total) : [0],
         backgroundColor: diagramColor.map(el => el),
         borderColor: ['transparent'],
         borderWidth: 1,
@@ -52,6 +48,7 @@ export default function Chart() {
   const textCenter = {
     id: 'textCenter',
     beforeDatasetsDraw(chart) {
+      console.log('summaryItem', summaryItem);
       const { ctx } = chart;
       ctx.save();
       ctx.font = 'bolder 27px Circe';
@@ -65,6 +62,7 @@ export default function Chart() {
       );
     },
   };
+
 
   return (
     <>
