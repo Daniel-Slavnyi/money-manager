@@ -21,13 +21,25 @@ export const FlexWrapper = styled.div`
   @media screen and (min-width: 1280px) {
   width: 715px;
   margin: 0 16px 0 69px;
-
+  }
 `;
 
 export const WrappCart = styled.div`
+
+@media screen and (min-width: 768px) {
   margin-top: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 32px;
+  }
 `;
 
 export const WrappTable = styled.div`
-  margin-top: 40px;
+  
+  @media screen and (min-width: 768px) {
+    margin-top: 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 97px;
+  }
 `;
