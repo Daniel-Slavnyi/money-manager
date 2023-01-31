@@ -62,7 +62,6 @@ export default function TransactionForm({ onClose }) {
       amount,
     };
     dispatch(newTransaction(objTransaction));
-    dispatch(refreshUser());
   };
 
   return (

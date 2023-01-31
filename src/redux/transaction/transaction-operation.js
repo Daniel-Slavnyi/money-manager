@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { setAuthHeader } from 'redux/auth/auth-operation';
 import { backend } from '../../services/apiAuth';
 import { Notify } from 'notiflix';
 import {
@@ -63,6 +64,10 @@ export const getCategories = createAsyncThunk(
 export const transactionSummary = createAsyncThunk(
   'transaction/transactionSummary',
   async (transferOptions, thunkAPI) => {
+    const token = thunkAPI.getState().auth.token;
+    if (!token) return thunkAPI.rejectWithValue('no token');
+    setAuthHeader(token);
+
     try {
       const res = await getSummaryTransaction(
         transferOptions.month,
