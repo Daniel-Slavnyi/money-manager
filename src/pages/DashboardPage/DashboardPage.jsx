@@ -9,23 +9,21 @@ import { Container } from '@mui/material';
 export default function DashboardPage() {
   return (
     <div>
-      <Header />
-      <main>
-        <Container>
+      <Container>
+        <Header />
+        <main>
           <div style={{ display: 'flex' }}>
             <section>
-              <Container>
-                <Navigation />
-                <Balance />
-                <Currency />
-              </Container>
+              <Navigation />
+              <Balance />
+              <Currency />
             </section>
             <section>
               <Outlet />
             </section>
           </div>
-        </Container>
-      </main>
+        </main>
+      </Container>
     </div>
   );
 }
