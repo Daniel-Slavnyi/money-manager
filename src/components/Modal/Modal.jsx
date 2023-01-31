@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import TransactionForm from 'components/TransactionForm/TransactionForm';
 import { OpenModalButton } from './Modal.styled';
+import { useTheme } from '@mui/material';
 
 const style = {
   position: 'absolute',
@@ -10,7 +11,6 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 508,
-  bgcolor: 'background.paper',
   border: 'none',
   boxShadow: 24,
   padding: 0,
@@ -18,6 +18,9 @@ const style = {
 };
 
 export default function BasicModal() {
+  const theme = useTheme();
+  const colors = theme.palette.colorList;
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -34,7 +37,7 @@ export default function BasicModal() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={{ ...style, bgcolor: colors.white }}>
           <TransactionForm onClose={handleClose} />
         </Box>
       </Modal>

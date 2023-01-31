@@ -1,3 +1,4 @@
+// import { Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 
 import { BalanceWrapper, BalanceText, BalanceValue } from './Balance.styled';
@@ -8,9 +9,12 @@ export const Balance = () => {
   return (
     <BalanceWrapper>
       <BalanceText>YOUR BALANCE</BalanceText>
-      <BalanceValue>
+      <BalanceValue variant="h1" component="p">
         ₴ {totalBalance ? totalBalance.toFixed(2) : 0}
       </BalanceValue>
+      {/* <Typography variant="h1" component="p">
+        ₴ {totalBalance ? totalBalance.toFixed(2) : 0}
+      </Typography> */}
     </BalanceWrapper>
   );
 };

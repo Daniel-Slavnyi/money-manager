@@ -14,39 +14,36 @@ export const FormBox = styled.div`
 `;
 
 export const FormTitle = styled.h1`
-font-size: 30px;
+  font-size: 30px;
 `;
 
 export const SumAndDateBox = styled.div`
-display: flex;
-
+  display: flex;
 `;
 
 export const SwitchBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
 `;
 
 export const IncomeActive = styled.span`
-font-weight: 700;
-font-size: 16px;
-line-height: 24px;
-color: #24CCA7;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #24cca7;
 `;
 
 export const ExpenseActive = styled.span`
-
-font-weight: 700;
-font-size: 16px;
-line-height: 24px;
-color: #FF6596;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ff6596;
 `;
 
 export const SpanPassive = styled.span`
-font-weight: 700;
-font-size: 16px;
-line-height: 24px;
-color: #E0E0E0;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #e0e0e0;
 `;
