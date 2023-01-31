@@ -7,6 +7,10 @@ export const NavListEl = styled.ul`
   gap: 38px;
   margin-bottom: 12px;
 
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
   @media screen and (min-width: 768px) {
     align-items: flex-start;
     flex-direction: column;
@@ -22,7 +26,10 @@ export const LinkEl = styled(NavLink)`
   align-items: center;
   justify-content: center;
 
+  font-family: Poppins;
+
   outline: transparent;
+  text-decoration: none;
 
   transition: font-weight, fill 250ms linear;
 

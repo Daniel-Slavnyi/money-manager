@@ -5,6 +5,7 @@ import { BalanceWrapper, BalanceText, BalanceValue } from './Balance.styled';
 export const Balance = () => {
   const totalBalance = useSelector(state => state.transactions.total);
   console.log('totalbalance', totalBalance);
+
   return (
     <BalanceWrapper>
       <BalanceText>YOUR BALANCE</BalanceText>

@@ -6,6 +6,7 @@ export const LogoLink = styled.a`
   align-items: center;
 
   text-decoration: none;
+  font-family: Poppins;
   font-weight: 700;
   font-size: 22px;
 
@@ -19,8 +20,9 @@ export const LogoLink = styled.a`
 `;
 
 export const LogoImg = styled.img`
+  display: block;
   width: 30px;
-  height: 30px;
+  height: auto;
 
   @media (min-width: 768px) {
     width: 40px;

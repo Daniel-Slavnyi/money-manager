@@ -1,27 +1,29 @@
 import styled from '@emotion/styled/macro';
 
 export const BalanceWrapper = styled.div`
-  height: 60px;
-  width: 216px;
+  height: 80px;
+  width: 280px;
   padding: 8px 32px 12px 32px;
   margin-bottom: 32px;
 
-  background-color: #1515;
+  background-color: #ffffff;
   border-radius: 30px;
 
   @media (min-width: 768px) {
-    width: 256px;
+    width: 336px;
     padding: 8px 40px 12px 40px;
     margin-bottom: 20px;
   }
 
   @media (min-width: 1280px) {
-    width: 315px;
+    width: 395px;
     margin-bottom: 32px;
   }
 `;
 
 export const BalanceText = styled.p`
+  padding: 0;
+  margin: 0;
   margin-bottom: 12px;
 
   font-size: 12px;
@@ -29,8 +31,12 @@ export const BalanceText = styled.p`
 `;
 
 export const BalanceValue = styled.p`
-  font-family: poppins;
+  padding: 0;
+  margin: 0;
+
+  font-family: Poppins;
   font-weight: 700;
   font-size: 30px;
+  line-height: 1;
   color: #000000;
 `;
