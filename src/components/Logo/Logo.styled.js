@@ -12,6 +12,7 @@ export const LogoLink = styled(NavLink)`
   font-size: 22px;
 
   color: #000000;
+  outline: none;
 
   cursor: pointer;
 
