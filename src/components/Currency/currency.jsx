@@ -8,6 +8,7 @@ import {
   TableArray,
   TableBody,
   TableContainer,
+  TableFirstLetter,
   TableHead,
   TablePurchase,
   TableRow,
@@ -17,7 +18,9 @@ import { privatbankApi } from '../../services/currencyApi';
 import image from '../../images/templateMountains.png';
 
 export const Currency = () => {
-  const [currency, setCurrency] = useState([]);
+  const [currency, setCurrency] = useState(
+    JSON.parse(localStorage.getItem('currency')) ?? []
+  );
   const [isLoad, setIsLoad] = useState(false);
 
   useEffect(() => {
@@ -25,11 +28,28 @@ export const Currency = () => {
     privatbankApi()
       .then(data => {
         setCurrency(data);
+        localStorage.setItem(
+          'currency',
+          JSON.stringify(
+            data.filter(
+              euro =>
+                (euro.currencyCodeA === 840 && euro.currencyCodeB === 980) ||
+                (euro.currencyCodeA === 978 && euro.currencyCodeB === 980)
+            )
+          )
+        );
+      })
+      .catch(error => {
+        console.log(error);
       })
       .finally(() => {
         setIsLoad(false);
       });
   }, []);
+
+  // const value = new Date().getTime();
+  // console.log(value);
+  // const dateLocalstorage = currency[0].date;
 
   return (
     <>
@@ -52,7 +72,7 @@ export const Currency = () => {
                 )
                 .map(el => (
                   <TableRow key={el.currencyCodeA}>
-                    <TableArray>USD</TableArray>
+                    <TableFirstLetter>USD</TableFirstLetter>
                     <TableArray>{el.rateBuy.toFixed(2)}</TableArray>
                     <TableArray>{el.rateSell.toFixed(2)}</TableArray>
                   </TableRow>
@@ -66,7 +86,7 @@ export const Currency = () => {
                 )
                 .map(el => (
                   <TableRow key={el.currencyCodeA}>
-                    <td>EUR</td>
+                    <TableFirstLetter>EUR</TableFirstLetter>
                     <td>{el.rateBuy.toFixed(2)}</td>
                     <td>{el.rateSell.toFixed(2)}</td>
                   </TableRow>
@@ -76,7 +96,6 @@ export const Currency = () => {
         <Image src={image} alt="" />
         {isLoad && <Loader />}
       </Background>
-      
     </>
   );
 };

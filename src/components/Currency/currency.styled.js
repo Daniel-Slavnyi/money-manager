@@ -11,38 +11,35 @@ export const TableContainer = styled.table`
   table-layout: fixed;
   width: 393px;
   height: 331px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1199px) {
     width: 336px;
-  height: 182px;
-  };
-  @media screen and (max-width: 380px) {
+    height: 182px;
+  }
+  @media screen and (max-width: 480px) {
     width: 280px;
-  height: 174px;
-  margin-top: 30px;
-  };
+    height: 174px;
+    margin-top: 30px;
+  } ;
 `;
 
 export const TableTop = styled.td`
   height: 50px;
-  @media screen and (max-width: 768px) {
- 
-  };
-  @media screen and (max-width: 380px) {
-    
-  };
+  @media screen and (max-width: 1199px) {
+  }
+  @media screen and (max-width: 480px) {
+  } ;
 `;
 export const TablePurchase = styled.td``;
 
 export const TableArray = styled.td`
   height: 50px;
   padding-top: 20px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1199px) {
     padding-top: 12px;
     height: 40px;
-};
-@media screen and (max-width: 380px) {
-  
-};
+  }
+  @media screen and (max-width: 480px) {
+  } ;
 `;
 
 export const TableHead = styled.thead`
@@ -53,13 +50,12 @@ export const TableHead = styled.thead`
   );
   color: white;
   font-family: 'Circe';
-font-style: normal;
+  font-style: normal;
   text-align: center;
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 1.5;
- 
 `;
 
 export const TableBody = styled.tbody`
@@ -76,27 +72,32 @@ export const TableRow = styled.tr`
 `;
 
 export const Image = styled.img`
-display: block;
+  display: block;
   position: absolute;
   bottom: 0%;
   left: 50%;
   transform: translate(-50%, 0%);
-  @media screen and (max-width: 768px) {
-
- 
-};
-@media screen and (max-width: 380px) {
-  width: 280px;
+  @media screen and (max-width: 1199px) {
+  }
+  @media screen and (max-width: 480px) {
+    width: 280px;
     height: 93px;
-};
+  } ;
 `;
 
 export const Background = styled.div`
   position: relative;
-   @media screen and (max-width: 768px) {
- 
-  };
-  @media screen and (max-width: 380px) {
-    
-  };
+  @media screen and (max-width: 1199px) {
+  }
+  @media screen and (max-width: 480px) {
+  } ;
 `;
+
+export const TableFirstLetter = styled.td`
+ &:nth-child(1) {
+text-align: left;
+padding-left: 20px;
+}
+  
+`;
+

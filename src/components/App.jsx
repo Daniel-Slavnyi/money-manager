@@ -12,6 +12,7 @@ import PublicRoute from './PublicRoute/PublicRoute';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshUser } from '../redux/auth/auth-operation';
+import CurrencyPage from 'pages/CurrencyPage/CurrencyPage';
 export const App = () => {
   const dispatch = useDispatch();
 
@@ -33,6 +34,9 @@ export const App = () => {
         <Route path="/" element={<DashboardPage />}>
           <Route index element={<HomePage />} />
           <Route path="statistics" element={<StatisticsPage />} />
+        </Route>
+        <Route>
+        <Route path="currency" element={<CurrencyPage />} />
         </Route>
       </Route>
     </Routes>

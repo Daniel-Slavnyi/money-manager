@@ -8,5 +8,6 @@ export async function privatbankApi() {
     return data;
   } catch (error) {
     console.error(error);
+    throw new Error("async error");
   }
 }
