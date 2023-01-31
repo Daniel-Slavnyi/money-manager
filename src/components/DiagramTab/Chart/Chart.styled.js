@@ -14,4 +14,3 @@ export const DoughnutWrapper = styled.div`
     height: 288px;
   }
 `;
-
