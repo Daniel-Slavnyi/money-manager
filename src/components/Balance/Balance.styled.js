@@ -25,7 +25,6 @@ export const BalanceText = styled.p`
   padding: 0;
   margin: 0;
   margin-bottom: 12px;
-
   font-size: 12px;
   color: #a6a6a6;
 `;
