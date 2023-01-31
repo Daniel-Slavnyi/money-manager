@@ -2,7 +2,7 @@ import { backend } from '../../services/apiAuth';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { registerUser, loginUser, logoutUser } from '../../services/apiAuth';
 import { transactionSummary } from 'redux/transaction/transaction-operation';
-
+import { toast } from 'react-toastify';
 // Utility to add JWT
 export const setAuthHeader = token => {
   backend.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -59,6 +59,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
+    toast.error('Something went wrong. Try again');
     return thunkAPI.rejectWithValue(error.message);
   }
 });

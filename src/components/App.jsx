@@ -32,8 +32,8 @@ export const App = () => {
 
       <Route path="/" element={<PrivateRoute />}>
         <Route path="/" element={<DashboardPage />}>
-          <Route index element={<HomePage />} />
-          <Route path="statistics" element={<StatisticsPage />} />
+          <Route path="home" element={<HomePage />} />
+          <Route path="diagram" element={<StatisticsPage />} />
         </Route>
         <Route>
         <Route path="currency" element={<CurrencyPage />} />
