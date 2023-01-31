@@ -1,48 +1,49 @@
-import Chart from 'components/DiagramTab/Chart/Chart';
-import React from 'react';
-import { useEffect } from 'react';
-import { transactionSummary } from 'redux/transaction/transaction-operation';
+import moment from 'moment/moment';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectToken } from 'redux/auth/auth-selector';
-import { useState } from 'react';
+import { transactionSummary } from 'redux/transaction/transaction-operation';
 import { selectStatistic } from 'redux/transaction/transaction-selector';
+import Chart from 'components/DiagramTab/Chart/Chart';
 import Table from 'components/DiagramTab/Table/Table';
-import Select from 'components/DiagramTab/Select/Select';
-import { Balance } from 'components/Balance/Balance';
+
+import {
+  Caption,
+  FlexWrapper,
+  WrappCart,
+  WrappTable,
+} from './StatisticsPage.styled';
+import SelectSmall from 'components/DiagramTab/Select/Select';
 
 export default function StatisticsPage() {
-  const [month, setMonth] = useState('01');
-  const [year, setYear] = useState('2023');
-  console.log(setMonth);
-  console.log(setYear);
+  const [month, setMonth] = useState(new Date());
+  const [year, setYear] = useState(new Date());
+
   const dispatch = useDispatch();
 
   const token = useSelector(selectToken);
   const summaryItem = useSelector(selectStatistic);
-  console.log('summaryItem', summaryItem);
+
   useEffect(() => {
-    // if (!token) {
-    //   console.log('isLogedIn');
-    //   return;
-    // }
     const dataOfTransaction = {
-      month,
-      year,
+      month: moment(month).format('MM'),
+      year: moment(year).format('YYYY'),
     };
     dispatch(transactionSummary(dataOfTransaction));
-
-    // ======= коли треба результат роботи попередньої інфи
-    // dispatch(transactionSummary(dataOfTransaction))
-    //   .unwrap()
-    //   .then(data => console.log('unWrapDispatch', data));
   }, [dispatch, token, month, year]);
 
   return (
     <>
-      <Balance />
-      {summaryItem.categoriesSummary && <Chart />}
-      <Select setMonth={setMonth} setYear={setYear} />
-      {summaryItem.categoriesSummary && <Table />}
+      <FlexWrapper>
+        <WrappCart>
+          <Caption>Statistics</Caption>
+          {summaryItem.categoriesSummary && <Chart />}
+        </WrappCart>
+        <WrappTable>
+          <SelectSmall setMonth={setMonth} setYear={setYear} month={month} year={year}/>
+          {summaryItem.categoriesSummary && <Table />}
+        </WrappTable>
+      </FlexWrapper>
     </>
   );
 }

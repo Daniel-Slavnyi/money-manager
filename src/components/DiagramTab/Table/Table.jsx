@@ -13,50 +13,51 @@ import {
   Transaction,
 } from './Table.styled';
 
-// const diagramColor = [
-//   '#00AD84',
-//   '#24CCA7',
-//   '#81E1FF',
-//   '#4A56E2',
-//   '#C5BAFF',
-//   '#FD9498',
-//   '#FFD8D0',
-//   '#FED057',
-// ];
+const diagramColor = [
+  '#00AD84',
+  '#24CCA7',
+  '#81E1FF',
+  '#4A56E2',
+  '#C5BAFF',
+  '#FD9498',
+  '#FFD8D0',
+  '#FED057',
+];
 
 export default function ChartTable() {
   const summaryItem = useSelector(selectStatistic);
 
   return (
     <>
-      <CaptionWrapper>
-        <SpanCaption>Category</SpanCaption>
-        <SpanCaption>Sum</SpanCaption>
-      </CaptionWrapper>
-
       <ul>
-        {summaryItem.categoriesSummary.map(el => (
+        <CaptionWrapper>
+          <SpanCaption>Category</SpanCaption>
+          <SpanCaption>Sum</SpanCaption>
+        </CaptionWrapper>
+        {summaryItem.categoriesSummary.map((el, index) => (
           <Item key={el.name}>
             <ColorWrapper>
-              <ColorBox></ColorBox>
+              <ColorBox
+                style={{ backgroundColor: diagramColor[index] }}
+              ></ColorBox>
               <span>{el.name}</span>
             </ColorWrapper>
-            <span>{Math.abs(el.total.toFixed(2))}</span>
-            {/* <span>{Math.abs(el.total ? el.total.toFixed(2) : 0 )}</span> */}
+            <span>{Math.abs(el.total).toFixed(2)}</span>
           </Item>
         ))}
+        <SummaryTable>
+          <Transaction>Expenses:</Transaction>
+          <Expenses>{Math.abs(summaryItem.expenseSummary).toFixed(2)}</Expenses>
+        </SummaryTable>
+        <SummaryTable>
+          <Transaction>Income:</Transaction>
+          <Income>
+            {summaryItem.incomeSummary
+              ? Math.abs(summaryItem.incomeSummary).toFixed(2)
+              : 0}
+          </Income>
+        </SummaryTable>
       </ul>
-
-      <SummaryTable>
-        <Transaction>Expenses:</Transaction>
-        <Expenses>{Math.abs(summaryItem.expenseSummary)}</Expenses>
-      </SummaryTable>
-      <SummaryTable>
-        <Transaction>Income:</Transaction>
-        <Income>{Math.abs(summaryItem.incomeSummary ? summaryItem.incomeSummary.toFixed(2) : 0)}</Income>
-      </SummaryTable>
     </>
   );
 }
-
-// totalBalance ? totalBalance.toFixed(2) : 0,
