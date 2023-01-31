@@ -3,7 +3,15 @@ import { register } from 'redux/auth/auth-operation';
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Button, TextField } from '@mui/material';
+import { Button, InputAdornment } from '@mui/material';
+import {
+  CssTextField,
+  StyledForm,
+} from 'components/LoginForm/LoginForm.styled';
+
+import EmailIcon from '@mui/icons-material/Email';
+import LockIcon from '@mui/icons-material/Lock';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 export const RegistrationForm = () => {
   const schema = Yup.object().shape({
@@ -38,10 +46,17 @@ export const RegistrationForm = () => {
 
   return (
     <>
-      <form onSubmit={formik.handleSubmit}>
-        <TextField
-          variant="standard"
-          label="E-mail"
+      <StyledForm onSubmit={formik.handleSubmit}>
+        <CssTextField
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <EmailIcon sx={{ color: '#BDBDBD' }} />
+              </InputAdornment>
+            ),
+          }}
+          margin="normal"
+          placeholder="E-mail"
           id="email"
           name="email"
           type="email"
@@ -51,9 +66,16 @@ export const RegistrationForm = () => {
           error={formik.touched.email && Boolean(formik.errors.email)}
           helperText={formik.touched.email && formik.errors.email}
         />
-        <TextField
-          variant="standard"
-          label="Password"
+        <CssTextField
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <LockIcon sx={{ color: '#BDBDBD' }} />
+              </InputAdornment>
+            ),
+          }}
+          margin="normal"
+          placeholder="Password"
           id="password"
           name="password"
           required
@@ -62,9 +84,16 @@ export const RegistrationForm = () => {
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.touched.password && formik.errors.password}
         />
-        <TextField
-          variant="standard"
-          label="Confirm Password"
+        <CssTextField
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <LockIcon sx={{ color: '#BDBDBD' }} />
+              </InputAdornment>
+            ),
+          }}
+          margin="normal"
+          placeholder="Confirm Password"
           id="confirmPassword"
           name="confirmPassword"
           required
@@ -78,9 +107,16 @@ export const RegistrationForm = () => {
             formik.touched.confirmPassword && formik.errors.confirmPassword
           }
         />
-        <TextField
-          variant="standard"
-          label="Username"
+        <CssTextField
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <AccountBoxIcon sx={{ color: '#BDBDBD' }} />
+              </InputAdornment>
+            ),
+          }}
+          margin="normal"
+          placeholder="Username"
           id="username"
           name="username"
           required
@@ -89,8 +125,8 @@ export const RegistrationForm = () => {
           error={formik.touched.username && Boolean(formik.errors.username)}
           helperText={formik.touched.username && formik.errors.username}
         />
-        <Button type="submit">Submit</Button>
-      </form>
+        <Button type="submit">REGISTER</Button>
+      </StyledForm>
       <Button variant="secondarybutton" href="/money-manager/auth/login">
         Login
       </Button>

@@ -1,32 +1,38 @@
-import React from 'react'
+import React from 'react';
 
-export default function Select() {
+export default function Select({ setMonth, setYear }) {
+  const handleChangeMonth = e => {
+    setMonth(e.target.value);
+  };
+
+  const handleChangeYear = e => {
+    setYear(e.target.value);
+  };
+
   return (
     <>
-    <div>Select</div>
+      <select onChange={handleChangeMonth} name="month" id="month-select">
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
 
-    <select name="month" id="month-select">
-    <option value="January">January</option>
-    <option value="February">February</option>
-    <option value="March">March</option>
-    <option value="April">April</option>
-    <option value="May">May</option>
-    <option value="June">June</option>
-    <option value="July">July</option>
-    <option value="August">August</option>
-    <option value="September">September</option>
-    <option value="October">October</option>
-    <option value="November">November</option>
-    <option value="December">December</option>
-  </select>
-
-  <select name="year" id="year-select">
-    <option value="2019">2019</option>
-    <option value="2021">2021</option>
-    <option value="2022">2022</option>
-    <option value="2023">2023</option>
-    <option value="2024">2024</option>
-  </select>
-  </>
-  )
+      <select onChange={handleChangeYear} name="year" id="year-select">
+        <option value="2023">2023</option>
+        <option value="2018">2018</option>
+        <option value="2019">2019</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+      </select>
+    </>
+  );
 }

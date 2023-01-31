@@ -13,16 +13,16 @@ import {
   Transaction,
 } from './Table.styled';
 
-// const diagramColor = [
-//   '#00AD84',
-//   '#24CCA7',
-//   '#81E1FF',
-//   '#4A56E2',
-//   '#C5BAFF',
-//   '#FD9498',
-//   '#FFD8D0',
-//   '#FED057',
-// ];
+const diagramColor = [
+  '#00AD84',
+  '#24CCA7',
+  '#81E1FF',
+  '#4A56E2',
+  '#C5BAFF',
+  '#FD9498',
+  '#FFD8D0',
+  '#FED057',
+];
 
 export default function ChartTable() {
   const summaryItem = useSelector(selectStatistic);
@@ -35,25 +35,25 @@ export default function ChartTable() {
       </CaptionWrapper>
 
       <ul>
-        {summaryItem.categoriesSummary.map(el => (
+        {summaryItem.categoriesSummary.map((el, index) => (
           <Item key={el.name}>
             <ColorWrapper>
-              <ColorBox></ColorBox>
+              <ColorBox style={{backgroundColor: diagramColor[index]}}></ColorBox>
               <span>{el.name}</span>
             </ColorWrapper>
-            <span>{Math.abs(el.total.toFixed(2))}</span>
-            {/* <span>{Math.abs(el.total ? el.total.toFixed(2) : 0 )}</span> */}
+            <span>{Math.abs(el.total).toFixed(2)}</span>
+           
           </Item>
         ))}
       </ul>
 
       <SummaryTable>
         <Transaction>Expenses:</Transaction>
-        <Expenses>{Math.abs(summaryItem.expenseSummary)}</Expenses>
+        <Expenses>{Math.abs(summaryItem.expenseSummary).toFixed(2)}</Expenses>
       </SummaryTable>
       <SummaryTable>
         <Transaction>Income:</Transaction>
-        <Income>{Math.abs(summaryItem.incomeSummary ? summaryItem.incomeSummary.toFixed(2) : 0)}</Income>
+        <Income>{summaryItem.incomeSummary ? Math.abs(summaryItem.incomeSummary).toFixed(2) : 0}</Income>
       </SummaryTable>
     </>
   );
