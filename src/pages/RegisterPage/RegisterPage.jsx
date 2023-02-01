@@ -4,7 +4,6 @@ import { RegistrationForm } from 'components/RegistrationForm/RegistrationForm';
 import { ReactComponent as ReactLogo } from 'styles/images/logo.svg';
 import { ReactComponent as BgPicture } from 'styles/images/bgPicture.svg';
 import {
-  BlurWrapper,
   LogoContainer,
   PictureTextWrapper,
   PictureWrapper,
