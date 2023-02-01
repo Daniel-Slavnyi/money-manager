@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { FormControlLabel } from '@mui/material';
+import { FormControlLabel, styled } from '@mui/material';
 import { Button, TextField } from '@mui/material';
 
 import BasicDatePicker from './BasicDatePicker';
@@ -28,7 +28,31 @@ import {
 import { selectCategories, selectError } from 'redux/transaction/transaction-selector';
 import moment from 'moment';
 import { Notify } from 'notiflix';
-import { PinkSwitch } from './Switcher.styled';
+import { StyledPinkSwitch } from './Switcher.styled';
+
+export const NumberTextField = styled(TextField)(theme => ({
+  color: '#E0E0E0',
+  
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      width: '170px',
+      color: '#E0E0E0',
+      borderRadius: 0,
+      border: 0,
+      borderBottom: '1px solid #E0E0E0'
+    },
+    '& .MuiInputBase-input': {
+      width: '170px',
+      textAlign: 'center'
+    },
+    '&:hover fieldset': {
+      borderColor: '#4A56E2',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: '#24CCA7',
+    },
+  },
+}));
 
 export default function TransactionForm({ onClose, editOpen, params }) {
   const categories = useSelector(selectCategories)
@@ -98,6 +122,8 @@ export default function TransactionForm({ onClose, editOpen, params }) {
     error === null && onClose()
   };
 
+
+
   return (
     <FormBox>
       <SubmitingForm onSubmit={createNewTransaction}>
@@ -106,7 +132,7 @@ export default function TransactionForm({ onClose, editOpen, params }) {
         ) : (
           <FormTitle>Add transaction</FormTitle>
         )}
-        <SwitchBox>
+       { !editOpen && <SwitchBox>
           {type === 'INCOME' ? (
             <IncomeActive>Income</IncomeActive>
           ) : (
@@ -114,9 +140,8 @@ export default function TransactionForm({ onClose, editOpen, params }) {
           )}
           <FormControlLabel
             control={
-              <PinkSwitch
+              <StyledPinkSwitch
                 inputProps={{ 'aria-label': 'controlled' }}
-                size="big"
                 onChange={switchChange}
                 checked={type === 'INCOME' ? false : true}
               />
@@ -127,15 +152,15 @@ export default function TransactionForm({ onClose, editOpen, params }) {
           ) : (
             <SpanPassive>Expense</SpanPassive>
           )}
-        </SwitchBox>
-        {type === 'INCOME' ? null : (
+        </SwitchBox>}
+        {type === 'INCOME' || editOpen ? null : (
           <Categories
             changeCategoryId={setCategoryId}
             categoryId={categoryId}
           />
         )}
         <SumAndDateBox>
-          <TextField
+          <NumberTextField
             required
             onChange={onNumberChange}
             theme={mainTheme}
@@ -143,7 +168,6 @@ export default function TransactionForm({ onClose, editOpen, params }) {
             value={amount}
             placeholder="0.00"
             inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-            sx={{ width: '190px' }}
           />
           <BasicDatePicker
             required
@@ -163,6 +187,7 @@ export default function TransactionForm({ onClose, editOpen, params }) {
           id="comment"
           name="comment"
           required
+          sx={{width: '380px', m: '40px 0'}}
         />
 
         {editOpen ? (

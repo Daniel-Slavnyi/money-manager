@@ -29,11 +29,10 @@ export default function Categories({ changeCategoryId, categoryId }) {
   return (
     <CategoriesBox sx={{ }}>
       <FormControl fullWidth>
-        <InputLabel id="categories-label">Select a category</InputLabel>
+        <InputLabel id="categories-label"></InputLabel>
         <Select
           labelId="categories-label"
           id="categories"
-          label="Select a category"
           value={categoryId}
           onChange={handleChange}
         >

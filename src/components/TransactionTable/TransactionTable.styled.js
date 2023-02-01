@@ -45,4 +45,42 @@ export const DataGridStyled = styled(DataGrid)(theme => ({
   }
 }));
 
+// ==================== UL for mobile
+
+export const MobileRow = styled.p`
+display: flex;
+justify-content: space-between;
+padding: 12px 20px;
+font-weight: 700;
+font-size: 18px;
+&:not(:last-child) {
+  border-bottom: 1px solid #DCDCDF;
+    }
+`;
+
+export const MobileItem = styled.li`
+width: 100%;
+background-color: #FFFFFF;
+border-radius: 10px;
+
+`;
+
+export const MobileList = styled.ul`
+display: flex;
+flex-direction: column;
+width: 100%;
+gap: 8px;
+margin-top: 32px;
+`;
+
+export const MobileName = styled.span`
+font-weight: 700;
+font-size: 18px;
+`;
+
+export const MobileValue = styled.span`
+font-weight: 400;
+font-size: 16px;
+`;
+
 

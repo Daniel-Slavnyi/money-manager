@@ -10,10 +10,11 @@ padding: 20px;
 export const ConfirmTitle = styled.h2`
 display: flex;
 align-items: center;
-font-size: 32px;
+font-size: 24px;
 padding: 10px;
 margin-bottom: 20px;
 text-align: center;
 width: 100%;
 height: 100%;
+font-weight: 400;
 `;
