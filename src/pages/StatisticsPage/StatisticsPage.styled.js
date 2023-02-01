@@ -8,21 +8,28 @@ export const Caption = styled.p`
   line-height: 1.5;
   color: #000000;
   margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 0;
+  }
 `;
 
 export const FlexWrapper = styled.div`
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
-    gap: 32px;
+    gap: 26px;
     width: 704px;
-      padding: 0 32px; 
+    padding: 0 32px;
   }
 
   @media screen and (min-width: 1280px) {
     width: 715px;
     padding: 0 16px 0 69px;
-    
   }
 `;
 
@@ -31,7 +38,7 @@ export const WrappCart = styled.div`
     margin-top: 20px;
   }
   @media screen and (min-width: 1280px) {
-    margin-top: 32px;
+    margin-top: 0;
   }
 `;
 
@@ -40,6 +47,6 @@ export const WrappTable = styled.div`
     margin-top: 40px;
   }
   @media screen and (min-width: 1280px) {
-    margin-top: 97px;
+    margin-top: 60px;
   }
 `;

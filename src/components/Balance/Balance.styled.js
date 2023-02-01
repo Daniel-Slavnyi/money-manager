@@ -11,12 +11,11 @@ export const BalanceWrapper = styled.div`
   @media (min-width: 768px) {
     width: 336px;
     padding: 8px 40px 12px 40px;
-    margin-bottom: 20px;
+    margin-bottom: 0;
   }
 
   @media (min-width: 1280px) {
     width: 395px;
-    margin-bottom: 32px;
   }
 `;
 

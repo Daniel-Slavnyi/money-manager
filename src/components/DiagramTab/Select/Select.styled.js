@@ -6,12 +6,11 @@ export const SelectsWrapper = styled.div`
   flex-direction: column;
 
   @media screen and (min-width: 768px) {
-    display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-    width: 395px;
+
     margin-right: 0;
-    gap: 16px;
+    gap: 10px;
   }
 
   @media screen and (min-width: 1280px) {

@@ -14,6 +14,10 @@ export const NavListEl = styled.ul`
     align-items: flex-start;
     flex-direction: column;
     gap: 12px;
+    margin-bottom: 35px;
+  }
+
+  @media screen and (min-width: 1280px) {
     margin-bottom: 28px;
   }
 `;
@@ -50,6 +54,12 @@ export const LinkEl = styled(NavLink)`
 
 export const IconWrapperEl = styled.div`
   height: 38px;
+
+  @media screen and (min-width: 768px) {
+    width: 18px;
+    height: 18px;
+    margin-right: 23px;
+  }
 `;
 
 export const SvgEl = styled.svg`

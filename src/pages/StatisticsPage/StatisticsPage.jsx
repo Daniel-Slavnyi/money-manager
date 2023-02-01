@@ -36,15 +36,14 @@ export default function StatisticsPage() {
   const StyledDiv = styled('div')(({ theme }) => ({
     [theme.breakpoints.up('tablet')]: {
       display: 'flex',
+      gap: '32px',
     },
   }));
 
-
-
   return (
     <>
-<StyledDiv>
-      {/* <FlexWrapper> */}
+      <StyledDiv>
+        {/* <FlexWrapper> */}
         <WrappCart>
           <Caption>Statistics</Caption>
           {summaryItem.categoriesSummary && <Chart />}
@@ -58,7 +57,7 @@ export default function StatisticsPage() {
           />
           {summaryItem.categoriesSummary && <Table />}
         </WrappTable>
-      {/* </FlexWrapper> */}
+        {/* </FlexWrapper> */}
       </StyledDiv>
     </>
   );
