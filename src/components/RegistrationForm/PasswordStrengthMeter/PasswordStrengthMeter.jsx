@@ -15,7 +15,7 @@ export const PasswordStrengthMeter = ({ password }) => {
   const calculateStrength = password => {
     if (!password) return strength;
     if (password.length < 8) return (strength = 1);
-    if (password.length >= 8 && password.length <= 10) strength = 2;
+    if (password.length >= 8 && password.length) strength = 2;
     if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) strength += 1;
     if (password.match(/([a-zA-Z])/) && password.match(/([0-9])/))
       strength += 1;
