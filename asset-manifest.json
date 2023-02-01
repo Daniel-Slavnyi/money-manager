@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/money-manager/static/js/main.de8ea5b8.js",
+    "main.js": "/money-manager/static/js/main.d70391b4.js",
     "static/js/531.cf80ce6d.chunk.js": "/money-manager/static/js/531.cf80ce6d.chunk.js",
     "static/js/144.7ae8b4fe.chunk.js": "/money-manager/static/js/144.7ae8b4fe.chunk.js",
     "static/js/643.dd9aa563.chunk.js": "/money-manager/static/js/643.dd9aa563.chunk.js",
     "static/js/755.f3441403.chunk.js": "/money-manager/static/js/755.f3441403.chunk.js",
     "static/js/260.3dff192c.chunk.js": "/money-manager/static/js/260.3dff192c.chunk.js",
     "static/js/891.93dfaa2f.chunk.js": "/money-manager/static/js/891.93dfaa2f.chunk.js",
-    "static/js/872.71eb34b2.chunk.js": "/money-manager/static/js/872.71eb34b2.chunk.js",
+    "static/js/872.384f53f4.chunk.js": "/money-manager/static/js/872.384f53f4.chunk.js",
     "static/js/461.878e6d6c.chunk.js": "/money-manager/static/js/461.878e6d6c.chunk.js",
     "static/js/408.4c484185.chunk.js": "/money-manager/static/js/408.4c484185.chunk.js",
     "static/js/294.beadbca7.chunk.js": "/money-manager/static/js/294.beadbca7.chunk.js",
@@ -24,14 +24,16 @@
     "static/media/sprite.svg": "/money-manager/static/media/sprite.d299b00f27b0ad04a88885a16d7f42ed.svg",
     "static/media/Wallet.svg": "/money-manager/static/media/Wallet.20a9ce0d1a7ea5660c25f7c6dbab91bf.svg",
     "index.html": "/money-manager/index.html",
-    "main.de8ea5b8.js.map": "/money-manager/static/js/main.de8ea5b8.js.map",
+    "static/media/EllipseLeft.svg": "/money-manager/static/media/EllipseLeft.e7cbaa19930a91cc921b259fee050777.svg",
+    "static/media/EllipseRight.svg": "/money-manager/static/media/EllipseRight.07ef13244b203e866dcdec6e7633ee44.svg",
+    "main.d70391b4.js.map": "/money-manager/static/js/main.d70391b4.js.map",
     "531.cf80ce6d.chunk.js.map": "/money-manager/static/js/531.cf80ce6d.chunk.js.map",
     "144.7ae8b4fe.chunk.js.map": "/money-manager/static/js/144.7ae8b4fe.chunk.js.map",
     "643.dd9aa563.chunk.js.map": "/money-manager/static/js/643.dd9aa563.chunk.js.map",
     "755.f3441403.chunk.js.map": "/money-manager/static/js/755.f3441403.chunk.js.map",
     "260.3dff192c.chunk.js.map": "/money-manager/static/js/260.3dff192c.chunk.js.map",
     "891.93dfaa2f.chunk.js.map": "/money-manager/static/js/891.93dfaa2f.chunk.js.map",
-    "872.71eb34b2.chunk.js.map": "/money-manager/static/js/872.71eb34b2.chunk.js.map",
+    "872.384f53f4.chunk.js.map": "/money-manager/static/js/872.384f53f4.chunk.js.map",
     "461.878e6d6c.chunk.js.map": "/money-manager/static/js/461.878e6d6c.chunk.js.map",
     "408.4c484185.chunk.js.map": "/money-manager/static/js/408.4c484185.chunk.js.map",
     "294.beadbca7.chunk.js.map": "/money-manager/static/js/294.beadbca7.chunk.js.map",
@@ -43,6 +45,6 @@
     "181.cb721f6b.chunk.js.map": "/money-manager/static/js/181.cb721f6b.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.de8ea5b8.js"
+    "static/js/main.d70391b4.js"
   ]
 }
