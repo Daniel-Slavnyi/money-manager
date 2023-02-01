@@ -10,7 +10,6 @@ import {
   StyledContainer,
   Wrapper,
 } from 'pages/LoginPage/LoginPage.styled';
-import React from 'react';
 
 export default function RegisterPage() {
   return (

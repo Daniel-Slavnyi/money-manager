@@ -77,3 +77,16 @@ export const BlurWrapper = styled('div')(({ theme }) => ({
     width: '54%',
   },
 }));
+
+export const BlurWrapperMainPage = styled('div')(({ theme }) => ({
+  [theme.breakpoints.up('tablet') || theme.breakpoints.up('desktop')]: {
+    background: 'rgba(255, 255, 255, 0.4)',
+    position: 'absolute',
+    top: '0',
+    right: '0',
+    backdropFilter: 'blur(25px)',
+    height: '100%',
+    width: '100%',
+    zIndex: '-1000',
+  },
+}));
