@@ -49,7 +49,6 @@ export const Currency = () => {
         setIsLoad(false);
       });
   }, []);
-
   return (
     <>
       <Background>
@@ -92,7 +91,7 @@ export const Currency = () => {
                 ))}
           </TableBody>
         </TableContainer>
-        <Image src={image} alt="" />
+        <Image src={image} alt="mountain"/>
         {isLoad && <Loader />}
       </Background>
     </>
