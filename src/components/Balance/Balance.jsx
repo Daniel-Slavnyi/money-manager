@@ -6,7 +6,7 @@ import { balanceFormat }  from '../../utils/balanceFormat';
 
 
 export const Balance = () => {
-  const totalBalance = useSelector(state => state.transactions.total);
+  const totalBalance = useSelector(state => state.transactions.totalBalance);
 
   return (
     <BalanceWrapper>
