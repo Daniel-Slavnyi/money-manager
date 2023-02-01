@@ -18,7 +18,6 @@ const fulfilled = (state, action) => {
   state.error = null;
   state.totalBalance = action.payload.balanceAfter;
   state.items = [...state.items, action.payload];
-  console.log(action.payload);
 };
 
 const rejected = (state, action) => {
@@ -46,7 +45,6 @@ const transactionSlice = createSlice({
 
       .addCase(refreshTransactions.fulfilled, (state, action) => {
         state.items = action.payload;
-        console.log(action.payload);
       })
 
       .addCase(getCategories.fulfilled, (state, action) => {
@@ -88,8 +86,7 @@ const transactionSlice = createSlice({
         state.error = payload;
       })
       .addCase(logIn.fulfilled, (state, { payload }) => {
-        console.log(payload);
-        state.totalBalance = payload.user.balance;
+        state.total = payload.user.balance;
       })
       .addCase(logOut.fulfilled, state => {
         return initialState;

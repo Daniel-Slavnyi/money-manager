@@ -3,10 +3,13 @@ import { logIn } from 'redux/auth/auth-operation';
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+
 import { Button, InputAdornment } from '@mui/material';
-import { CssTextField, StyledForm } from './LoginForm.styled';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
+import { Link } from 'react-router-dom';
+
+import { CssTextField, StyledForm } from './LoginForm.styled';
 
 export const LoginForm = () => {
   const schema = Yup.object().shape({
@@ -22,7 +25,6 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = ({ email, password }, { resetForm }) => {
-    console.log(1);
     dispatch(logIn({ email, password }));
     resetForm();
   };
@@ -75,7 +77,7 @@ export const LoginForm = () => {
         />
         <Button type="submit">LOG IN</Button>
       </StyledForm>
-      <Button variant="secondarybutton" href="/money-manager/auth/register">
+      <Button variant="secondarybutton" component={Link} to="/auth/register">
         Register
       </Button>
     </>

@@ -1,21 +1,17 @@
-import { styled, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 import React from 'react';
 
 import { ReactComponent as ReactLogo } from 'styles/images/logo.svg';
 import { ReactComponent as BgPicture } from 'styles/images/bgPicture.svg';
 import {
+  BlurWrapper,
   LogoContainer,
   PictureTextWrapper,
   PictureWrapper,
   StyledContainer,
   Wrapper,
 } from './LoginPage.styled';
-
-const BlurWrapper = styled('div')(({ theme }) => ({
-  backdropFilter: 'blur(25px)',
-  height: '100%',
-}));
 
 export default function LoginPage() {
   return (
