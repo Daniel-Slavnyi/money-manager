@@ -44,11 +44,11 @@ export const App = () => {
           </Route>
           <Route path="/" element={<PrivateRoute />}>
             <Route path="/" element={<DashboardPage />}>
-              <Route path="home" element={<HomePage />} />
-              <Route path="diagram" element={<StatisticsPage />} />
+              <Route path="/home" element={<HomePage />} />
+              <Route path="/statistic" element={<StatisticsPage />} />
             </Route>
             <Route>
-              <Route path="currency" element={<CurrencyPage />} />
+              <Route path="/currency" element={<CurrencyPage />} />
             </Route>
           </Route>
         </Routes>
