@@ -15,7 +15,7 @@ export const TableContainer = styled.table`
     width: 336px;
     height: 182px;
   }
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     width: 100%;
     height: 174px;
     margin-top: 30px;
@@ -28,12 +28,12 @@ export const TableTop = styled.td`
     text-align: right;
     padding-right: 25px;
   }
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     padding-right: 20px;
   } ;
 `;
 export const TablePurchase = styled.td`
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     text-align: left;
     padding-left: 24px;
     text-align: center;
@@ -47,7 +47,7 @@ export const TableArray = styled.td`
     text-align: right;
     padding-right: 20px;
   }
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
   } ;
 `;
 
@@ -97,7 +97,7 @@ export const Image = styled.img`
   transform: translate(-50%, 0%);
   @media screen and (max-width: 1279px) {
   }
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     width: 280px;
     height: 93px;
   } ;
@@ -107,7 +107,7 @@ export const Background = styled.div`
   position: relative;
   @media screen and (max-width: 1279px) {
   }
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
   } ;
 `;
 
@@ -117,7 +117,7 @@ export const TableFirstLetter = styled.td`
       text-align: left;
       padding-left: 20px;
     }
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 767px) {
       &:nth-child(1) {
         text-align: left;
         padding-left: 20px;
@@ -136,7 +136,7 @@ export const TableLeft = styled.td`
 `;
 
 export const TableCurrency = styled.td`
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     text-align: left;
     padding-left: 20px;
   } ;
