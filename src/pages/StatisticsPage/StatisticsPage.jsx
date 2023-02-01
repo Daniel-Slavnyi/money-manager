@@ -14,6 +14,7 @@ import {
   WrappTable,
 } from './StatisticsPage.styled';
 import SelectSmall from 'components/DiagramTab/Select/Select';
+import { Container, styled } from '@mui/material';
 
 export default function StatisticsPage() {
   const [month, setMonth] = useState(new Date());
@@ -32,9 +33,17 @@ export default function StatisticsPage() {
     dispatch(transactionSummary(dataOfTransaction));
   }, [dispatch, token, month, year]);
 
+  const StyledDiv = styled('div')(({ theme }) => ({
+    [theme.breakpoints.up('tablet')]: {
+      display: 'flex',
+      gap: '32px',
+    },
+  }));
+
   return (
     <>
-      <FlexWrapper>
+      <StyledDiv>
+        {/* <FlexWrapper> */}
         <WrappCart>
           <Caption>Statistics</Caption>
           {summaryItem.categoriesSummary && <Chart />}
@@ -48,7 +57,8 @@ export default function StatisticsPage() {
           />
           {summaryItem.categoriesSummary && <Table />}
         </WrappTable>
-      </FlexWrapper>
+        {/* </FlexWrapper> */}
+      </StyledDiv>
     </>
   );
 }

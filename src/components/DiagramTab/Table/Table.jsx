@@ -30,11 +30,11 @@ export default function ChartTable() {
 
   return (
     <>
+      <CaptionWrapper>
+        <SpanCaption>Category</SpanCaption>
+        <SpanCaption>Sum</SpanCaption>
+      </CaptionWrapper>
       <List>
-        <CaptionWrapper>
-          <SpanCaption>Category</SpanCaption>
-          <SpanCaption>Sum</SpanCaption>
-        </CaptionWrapper>
         {summaryItem.categoriesSummary.map((el, index) => (
           <Item key={el.name}>
             <ColorWrapper>
@@ -46,19 +46,19 @@ export default function ChartTable() {
             <span>{Math.abs(el.total).toFixed(2)}</span>
           </Item>
         ))}
-        <SummaryTable>
-          <Transaction>Expenses:</Transaction>
-          <Expenses>{Math.abs(summaryItem.expenseSummary).toFixed(2)}</Expenses>
-        </SummaryTable>
-        <SummaryTable>
-          <Transaction>Income:</Transaction>
-          <Income>
-            {summaryItem.incomeSummary
-              ? Math.abs(summaryItem.incomeSummary).toFixed(2)
-              : 0}
-          </Income>
-        </SummaryTable>
       </List>
+      <SummaryTable>
+        <Transaction>Expenses:</Transaction>
+        <Expenses>{Math.abs(summaryItem.expenseSummary).toFixed(2)}</Expenses>
+      </SummaryTable>
+      <SummaryTable>
+        <Transaction>Income:</Transaction>
+        <Income>
+          {summaryItem.incomeSummary
+            ? Math.abs(summaryItem.incomeSummary).toFixed(2)
+            : 0}
+        </Income>
+      </SummaryTable>
     </>
   );
 }

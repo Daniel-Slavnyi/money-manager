@@ -9,9 +9,7 @@ import { SelectsWrapper } from './Select.styled';
 
 export const StyledFormControl = styled(FormControl)(({ theme }) => ({
   width: '100%',
-  [theme.breakpoints.up('tablet')]: {
-    width: '395px',
-  },
+  [theme.breakpoints.up('tablet')]: {},
 }));
 
 export const StyledSelect = styled(Select)(({ theme }) => ({
@@ -19,7 +17,7 @@ export const StyledSelect = styled(Select)(({ theme }) => ({
   borderRadius: '50px',
   height: '50',
   [theme.breakpoints.up('tablet')]: {
-    width: '182px',
+    width: '160px',
   },
 }));
 
