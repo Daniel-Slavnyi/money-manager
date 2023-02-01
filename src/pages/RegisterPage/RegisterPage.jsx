@@ -4,12 +4,14 @@ import { RegistrationForm } from 'components/RegistrationForm/RegistrationForm';
 import { ReactComponent as ReactLogo } from 'styles/images/logo.svg';
 import { ReactComponent as BgPicture } from 'styles/images/bgPicture.svg';
 import {
+  BlurWrapper,
   LogoContainer,
   PictureTextWrapper,
   PictureWrapper,
   StyledContainer,
   Wrapper,
 } from 'pages/LoginPage/LoginPage.styled';
+import React from 'react';
 
 export default function RegisterPage() {
   return (
@@ -26,12 +28,14 @@ export default function RegisterPage() {
           </PictureTextWrapper>
         </section>
         <section>
-          <Wrapper>
-            <LogoContainer>
-              <ReactLogo />
-            </LogoContainer>
-            <RegistrationForm />
-          </Wrapper>
+          <BlurWrapper>
+            <Wrapper>
+              <LogoContainer>
+                <ReactLogo />
+              </LogoContainer>
+              <RegistrationForm />
+            </Wrapper>
+          </BlurWrapper>
         </section>
       </StyledContainer>
     </>

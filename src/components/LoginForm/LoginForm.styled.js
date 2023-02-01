@@ -40,6 +40,4 @@ export const StyledForm = styled('form')(({ theme }) => ({
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'center',
-
-  [theme.breakpoints.up('desktop')]: {},
 }));

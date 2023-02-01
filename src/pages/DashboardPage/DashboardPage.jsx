@@ -6,7 +6,6 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { Container, styled } from '@mui/material';
 import { Section, WrapCurency } from './DashboardPage.styled';
 import { useEffect, useState } from 'react';
-import { BlurWrapperMainPage } from 'pages/LoginPage/LoginPage.styled';
 
 const StyledDiv = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('tablet')]: {
@@ -56,18 +55,10 @@ export default function DashboardPage() {
     };
   }, []);
 
-  const StyledMain = styled('main')(({ theme }) => ({
-    paddingTop: '12px',
-    flexGrow: 1,
-    [theme.breakpoints.up('tablet')]: { paddingTop: '32px' },
-    [theme.breakpoints.up('desktop')]: { paddingTop: '46px' },
-  }));
-
   return (
     <>
       <Header />
-      <StyledMain>
-        <BlurWrapperMainPage />
+      <main>
         <StyledContainer>
           <Section>
             <WrapperContainer>
@@ -89,7 +80,7 @@ export default function DashboardPage() {
             </WrapperContainer>
           </section>
         </StyledContainer>
-      </StyledMain>
+      </main>
     </>
   );
 }

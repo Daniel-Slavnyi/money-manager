@@ -7,10 +7,12 @@ export const Head = styled.header`
 export const HeaderWrapper = styled.div`
   padding-top: 15px;
   padding-bottom: 15px;
+  margin-bottom: 15px;
 
   @media (min-width: 768px) {
     padding-top: 20px;
     padding-bottom: 20px;
+    margin-bottom: 32px;
   }
 
   @media (min-width: 1280px) {
