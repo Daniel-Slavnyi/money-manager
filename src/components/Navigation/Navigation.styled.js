@@ -53,13 +53,7 @@ export const LinkEl = styled(NavLink)`
 `;
 
 export const IconWrapperEl = styled.div`
-  height: 38px;
-
-  @media screen and (min-width: 768px) {
-    width: 18px;
-    height: 18px;
-    margin-right: 23px;
-  }
+  display: flex;
 `;
 
 export const SvgEl = styled.svg`

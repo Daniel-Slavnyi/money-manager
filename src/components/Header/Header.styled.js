@@ -39,6 +39,10 @@ export const UserNickName = styled.span`
   display: flex;
   align-items: center;
 
+  line-height: 1;
+
+  color: #bdbdbd;
+
   @media (min-width: 768px) {
     border-right: 1px solid #bdbdbd;
     padding-right: 12px;
@@ -58,15 +62,21 @@ export const ButtonExit = styled.button`
   outline: transparent;
 
   transition: color 250ms linear;
-`;
-
-export const LogOutButton = styled.button`
-  display: flex;
-  gap: 8px;
-  align-items: center;
-
-  border: transparant;
-  background-color: transparent;
 
   cursor: pointer;
+`;
+
+export const SvgEl = styled.svg`
+  width: 18px;
+  height: 18px;
+`;
+
+export const SpanEl = styled.span`
+  display: none;
+
+  color: #bdbdbd;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
 `;

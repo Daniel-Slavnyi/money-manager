@@ -7,3 +7,5 @@ export const selectIsRefreshing = state => state.auth.isRefreshing;
 export const selectToken = state => state.auth.token;
 
 export const getUserName = state => state.auth.user.username;
+
+export const getIsLoading = state => state.auth.isLoading;

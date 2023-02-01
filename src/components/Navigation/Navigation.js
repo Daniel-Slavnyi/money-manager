@@ -14,7 +14,7 @@ export const Navigation = () => {
   return (
     <NavListEl>
       <NavItemEl>
-        <LinkEl to="/">
+        <LinkEl to="/home">
           <IconWrapperEl>
             <SvgEl>
               <use href={`${sprite}#icon-home`}></use>
@@ -24,7 +24,7 @@ export const Navigation = () => {
         </LinkEl>
       </NavItemEl>
       <NavItemEl>
-        <LinkEl to="/statistics">
+        <LinkEl to="diagram">
           <IconWrapperEl>
             <SvgEl>
               <use href={`${sprite}#icon-statistic`}></use>
