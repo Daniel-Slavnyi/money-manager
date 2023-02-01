@@ -86,7 +86,7 @@ const transactionSlice = createSlice({
         state.error = payload;
       })
       .addCase(logIn.fulfilled, (state, { payload }) => {
-        state.total = payload.user.balance;
+        state.totalBalance = payload.user.balance;
       })
       .addCase(logOut.fulfilled, state => {
         return initialState;
