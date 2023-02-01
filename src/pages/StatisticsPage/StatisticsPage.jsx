@@ -1,19 +1,24 @@
-import Chart from 'components/DiagramTab/Chart/Chart';
-import React from 'react';
-import { useEffect } from 'react';
-import { transactionSummary } from 'redux/transaction/transaction-operation';
+import moment from 'moment/moment';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectToken } from 'redux/auth/auth-selector';
-import { useState } from 'react';
-import moment from 'moment/moment';
+import { transactionSummary } from 'redux/transaction/transaction-operation';
 import { selectStatistic } from 'redux/transaction/transaction-selector';
+import Chart from 'components/DiagramTab/Chart/Chart';
 import Table from 'components/DiagramTab/Table/Table';
-import Select from 'components/DiagramTab/Select/Select';
-import { Caption, FlexWrapper, WrappCart, WrappTable } from './StatisticsPage.styled';
+
+import {
+  Caption,
+  FlexWrapper,
+  WrappCart,
+  WrappTable,
+} from './StatisticsPage.styled';
+import SelectSmall from 'components/DiagramTab/Select/Select';
+import { Container, styled } from '@mui/material';
 
 export default function StatisticsPage() {
-  const [month, setMonth] = useState(new Date().toISOString());
-  const [year, setYear] = useState(new Date().toISOString());
+  const [month, setMonth] = useState(new Date());
+  const [year, setYear] = useState(new Date());
 
   const dispatch = useDispatch();
 
@@ -28,18 +33,32 @@ export default function StatisticsPage() {
     dispatch(transactionSummary(dataOfTransaction));
   }, [dispatch, token, month, year]);
 
+  const StyledDiv = styled('div')(({ theme }) => ({
+    [theme.breakpoints.up('tablet')]: {
+      display: 'flex',
+      gap: '32px',
+    },
+  }));
+
   return (
     <>
-      <FlexWrapper>
+      <StyledDiv>
+        {/* <FlexWrapper> */}
         <WrappCart>
           <Caption>Statistics</Caption>
           {summaryItem.categoriesSummary && <Chart />}
         </WrappCart>
         <WrappTable>
-          <Select setMonth={setMonth} setYear={setYear} />
+          <SelectSmall
+            setMonth={setMonth}
+            setYear={setYear}
+            month={month}
+            year={year}
+          />
           {summaryItem.categoriesSummary && <Table />}
         </WrappTable>
-      </FlexWrapper>
+        {/* </FlexWrapper> */}
+      </StyledDiv>
     </>
   );
 }

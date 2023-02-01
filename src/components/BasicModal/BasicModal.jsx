@@ -18,6 +18,9 @@ const style = {
 };
 
 export default function BasicModal() {
+  const theme = useTheme();
+  const colors = theme.palette.colorList;
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);

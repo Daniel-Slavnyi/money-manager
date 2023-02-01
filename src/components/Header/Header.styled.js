@@ -1,18 +1,13 @@
 import styled from '@emotion/styled/macro';
 
 export const Head = styled.header`
-  @media screen and (max-width: 767px) {
-    position: fixed;
-    left: 0;
-    right: 0;
-    z-index: 10;
-  }
+  background-color: white;
 `;
 
 export const HeaderWrapper = styled.div`
   padding-top: 15px;
   padding-bottom: 15px;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 
   @media (min-width: 768px) {
     padding-top: 20px;

@@ -29,7 +29,7 @@ const theme = createTheme({
     },
     background: {
       default: '#E7EAF2',
-      paper: 'rgba(120, 120, 120, 0.22)',
+      paper: 'background: rgba(0, 0, 0, 0.25);',
     },
     text: {
       primary: '#000000',
@@ -197,19 +197,25 @@ theme.components = {
 
 //typography settings
 theme.typography.caption = {
+  margin: 0,
   fontWeight: 200,
 };
 
 theme.typography.body1 = {
-  htmlFontSize: 16,
+  margin: 0,
   fontFamily: 'Circe',
-  fontSize: 14,
+  fontSize: '18px',
   fontWeight: 400,
 };
 theme.typography.body2 = {
-  opacity: 0.6,
+  margin: 0,
+  fontFamily: 'Circe',
+  fontSize: '16px',
+  fontWeight: 400,
+  lineHeight: '1.5',
 };
 theme.typography.h1 = {
+  margin: 0,
   fontFamily: 'Poppins',
   fontStyle: 'normal',
   fontWeight: '400',
@@ -217,14 +223,17 @@ theme.typography.h1 = {
   lineHeight: '1.5',
 };
 theme.typography.h2 = {
+  margin: 0,
   fontSize: '18px',
   fontWeight: 700,
 };
 theme.typography.h3 = {
+  margin: 0,
   fontSize: '16px',
   fontWeight: 600,
 };
 theme.typography.button = {
+  margin: 0,
   fontSize: '14px',
   fontWeight: 500,
 };

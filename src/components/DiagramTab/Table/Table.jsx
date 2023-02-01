@@ -8,6 +8,7 @@ import {
   Expenses,
   Income,
   Item,
+  List,
   SpanCaption,
   SummaryTable,
   Transaction,
@@ -33,30 +34,31 @@ export default function ChartTable() {
         <SpanCaption>Category</SpanCaption>
         <SpanCaption>Sum</SpanCaption>
       </CaptionWrapper>
-
-      <ul>
+      <List>
         {summaryItem.categoriesSummary.map((el, index) => (
           <Item key={el.name}>
             <ColorWrapper>
-              <ColorBox style={{backgroundColor: diagramColor[index]}}></ColorBox>
+              <ColorBox
+                style={{ backgroundColor: diagramColor[index] }}
+              ></ColorBox>
               <span>{el.name}</span>
             </ColorWrapper>
             <span>{Math.abs(el.total).toFixed(2)}</span>
-           
           </Item>
         ))}
-      </ul>
-
+      </List>
       <SummaryTable>
         <Transaction>Expenses:</Transaction>
         <Expenses>{Math.abs(summaryItem.expenseSummary).toFixed(2)}</Expenses>
       </SummaryTable>
       <SummaryTable>
         <Transaction>Income:</Transaction>
-        <Income>{summaryItem.incomeSummary ? Math.abs(summaryItem.incomeSummary).toFixed(2) : 0}</Income>
+        <Income>
+          {summaryItem.incomeSummary
+            ? Math.abs(summaryItem.incomeSummary).toFixed(2)
+            : 0}
+        </Income>
       </SummaryTable>
     </>
   );
 }
-
-// totalBalance ? totalBalance.toFixed(2) : 0,
