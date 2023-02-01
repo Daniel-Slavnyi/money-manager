@@ -9,12 +9,11 @@ import Table from 'components/DiagramTab/Table/Table';
 
 import {
   Caption,
-  FlexWrapper,
   WrappCart,
   WrappTable,
 } from './StatisticsPage.styled';
 import SelectSmall from 'components/DiagramTab/Select/Select';
-import { Container, styled } from '@mui/material';
+import { styled } from '@mui/material';
 
 export default function StatisticsPage() {
   const [month, setMonth] = useState(new Date());
@@ -43,7 +42,6 @@ export default function StatisticsPage() {
   return (
     <>
       <StyledDiv>
-        {/* <FlexWrapper> */}
         <WrappCart>
           <Caption>Statistics</Caption>
           {summaryItem.categoriesSummary && <Chart />}
@@ -57,7 +55,6 @@ export default function StatisticsPage() {
           />
           {summaryItem.categoriesSummary && <Table />}
         </WrappTable>
-        {/* </FlexWrapper> */}
       </StyledDiv>
     </>
   );

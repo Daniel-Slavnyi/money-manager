@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { ModalLogout } from 'components/ModalLogout/ModalLogout';
 import { getUserName } from 'redux/auth/auth-selector';
+
+import { Container } from '@mui/material';
+
+import { ModalLogout } from 'components/ModalLogout/ModalLogout';
+
 import { Logo } from '../Logo/Logo';
 import sprite from '../../images/sprite.svg';
-
 import {
   Head,
   HeaderWrapper,
@@ -14,7 +17,6 @@ import {
   SvgEl,
   SpanEl,
 } from './Header.styled';
-import { Container } from '@mui/material';
 
 export const Header = () => {
   const userName = useSelector(getUserName);

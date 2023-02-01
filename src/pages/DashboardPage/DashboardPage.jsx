@@ -2,10 +2,10 @@ import { Header } from 'components/Header/Header';
 import { Balance } from '../../components/Balance/Balance';
 import { Currency } from 'components/Currency/currency';
 import { Navigation } from 'components/Navigation/Navigation';
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { Container, styled } from '@mui/material';
 import { Section, WrapCurency } from './DashboardPage.styled';
+import { useEffect, useState } from 'react';
 
 const StyledDiv = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('tablet')]: {
@@ -40,6 +40,21 @@ const WrapperContainer = styled(Container)(({ theme }) => ({
 }));
 
 export default function DashboardPage() {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const location = useLocation();
+
+  const isHidden = location.pathname === '/statistic' && screenWidth < 768;
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <>
       <Header />
@@ -50,7 +65,7 @@ export default function DashboardPage() {
               <StyledDiv>
                 <div>
                   <Navigation />
-                  <Balance />
+                  {!isHidden && <Balance />}
                 </div>
 
                 <WrapCurency>
