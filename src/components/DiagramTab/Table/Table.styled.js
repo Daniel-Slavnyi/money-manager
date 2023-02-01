@@ -3,19 +3,21 @@ import styled from '@emotion/styled/macro';
 export const List = styled.ul`
   margin: 0;
   padding: 0;
+  margin-bottom: 16px;
 `;
 
 export const Item = styled.li`
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  width: 280px;
+
   padding: 12px 24px 0 24px;
   padding-bottom: 12px;
   border-bottom: 1px solid #dcdcdf;
   box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
 
   @media screen and (min-width: 768px) {
-    width: 336px;
+    /* width: 100px; */
   }
 
   @media screen and (min-width: 1280px) {
@@ -27,7 +29,7 @@ export const CaptionWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  margin-top: 20px;
   margin-bottom: 16px;
   padding: 16px 19px;
   background: #ffffff;
@@ -55,14 +57,21 @@ export const ColorBox = styled.span`
 
 export const SummaryTable = styled.p`
   display: flex;
+
   justify-content: space-between;
   align-items: flex-end;
   padding: 0 24px 0 24px;
 
   /* gap: 14px; */
-  /* &:not(:last-child) {
-    margin-bottom: 14px;
-  } */
+  &:not(:last-child) {
+    margin-bottom: 17px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    &:not(:last-child) {
+      margin-bottom: 14px;
+    }
+  }
 `;
 
 export const Transaction = styled.span`

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { refreshUser } from 'redux/auth/auth-operation';
+import { logIn, logOut, refreshUser } from 'redux/auth/auth-operation';
 import {
   getCategories,
   newTransaction,
@@ -86,7 +86,14 @@ const transactionSlice = createSlice({
       .addCase(deleteTransaction.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
-      }),
+      })
+      .addCase(logIn.fulfilled, (state,{payload}) => {
+        console.log(payload);
+    state.total = payload.user.balance;
+      })
+      .addCase(logOut.fulfilled, (state) => {
+        return initialState;
+      }) 
 });
 
 export const transactionReducer = transactionSlice.reducer;

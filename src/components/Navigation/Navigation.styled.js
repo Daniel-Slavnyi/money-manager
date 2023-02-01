@@ -14,6 +14,10 @@ export const NavListEl = styled.ul`
     align-items: flex-start;
     flex-direction: column;
     gap: 12px;
+    margin-bottom: 35px;
+  }
+
+  @media screen and (min-width: 1280px) {
     margin-bottom: 28px;
   }
 `;

@@ -11,12 +11,12 @@ export const TableContainer = styled.table`
   table-layout: fixed;
   width: 393px;
   height: 331px;
-  @media screen and (max-width: 1199px) {
+  @media screen and (max-width: 1279px) {
     width: 336px;
     height: 182px;
   }
   @media screen and (max-width: 480px) {
-    width: 280px;
+    width: 100%;
     height: 174px;
     margin-top: 30px;
   } ;
@@ -27,15 +27,14 @@ export const TableTop = styled.td`
   @media screen and (max-width: 1199px) {
     text-align: right;
     padding-right: 25px;
-    
   }
   @media screen and (max-width: 480px) {
     padding-right: 20px;
   } ;
 `;
 export const TablePurchase = styled.td`
-@media screen and (max-width: 480px) {
-  text-align: left;
+  @media screen and (max-width: 480px) {
+    text-align: left;
     padding-left: 24px;
   } ;
 `;
@@ -45,7 +44,7 @@ export const TableArray = styled.td`
   @media screen and (max-width: 1199px) {
     height: 40px;
     text-align: right;
-padding-right: 20px;
+    padding-right: 20px;
   }
   @media screen and (max-width: 480px) {
   } ;
@@ -82,17 +81,13 @@ export const TableBody = styled.tbody`
 `;
 
 export const TableRow = styled.tr`
-height: 60%;
+  height: 60%;
   vertical-align: text-top;
   @media screen and (max-width: 1199px) {
     height: 50%;
   }
-  
 `;
-export const TableRowTop = styled.tr`
-  
-  
-`;
+export const TableRowTop = styled.tr``;
 export const Image = styled.img`
   display: block;
   position: absolute;
@@ -116,19 +111,18 @@ export const Background = styled.div`
 `;
 
 export const TableFirstLetter = styled.td`
- @media screen and (max-width: 1199px) {
-  &:nth-child(1) {
-text-align: left;
-padding-left: 20px;
-}
-@media screen and (max-width: 480px) {
-  &:nth-child(1) {
-text-align: left;
-padding-left: 20px;
-}
-  } ;
- }
- 
+  @media screen and (max-width: 1199px) {
+    &:nth-child(1) {
+      text-align: left;
+      padding-left: 20px;
+    }
+    @media screen and (max-width: 480px) {
+      &:nth-child(1) {
+        text-align: left;
+        padding-left: 20px;
+      }
+    }
+  }
 `;
 
 export const TableLeft = styled.td`
@@ -141,8 +135,8 @@ export const TableLeft = styled.td`
 `;
 
 export const TableCurrency = styled.td`
- @media screen and (max-width: 480px) {
-  text-align: left;
+  @media screen and (max-width: 480px) {
+    text-align: left;
     padding-left: 20px;
   } ;
-`
+`;

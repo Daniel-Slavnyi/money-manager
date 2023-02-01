@@ -8,7 +8,9 @@ const GlobalStyle = createGlobalStyle`
     .css-1yjjitx-MuiSwitch-track  {
         background-color: yellow;
     }
-
+* {
+  box-sizing: border-box; 
+}
     body {
         box-sizing: border-box;
         margin: 0;
