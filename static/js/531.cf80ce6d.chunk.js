@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmoney_manager=self.webpackChunkmoney_manager||[]).push([[531],{2531:function(n,e,r){r.r(e),r.d(e,{default:function(){return t}});r(2791);var u=r(7689),a=r(184);function t(){return(0,a.jsx)("main",{children:(0,a.jsx)(u.j3,{})})}}}]);
+//# sourceMappingURL=531.cf80ce6d.chunk.js.map
