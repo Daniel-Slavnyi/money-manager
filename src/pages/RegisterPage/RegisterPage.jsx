@@ -28,14 +28,12 @@ export default function RegisterPage() {
           </PictureTextWrapper>
         </section>
         <section>
-          <BlurWrapper>
-            <Wrapper>
-              <LogoContainer>
-                <ReactLogo />
-              </LogoContainer>
-              <RegistrationForm />
-            </Wrapper>
-          </BlurWrapper>
+          <Wrapper>
+            <LogoContainer>
+              <ReactLogo />
+            </LogoContainer>
+            <RegistrationForm />
+          </Wrapper>
         </section>
       </StyledContainer>
     </>
