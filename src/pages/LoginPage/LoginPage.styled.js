@@ -65,3 +65,8 @@ export const PictureTextWrapper = styled('div')(({ theme }) => ({
     flexDirection: 'column',
   },
 }));
+
+export const BlurWrapper = styled('div')(({ theme }) => ({
+  // backdropFilter: 'blur(25px)',
+  height: '100%',
+}));

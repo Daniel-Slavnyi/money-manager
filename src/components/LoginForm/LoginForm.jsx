@@ -7,6 +7,7 @@ import { Button, InputAdornment } from '@mui/material';
 import { CssTextField, StyledForm } from './LoginForm.styled';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
+import { Link } from 'react-router-dom';
 
 export const LoginForm = () => {
   const schema = Yup.object().shape({
@@ -75,7 +76,7 @@ export const LoginForm = () => {
         />
         <Button type="submit">LOG IN</Button>
       </StyledForm>
-      <Button variant="secondarybutton" href="/money-manager/auth/register">
+      <Button variant="secondarybutton" component={Link} to="/auth/register">
         Register
       </Button>
     </>
