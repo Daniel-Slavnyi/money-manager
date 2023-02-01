@@ -5,5 +5,8 @@ export const WrapCurency = styled.div`
 
   @media screen and (min-width: 480px) {
     display: block;
+    
   }
 `;
+
+

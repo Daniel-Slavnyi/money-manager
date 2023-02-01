@@ -3,9 +3,11 @@ import styled from '@emotion/styled/macro';
 export const List = styled.ul`
   margin: 0;
   padding: 0;
+  width: 336px;
 `;
 
 export const Item = styled.li`
+box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   width: 280px;
@@ -16,7 +18,7 @@ export const Item = styled.li`
 
   @media screen and (min-width: 768px) {
     width: 336px;
-  }
+      }
 
   @media screen and (min-width: 1280px) {
     width: 395px;
