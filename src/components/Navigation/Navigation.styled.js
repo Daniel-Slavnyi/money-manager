@@ -34,8 +34,6 @@ export const LinkEl = styled(NavLink)`
   outline: transparent;
   text-decoration: none;
 
-  transition: font-weight, fill 250ms linear;
-
   &:hover,
   &:hover svg,
   &:focus,
@@ -61,6 +59,8 @@ export const SvgEl = styled.svg`
   height: 38px;
   fill: #6e78e8;
 
+  transition: all 250ms linear;
+
   ${LinkEl}:hover & {
     filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
     background-color: white;
@@ -77,6 +77,8 @@ export const TextEl = styled.span`
   display: none;
 
   color: #000000;
+
+  transition: font-weight 250ms linear;
 
   @media screen and (min-width: 768px) {
     display: block;

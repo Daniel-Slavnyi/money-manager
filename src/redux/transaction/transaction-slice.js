@@ -16,7 +16,7 @@ const pending = state => {
 const fulfilled = (state, action) => {
   state.isLoading = false;
   state.error = null;
-  state.total = action.payload.balanceAfter;
+  state.totalBalance = action.payload.balanceAfter;
   state.items = [...state.items, action.payload];
 };
 
@@ -27,7 +27,7 @@ const rejected = (state, action) => {
 
 const initialState = {
   items: [],
-  total: null,
+  totalBalance: null,
   summaryItem: {},
   error: null,
   isLoading: null,
@@ -58,7 +58,7 @@ const transactionSlice = createSlice({
         state.error = null;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-        state.total = action.payload.balance;
+        state.totalBalance = action.payload.balance;
       })
       .addCase(updateTransaction.pending, state => {
         state.isLoading = true;
@@ -85,12 +85,12 @@ const transactionSlice = createSlice({
         state.isLoading = false;
         state.error = payload;
       })
-      .addCase(logIn.fulfilled, (state,{payload}) => {
-    state.total = payload.user.balance;
+      .addCase(logIn.fulfilled, (state, { payload }) => {
+        state.totalBalance = payload.user.balance;
       })
-      .addCase(logOut.fulfilled, (state) => {
+      .addCase(logOut.fulfilled, state => {
         return initialState;
-      }) 
+      }),
 });
 
 export const transactionReducer = transactionSlice.reducer;

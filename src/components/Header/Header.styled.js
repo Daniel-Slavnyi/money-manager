@@ -43,9 +43,16 @@ export const UserNickName = styled.span`
 
   color: #bdbdbd;
 
+  transition: all 250ms linear;
+
   @media (min-width: 768px) {
     border-right: 1px solid #bdbdbd;
     padding-right: 12px;
+  }
+
+  &:hover {
+    color: #000000;
+    border-color: #000000;
   }
 `;
 
@@ -61,20 +68,35 @@ export const ButtonExit = styled.button`
   border: transparent;
   outline: transparent;
 
-  transition: color 250ms linear;
-
   cursor: pointer;
+
+  &:hover span,
+  &:focus span {
+    color: #000000;
+  }
+
+  &:hover svg,
+  &:focus svg {
+    fill: #000000;
+  }
 `;
 
 export const SvgEl = styled.svg`
-  width: 18px;
-  height: 18px;
+  width: 21px;
+  height: 21px;
+  padding-bottom: 3px;
+
+  fill: #bdbdbd;
+
+  transition: fill 250ms linear;
 `;
 
 export const SpanEl = styled.span`
   display: none;
 
   color: #bdbdbd;
+
+  transition: color 250ms linear;
 
   @media (min-width: 768px) {
     display: block;
