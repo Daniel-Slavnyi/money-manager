@@ -27,7 +27,6 @@ export const PasswordStrengthMeter = ({ password }) => {
   if (strength > 4) {
     strength = 4;
   }
-  console.log(strength);
   return (
     <StrengthWrapper>
       <BarBackgroundDiv>
