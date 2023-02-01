@@ -11,16 +11,11 @@ import {
 import DataTable from './DataTable';
 import BasicModal from 'components/BasicModal/BasicModal';
 
-import { Container } from './TransactionTable.styled';
+// import { Container } from './TransactionTable.styled';
 
 export default function TransactionTable() {
   const dispatch = useDispatch();
   const logedIn = useSelector(selectIsLoggedIn);
-
-const openModalByID = (transationID) => {
-
-
-}
 
   useEffect(() => {
     if (!logedIn) return;
@@ -29,9 +24,9 @@ const openModalByID = (transationID) => {
   }, [logedIn, dispatch]);
 
   return (
-    <Container>
+    <>
       <BasicModal />
       <DataTable />
-    </Container>
+    </>
   );
 }

@@ -1,4 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { omit } from 'lodash';
+
 import { setAuthHeader } from 'redux/auth/auth-operation';
 import { backend } from '../../services/apiAuth';
 import { Notify } from 'notiflix';
@@ -7,8 +9,6 @@ import {
   getAllTransactions,
   getTransactionCategories,
   getSummaryTransaction,
-  deleteTransactionByID,
-  editTransactionByID,
 } from 'services/apiTransaction';
 
 // const setAuthHeader = token => {
@@ -42,9 +42,11 @@ export const newTransaction = createAsyncThunk(
   async (transferOptions, thunkAPI) => {
     try {
       const res = await createNewTransaction(transferOptions);
+      Notify.success('Transaction successfully created!');
       // After successful login, add the token to the HTTP header
       return res;
     } catch (error) {
+      Notify.failure('Something went wrong');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -85,10 +87,10 @@ export const transactionSummary = createAsyncThunk(
 
 export const updateTransaction = createAsyncThunk(
   'transaction/updateTransaction',
-  async ({ id, ...transaction }, { rejectWithValue }) => {
+  async ( transaction , { rejectWithValue }) => {
     try {
-      const { data } = await backend.patch(`/transactions/${id}`, transaction);
-      Notify.success('Comment was updated!');
+      const { data } = await backend.patch(`/transactions/${transaction.id}`, omit(transaction, 'id'));
+      Notify.success('Transaction was updated!');
       return data;
     } catch (error) {
       Notify.failure('Something Went Wrong');

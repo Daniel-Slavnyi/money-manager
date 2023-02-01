@@ -10,7 +10,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 508,
-  bgcolor: 'background.paper',
+  bgcolor: 'white',
   border: 'none',
   boxShadow: 24,
   padding: 0,
@@ -27,14 +27,13 @@ export default function BasicModal() {
         +
       </OpenModalButton>
       <Modal
-        keepMounted
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <TransactionForm onClose={handleClose} />
+          {open && <TransactionForm onClose={handleClose} />}
         </Box>
       </Modal>
     </div>

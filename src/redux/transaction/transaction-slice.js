@@ -2,13 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 import { refreshUser } from 'redux/auth/auth-operation';
 import {
   deleteTransaction,
-  editTransaction,
   getCategories,
   newTransaction,
   refreshTransactions,
   transactionSummary,
   updateTransaction,
-  deleteTransaction,
 } from './transaction-operation';
 
 const pending = state => {
@@ -20,7 +18,6 @@ const fulfilled = (state, action) => {
   state.error = null;
   state.total = action.payload.balanceAfter;
   state.items = [...state.items, action.payload];
-  console.log(action.payload);
 };
 
 const rejected = (state, action) => {

@@ -12,9 +12,9 @@ import { Button } from '@mui/material';
 
 import EditModal from 'components/EditModal/EditModal';
 import ModalConfirmDelete from 'components/ModalConfirmDelete/ModalConfirmDelete';
+import { DataGridStyled } from './TransactionTable.styled';
 
 export default function DataTable() {
-
 
   const columns = [
     { field: 'transactionDate', headerName: 'Date', width: 90 },
@@ -24,19 +24,22 @@ export default function DataTable() {
       field: 'comment',
       headerName: 'Comment',
       type: 'string',
-      width: 200,
+      width: 160,
     },
     {
       field: 'amount',
       headerName: 'Sum',
       type: 'string',
       width: 90,
+      renderCell: params=> {
+
+      }
     },
     {
       field: 'balanceAfter',
       headerName: 'Balance',
       type: 'number',
-      width: 120,
+      width: 90,
     },
     {
       field: 'action',
@@ -64,11 +67,11 @@ export default function DataTable() {
   }));
 
   return (
-    <div style={{ height: 500, width: 890, padding: '46px 16px 0 69px' }}>
-      <DataGrid
+    <div style={{ height: 500, width: 920, padding: '0 16px 0 39px' }}>
+      <DataGridStyled
         rows={newArray}
         columns={columns}
-        pageSize={10}
+        pageSize={20}
         rowsPerPageOptions={[12]}
         disableColumnMenu
         disableDensitySelector={true}

@@ -149,6 +149,33 @@ theme.components = {
           },
         },
       },
+      {
+        props: { variant: 'smallbutton' },
+        style: {
+          fontFamily: 'Circe',
+          fontStyle: 'normal',
+          fontWeight: '700',
+          fontSize: '12px',
+          lineHeight: '14px',
+          textAlign: 'center',
+          verticalAlign: 'center',
+          letterSpacing: '0.01em',
+          textTransform: 'uppercase',
+
+          color: theme.palette.colorList.blue,
+          background: theme.palette.colorList.white,
+          padding: '3px 5px',
+          width: '30px',
+          borderRadius: '20px',
+          border: `1px solid ${theme.palette.colorList.blue}`,
+          '&:hover': {
+            background: theme.palette.colorList.grey,
+          },
+          [theme.breakpoints.up('phablet')]: {
+            width: '30px',
+          },
+        },
+      },
     ],
     defaultProps: {
       variant: 'mainbutton',

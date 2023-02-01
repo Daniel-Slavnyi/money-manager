@@ -11,7 +11,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 508,
-  bgcolor: 'background.paper',
+  bgcolor: 'white',
   border: 'none',
   boxShadow: 24,
   padding: 0,
@@ -26,8 +26,7 @@ export default function EditModal({params}) {
     <div>
       <Button
         theme={mainTheme}
-        variant="secondarybutton"
-        sx={{ height: '10px', width: '30px!important' }}
+        variant='smallbutton'
         onClick={handleOpen}
       >
         EDIT
@@ -39,7 +38,7 @@ export default function EditModal({params}) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <TransactionForm params={params} editOpen={editOpen} onClose={handleClose} />
+         {editOpen && <TransactionForm params={params} editOpen={editOpen} onClose={handleClose} />}
         </Box>
       </Modal>
     </div>

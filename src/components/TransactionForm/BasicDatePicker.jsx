@@ -7,7 +7,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { styled } from '@mui/material';
 
 const DateField = styled('input')({
-  widt: '40px',
+  width: '40px',
   height: '40px',
   background: 'red',
 });
@@ -19,6 +19,7 @@ export default function BasicDatePicker({
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
+      required
       inputFormat="DD.MM.YY"
         value={transactionDate}
         onChange={newValue => {

@@ -14,7 +14,7 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   height: 'auto',
-  bgcolor: 'background.paper',
+  bgcolor: 'white',
   border: 'none',
   boxShadow: 24,
   borderRadius: '20px',
@@ -35,8 +35,8 @@ export default function ModalConfirmDelete({ params }) {
     <div>
       <Button
         theme={mainTheme}
-        variant="secondarybutton"
-        sx={{ height: '10px', width: '30px!important', marginLeft: '10px' }}
+        variant='smallbutton'
+        sx={{ marginLeft: '7px'}}
         onClick={handleOpen}
       >
         DELETE
