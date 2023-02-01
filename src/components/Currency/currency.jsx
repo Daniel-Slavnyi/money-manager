@@ -49,11 +49,6 @@ export const Currency = () => {
         setIsLoad(false);
       });
   }, []);
-
-  // const value = new Date().getTime();
-  // console.log(value);
-  // const dateLocalstorage = currency[0].date;
-
   return (
     <>
       <Background>
@@ -96,7 +91,7 @@ export const Currency = () => {
                 ))}
           </TableBody>
         </TableContainer>
-        <Image src={image} alt="" />
+        <Image src={image} alt="mountain"/>
         {isLoad && <Loader />}
       </Background>
     </>
