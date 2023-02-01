@@ -24,7 +24,7 @@ export const Navigation = () => {
         </LinkEl>
       </NavItemEl>
       <NavItemEl>
-        <LinkEl to="diagram">
+        <LinkEl to="/statistic">
           <IconWrapperEl>
             <SvgEl>
               <use href={`${sprite}#icon-statistic`}></use>
