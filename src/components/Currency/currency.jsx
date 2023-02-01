@@ -50,10 +50,6 @@ export const Currency = () => {
       });
   }, []);
 
-  // const value = new Date().getTime();
-  // console.log(value);
-  // const dateLocalstorage = currency[0].date;
-
   return (
     <>
       <Background>

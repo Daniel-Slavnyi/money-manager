@@ -5,8 +5,7 @@ import { Navigation } from 'components/Navigation/Navigation';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Container, styled } from '@mui/material';
 import { Section, WrapCurency } from './DashboardPage.styled';
-import { isVisible } from '@testing-library/user-event/dist/utils';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const StyledDiv = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('tablet')]: {

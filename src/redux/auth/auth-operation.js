@@ -1,7 +1,6 @@
 import { backend } from '../../services/apiAuth';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { registerUser, loginUser, logoutUser } from '../../services/apiAuth';
-import { transactionSummary } from 'redux/transaction/transaction-operation';
 import { toast } from 'react-toastify';
 // Utility to add JWT
 export const setAuthHeader = token => {
