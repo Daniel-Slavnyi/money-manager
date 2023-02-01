@@ -11,10 +11,6 @@ import {
   getSummaryTransaction,
 } from 'services/apiTransaction';
 
-// const setAuthHeader = token => {
-//   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-// };
-
 export const refreshTransactions = createAsyncThunk(
   'transaction/refresh',
   async (_, thunkAPI) => {

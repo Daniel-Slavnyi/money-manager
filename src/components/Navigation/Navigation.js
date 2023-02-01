@@ -1,6 +1,6 @@
 import Media from 'react-media';
-import sprite from '../../images/sprite.svg';
 import { mediaScreen } from '../../utils/constants';
+import sprite from '../../images/sprite.svg';
 import {
   NavListEl,
   NavItemEl,
@@ -14,7 +14,7 @@ export const Navigation = () => {
   return (
     <NavListEl>
       <NavItemEl>
-        <LinkEl to="/">
+        <LinkEl to="/home">
           <IconWrapperEl>
             <SvgEl>
               <use href={`${sprite}#icon-home`}></use>
@@ -24,7 +24,7 @@ export const Navigation = () => {
         </LinkEl>
       </NavItemEl>
       <NavItemEl>
-        <LinkEl to="/statistics">
+        <LinkEl to="/statistic">
           <IconWrapperEl>
             <SvgEl>
               <use href={`${sprite}#icon-statistic`}></use>

@@ -179,7 +179,6 @@ theme.components = {
     ],
     defaultProps: {
       variant: 'mainbutton',
-      // size: 'medium',
     },
   },
 

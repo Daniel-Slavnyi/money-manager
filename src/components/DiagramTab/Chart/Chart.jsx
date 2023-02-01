@@ -1,9 +1,8 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import { useSelector } from 'react-redux';
+import { selectStatistic } from 'redux/transaction/transaction-selector';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { DoughnutWrapper } from './Chart.styled';
-import { useSelector } from 'react-redux';
-import { selectStatistic } from 'redux/transaction/transaction-selector';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -48,7 +47,6 @@ export default function Chart() {
   const textCenter = {
     id: 'textCenter',
     beforeDatasetsDraw(chart) {
-      console.log('summaryItem', summaryItem);
       const { ctx } = chart;
       ctx.save();
       ctx.font = 'bolder 27px Circe';
@@ -62,7 +60,6 @@ export default function Chart() {
       );
     },
   };
-
 
   return (
     <>

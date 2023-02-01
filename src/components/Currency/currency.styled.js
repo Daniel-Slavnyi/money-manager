@@ -24,7 +24,7 @@ export const TableContainer = styled.table`
 
 export const TableTop = styled.td`
   height: 50px;
-  @media screen and (max-width: 1199px) {
+  @media screen and (max-width: 1279px) {
     text-align: right;
     padding-right: 25px;
   }
@@ -36,12 +36,13 @@ export const TablePurchase = styled.td`
   @media screen and (max-width: 480px) {
     text-align: left;
     padding-left: 24px;
+    text-align: center;
   } ;
 `;
 
 export const TableArray = styled.td`
   height: 50px;
-  @media screen and (max-width: 1199px) {
+  @media screen and (max-width: 1279px) {
     height: 40px;
     text-align: right;
     padding-right: 20px;
@@ -66,7 +67,7 @@ export const TableHead = styled.thead`
   font-size: 18px;
   line-height: 1.5;
   letter-spacing: 1px;
-  @media screen and (max-width: 1199px) {
+  @media screen and (max-width: 1279px) {
     height: 50px;
     font-size: 16px;
   }
@@ -83,7 +84,7 @@ export const TableBody = styled.tbody`
 export const TableRow = styled.tr`
   height: 60%;
   vertical-align: text-top;
-  @media screen and (max-width: 1199px) {
+  @media screen and (max-width: 1279px) {
     height: 50%;
   }
 `;
@@ -94,7 +95,7 @@ export const Image = styled.img`
   bottom: 0%;
   left: 50%;
   transform: translate(-50%, 0%);
-  @media screen and (max-width: 1199px) {
+  @media screen and (max-width: 1279px) {
   }
   @media screen and (max-width: 480px) {
     width: 280px;
@@ -104,14 +105,14 @@ export const Image = styled.img`
 
 export const Background = styled.div`
   position: relative;
-  @media screen and (max-width: 1199px) {
+  @media screen and (max-width: 1279px) {
   }
   @media screen and (max-width: 480px) {
   } ;
 `;
 
 export const TableFirstLetter = styled.td`
-  @media screen and (max-width: 1199px) {
+  @media screen and (max-width: 1279px) {
     &:nth-child(1) {
       text-align: left;
       padding-left: 20px;
@@ -126,7 +127,7 @@ export const TableFirstLetter = styled.td`
 `;
 
 export const TableLeft = styled.td`
-  @media screen and (max-width: 1199px) {
+  @media screen and (max-width: 1279px) {
     text-align: right;
     padding-right: 20px;
   }

@@ -20,20 +20,16 @@ export const BalanceWrapper = styled.div`
 `;
 
 export const BalanceText = styled.p`
-  padding: 0;
-  margin: 0;
   margin-bottom: 10px;
   font-size: 12px;
   color: #a6a6a6;
 `;
 
 export const BalanceValue = styled.p`
-  padding: 0;
-  margin: 0;
-
   font-family: Poppins;
   font-weight: 700;
   font-size: 30px;
-  line-height: 1;
+  line height: 1.5;
+
   color: #000000;
 `;

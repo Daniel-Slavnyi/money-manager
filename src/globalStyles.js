@@ -2,6 +2,9 @@ import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 import styled from 'styled-components';
 
+import BgLeft from './styles/images/EllipseLeft.svg';
+import BgRight from './styles/images/EllipseRight.svg';
+
 const GlobalStyle = createGlobalStyle`
     ${normalize}
 * {
@@ -75,6 +78,7 @@ scale: 2;
         font-family: 'Circe', sans-serif;
         font-weight: 400;
         font-size: 18px;
+        background: url(${BgLeft}) no-repeat 0 bottom / 40%, url(${BgRight}) no-repeat right top / 30% ;
     }
 
     h1, h2, h3, h4, h5, h6, p {

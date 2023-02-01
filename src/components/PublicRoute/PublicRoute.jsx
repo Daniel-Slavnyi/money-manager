@@ -5,5 +5,5 @@ import { selectToken } from 'redux/auth/auth-selector';
 
 export default function PublicRoute() {
   const token = useSelector(selectToken);
-  return token ? <Navigate to="/" /> : <Outlet />;
+  return token ? <Navigate to='/home' /> : <Outlet />;
 }

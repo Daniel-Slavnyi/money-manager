@@ -1,6 +1,7 @@
 import styled from '@emotion/styled/macro';
+import { NavLink } from 'react-router-dom';
 
-export const LogoLink = styled.a`
+export const LogoLink = styled(NavLink)`
   display: flex;
   gap: 15px;
   align-items: center;
@@ -9,6 +10,9 @@ export const LogoLink = styled.a`
   font-family: Poppins;
   font-weight: 700;
   font-size: 22px;
+
+  color: #000000;
+  outline: none;
 
   cursor: pointer;
 

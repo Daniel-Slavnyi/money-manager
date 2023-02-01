@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/auth-operation';
+import { Link } from 'react-router-dom';
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -12,8 +13,12 @@ import {
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import PasswordStrengthMeter from './PasswordStrengthMeter/PasswordStrengthMeter';
+import { useState } from 'react';
 
 export const RegistrationForm = () => {
+  const [passwordStrength, setPasswordStrength] = useState('');
+
   const schema = Yup.object().shape({
     username: Yup.string().min(1).max(12).required(),
     email: Yup.string().email(),
@@ -98,7 +103,10 @@ export const RegistrationForm = () => {
           name="confirmPassword"
           required
           value={formik.values.confirmPassword}
-          onChange={formik.handleChange}
+          onChange={event => {
+            formik.handleChange(event);
+            setPasswordStrength(event.target.value);
+          }}
           error={
             formik.touched.confirmPassword &&
             Boolean(formik.errors.confirmPassword)
@@ -107,6 +115,9 @@ export const RegistrationForm = () => {
             formik.touched.confirmPassword && formik.errors.confirmPassword
           }
         />
+        {passwordStrength && (
+          <PasswordStrengthMeter password={passwordStrength} />
+        )}
         <CssTextField
           InputProps={{
             startAdornment: (
@@ -127,8 +138,8 @@ export const RegistrationForm = () => {
         />
         <Button type="submit">REGISTER</Button>
       </StyledForm>
-      <Button variant="secondarybutton" href="/money-manager/auth/login">
-        Login
+      <Button variant="secondarybutton" component={Link} to="/auth/login">
+        Log In
       </Button>
     </>
   );
