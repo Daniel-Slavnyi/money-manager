@@ -1,7 +1,7 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/auth-operation';
-import { useEffect } from 'react';
 import {
   Backdrop,
   ModalWrapper,

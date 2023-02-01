@@ -1,6 +1,6 @@
 import Media from 'react-media';
-import sprite from '../../images/sprite.svg';
 import { mediaScreen } from '../../utils/constants';
+import sprite from '../../images/sprite.svg';
 import {
   NavListEl,
   NavItemEl,

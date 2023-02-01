@@ -21,7 +21,6 @@ import {
   SumAndDateBox,
   SwitchBox,
 } from './TransactionForm.styled';
-import { refreshUser } from 'redux/auth/auth-operation';
 
 export default function TransactionForm({ onClose }) {
   const dispatch = useDispatch();

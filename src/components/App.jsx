@@ -1,15 +1,9 @@
+import { useEffect, Suspense, lazy } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
-// import Layout from 'pages/Layout';
-// import RegisterPage from 'pages/RegisterPage/RegisterPage';
-// import LoginPage from 'pages/LoginPage/LoginPage';
-// import DashboardPage from 'pages/DashboardPage/DashboardPage';
-// import HomePage from 'pages/HomePage/HomePage';
-// import StatisticsPage from 'pages/StatisticsPage/StatisticsPage';
-// import CurrencyPage from 'pages/CurrencyPage/CurrencyPage';
+
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, Suspense, lazy } from 'react';
 import { refreshUser } from '../redux/auth/auth-operation';
 import { Loader } from './Loader/Loader';
 
