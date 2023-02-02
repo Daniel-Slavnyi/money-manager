@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logIn, logOut, refreshUser } from 'redux/auth/auth-operation';
 import {
+  deleteTransaction,
   getCategories,
   newTransaction,
   refreshTransactions,
   transactionSummary,
   updateTransaction,
-  deleteTransaction,
 } from './transaction-operation';
 
 const pending = state => {

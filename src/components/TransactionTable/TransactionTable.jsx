@@ -9,9 +9,7 @@ import {
 } from 'redux/transaction/transaction-operation';
 
 import DataTable from './DataTable';
-import BasicModal from 'components/Modal/Modal';
-
-import { Container } from './TransactionTable.styled';
+import BasicModal from 'components/BasicModal/BasicModal';
 
 export default function TransactionTable() {
   const dispatch = useDispatch();
@@ -24,9 +22,9 @@ export default function TransactionTable() {
   }, [logedIn, dispatch]);
 
   return (
-    <Container>
+    <>
       <BasicModal />
       <DataTable />
-    </Container>
+    </>
   );
 }
