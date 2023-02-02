@@ -1,6 +1,4 @@
-# UkrStrongNation
-
-<h1>Money manager</h1>
+# Money Manager
 
 <p>Money management website.</p>
 
