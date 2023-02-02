@@ -48,7 +48,7 @@ export default function DataTable() {
         rows={newArray}
         columns={columns}
         pageSize={100}
-        rowsPerPageOptions={[12]}
+        rowsPerPageOptions={[100]}
       />
     </div>
   );

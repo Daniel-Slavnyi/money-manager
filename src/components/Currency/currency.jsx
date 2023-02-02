@@ -27,6 +27,7 @@ export const Currency = () => {
   const [isLoad, setIsLoad] = useState(false);
 
   useEffect(() => {
+    if(currency) return
     setIsLoad(true);
     privatbankApi()
       .then(data => {
@@ -48,7 +49,7 @@ export const Currency = () => {
       .finally(() => {
         setIsLoad(false);
       });
-  }, []);
+  }, [currency]);
   return (
     <>
       <Background>
