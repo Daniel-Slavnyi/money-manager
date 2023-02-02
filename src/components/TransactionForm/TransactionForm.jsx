@@ -7,15 +7,18 @@ import { Button, TextField } from '@mui/material';
 
 import BasicDatePicker from './BasicDatePicker';
 import Categories from './Categories';
-
+import mainTheme from 'styles/theme';
+import moment from 'moment';
+import { Notify } from 'notiflix';
+import { StyledPinkSwitch } from './Switcher.styled';
 import {
   updateTransaction,
   newTransaction,
 } from 'redux/transaction/transaction-operation';
-
-import mainTheme from 'styles/theme';
 import {
+  CommentTextField,
   ExpenseActive,
+  ExpensePassive,
   FormBox,
   FormTitle,
   IncomeActive,
@@ -24,26 +27,31 @@ import {
   SumAndDateBox,
   SwitchBox,
 } from './TransactionForm.styled';
+import {
+  selectCategories,
+  selectError,
+} from 'redux/transaction/transaction-selector';
 
-import { selectCategories, selectError } from 'redux/transaction/transaction-selector';
-import moment from 'moment';
-import { Notify } from 'notiflix';
-import { StyledPinkSwitch } from './Switcher.styled';
+export const NumberTextField = styled(TextField)(({ theme }) => ({
+  [theme.breakpoints.up('tablet')]: {
+    width: '100%',
+    marginRight: '10px',
+  },
 
-export const NumberTextField = styled(TextField)(theme => ({
   color: '#E0E0E0',
-  
+  width: '100%',
+
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
-      width: '170px',
+      width: '100%',
       color: '#E0E0E0',
       borderRadius: 0,
       border: 0,
-      borderBottom: '1px solid #E0E0E0'
+      borderBottom: '1px solid #E0E0E0',
     },
     '& .MuiInputBase-input': {
-      width: '170px',
-      textAlign: 'center'
+      width: '100%',
+      textAlign: 'center',
     },
     '&:hover fieldset': {
       borderColor: '#4A56E2',
@@ -55,15 +63,17 @@ export const NumberTextField = styled(TextField)(theme => ({
 }));
 
 export default function TransactionForm({ onClose, editOpen, params }) {
-  const categories = useSelector(selectCategories)
+  const categories = useSelector(selectCategories);
   const dispatch = useDispatch();
   const [transactionDate, setTransactionDate] = useState(
-    editOpen ? (moment(params.row.transactionDate, 'DD.MM.YY').toISOString()) : new Date().toISOString('DD.MM.YY')
+    editOpen
+      ? moment(params.row.transactionDate, 'DD.MM.YY').toISOString()
+      : new Date().toISOString('DD.MM.YY')
   );
 
-  const [type, setType] = useState( editOpen ? params.row.type : 'INCOME');
-  const [categoryId, setCategoryId] = useState(editOpen ? params.row.categoryId :
-    '063f1132-ba5d-42b4-951d-44011ca46262'
+  const [type, setType] = useState(editOpen ? params.row.type : 'INCOME');
+  const [categoryId, setCategoryId] = useState(
+    editOpen ? params.row.categoryId : '063f1132-ba5d-42b4-951d-44011ca46262'
   );
   const [comment, setComment] = useState(editOpen ? params.row.comment : '');
   const [amount, setAmount] = useState(editOpen ? params.row.amount : '');
@@ -72,7 +82,7 @@ export default function TransactionForm({ onClose, editOpen, params }) {
   const switchChange = e => {
     if (e.target.checked) {
       setType('EXPENSE');
-      setCategoryId(categories[0].id)
+      setCategoryId(categories[0].id);
       setAmount(-Math.abs(amount));
       return;
     }
@@ -96,12 +106,16 @@ export default function TransactionForm({ onClose, editOpen, params }) {
       comment,
       amount,
     };
-    if(comment.trim() === ('') ){Notify.failure('Leave some comment!')
-    return}
-    if(amount === 0){Notify.failure('Transaction cannot be 0!')
-  return}
-    dispatch(newTransaction(objTransaction))
-  error === null && onClose()
+    if (comment.trim() === '') {
+      Notify.failure('Leave some comment!');
+      return;
+    }
+    if (amount === 0) {
+      Notify.failure('Transaction cannot be 0!');
+      return;
+    }
+    dispatch(newTransaction(objTransaction));
+    error === null && onClose();
   };
 
   const saveEditChanges = () => {
@@ -112,17 +126,19 @@ export default function TransactionForm({ onClose, editOpen, params }) {
       categoryId,
       comment,
       amount,
-      id
+      id,
     };
-    if(amount === 0 ){Notify.failure('Transaction cannot be 0!')
-    return}
-    if(comment.trim() === ('') ){Notify.failure('Leave some comment!')
-    return}
+    if (amount === 0) {
+      Notify.failure('Transaction cannot be 0!');
+      return;
+    }
+    if (comment.trim() === '') {
+      Notify.failure('Leave some comment!');
+      return;
+    }
     dispatch(updateTransaction(objTransaction));
-    error === null && onClose()
+    error === null && onClose();
   };
-
-
 
   return (
     <FormBox>
@@ -132,27 +148,29 @@ export default function TransactionForm({ onClose, editOpen, params }) {
         ) : (
           <FormTitle>Add transaction</FormTitle>
         )}
-       { !editOpen && <SwitchBox>
-          {type === 'INCOME' ? (
-            <IncomeActive>Income</IncomeActive>
-          ) : (
-            <SpanPassive>Income</SpanPassive>
-          )}
-          <FormControlLabel
-            control={
-              <StyledPinkSwitch
-                inputProps={{ 'aria-label': 'controlled' }}
-                onChange={switchChange}
-                checked={type === 'INCOME' ? false : true}
-              />
-            }
-          />
-          {type === 'EXPENSE' ? (
-            <ExpenseActive>Expense</ExpenseActive>
-          ) : (
-            <SpanPassive>Expense</SpanPassive>
-          )}
-        </SwitchBox>}
+        {!editOpen && (
+          <SwitchBox>
+            {type === 'INCOME' ? (
+              <IncomeActive>Income</IncomeActive>
+            ) : (
+              <SpanPassive>Income</SpanPassive>
+            )}
+            <FormControlLabel
+              control={
+                <StyledPinkSwitch
+                  inputProps={{ 'aria-label': 'controlled' }}
+                  onChange={switchChange}
+                  checked={type === 'INCOME' ? false : true}
+                />
+              }
+            />
+            {type === 'EXPENSE' ? (
+              <ExpenseActive>Expense</ExpenseActive>
+            ) : (
+              <ExpensePassive>Expense</ExpensePassive>
+            )}
+          </SwitchBox>
+        )}
         {type === 'INCOME' || editOpen ? null : (
           <Categories
             changeCategoryId={setCategoryId}
@@ -177,7 +195,7 @@ export default function TransactionForm({ onClose, editOpen, params }) {
           />
         </SumAndDateBox>
 
-        <TextField
+        <CommentTextField
           onChange={e => {
             setComment(e.target.value);
           }}
@@ -187,7 +205,7 @@ export default function TransactionForm({ onClose, editOpen, params }) {
           id="comment"
           name="comment"
           required
-          sx={{width: '380px', m: '40px 0'}}
+          sx={{ m: '40px 0' }}
         />
 
         {editOpen ? (
@@ -212,13 +230,19 @@ export default function TransactionForm({ onClose, editOpen, params }) {
         ) : (
           <>
             {' '}
-            <Button theme={mainTheme} variant="mainbutton" type="submit">
+            <Button
+              theme={mainTheme}
+              variant="mainbutton"
+              type="submit"
+              sx={{ width: '100%' }}
+            >
               ADD
             </Button>
             <Button
               onClick={onClose}
               theme={mainTheme}
               variant="secondarybutton"
+              sx={{ width: '100%' }}
             >
               CANCEL
             </Button>

@@ -6,22 +6,22 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { styled } from '@mui/material';
 
-
 export const DateTextField = styled(TextField)(theme => ({
   color: '#E0E0E0',
-  marginLeft: '32px',
-  
+  margin: '0 auto',
+  width: '100%',
+
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
-      width: '170px',
+      width: '100%',
       color: '#E0E0E0',
       borderRadius: 0,
       border: 0,
-      borderBottom: '1px solid #E0E0E0'
+      borderBottom: '1px solid #E0E0E0',
     },
+
     '& .MuiInputBase-input': {
-      width: '160px',
-      textAlign: 'center'
+      width: '100%',
     },
     '&:hover fieldset': {
       borderColor: '#4A56E2',
@@ -39,8 +39,8 @@ export default function BasicDatePicker({
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
-      required
-      inputFormat="DD.MM.YY"
+        required
+        inputFormat="DD.MM.YY"
         value={transactionDate}
         onChange={newValue => {
           setTransactionDate(newValue.toISOString());

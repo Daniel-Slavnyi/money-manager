@@ -2,10 +2,13 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
+import DeleteForeverSharpIcon from '@mui/icons-material/DeleteForeverSharp';
 import mainTheme from 'styles/theme';
 import { useDispatch } from 'react-redux';
+
 import { deleteTransaction } from 'redux/transaction/transaction-operation';
 import { ConfirmTitle, Container } from './ModalConfirmDelete.styled';
+import { EditDeleteButton } from 'components/EditModal/EditModal.styled';
 
 const style = {
   position: 'absolute',
@@ -28,19 +31,14 @@ export default function ModalConfirmDelete({ params }) {
 
   const deleteItem = () => {
     dispatch(deleteTransaction(params.row.id));
-    console.log(params)
+    console.log(params);
   };
 
   return (
     <div>
-      <Button
-        theme={mainTheme}
-        variant='smallbutton'
-        sx={{ marginLeft: '7px'}}
-        onClick={handleOpen}
-      >
-        DELETE
-      </Button>
+      <EditDeleteButton sx={{ marginLeft: '10px' }} onClick={handleOpen}>
+        <DeleteForeverSharpIcon fontSize="small" color="warning" />
+      </EditDeleteButton>
       <Modal
         open={open}
         onClose={handleClose}

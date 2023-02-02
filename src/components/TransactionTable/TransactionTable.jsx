@@ -11,8 +11,6 @@ import {
 import DataTable from './DataTable';
 import BasicModal from 'components/BasicModal/BasicModal';
 
-// import { Container } from './TransactionTable.styled';
-
 export default function TransactionTable() {
   const dispatch = useDispatch();
   const logedIn = useSelector(selectIsLoggedIn);

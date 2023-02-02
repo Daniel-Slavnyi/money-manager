@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
     width: 80px !important;
     height: 50px !important;
     border-radius: 30px !important;
+    
 }
 .MuiSwitch-track {
 width: 80px !important;
@@ -27,24 +28,28 @@ height: 40px !important;
 border-radius: 30px !important;
   border: 1px solid black !important;
   background-color: white !important;
+margin: 0 !important;
 
 }
 .MuiSwitch-root {
   width: 90px !important;
    height: 70px !important;
    overflow: visible !important;
+   
 }
 .MuiSwitch-thumb {
 margin-left: 16px !important;
 scale: 2;
 }
 .MuiSwitch-input {
+  
 }
 .MuiSwitch-sizeMedium {
   display: flex !important;
   align-items: center;
   justify-content: center;
   height: 40px !important;
+  
 }
 .MuiSwitch-switchBase {
   position: absolute !important;
@@ -53,6 +58,7 @@ scale: 2;
   height: 44px !important;
   color: #24CCA7 !important;
   height: 44px !important;
+  
 }
 .Mui-checked {
   position: absolute !important;
@@ -64,12 +70,7 @@ scale: 2;
 .MuiFormControlLabel-root {
   margin: 0;
 }
-/* .css-16kbzxh-SpanPassive {
-  position: absolute !important;
-  top: -3px !important;
-  right: -3px !important;
-  color: #24CCA7 !important;
-} */
+
 
     body {
         box-sizing: border-box;

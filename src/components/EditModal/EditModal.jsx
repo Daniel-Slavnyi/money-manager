@@ -1,9 +1,10 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
+import ModeEditOutlineRoundedIcon from '@mui/icons-material/ModeEditOutlineRounded';
+
 import TransactionForm from 'components/TransactionForm/TransactionForm';
-import { Button } from '@mui/material';
-import mainTheme from 'styles/theme';
+import { EditDeleteButton } from './EditModal.styled';
 
 const style = {
   position: 'absolute',
@@ -18,19 +19,15 @@ const style = {
   borderRadius: '20px',
 };
 
-export default function EditModal({params}) {
+export default function EditModal({ params }) {
   const [editOpen, setEditOpen] = React.useState(false);
   const handleOpen = () => setEditOpen(true);
   const handleClose = () => setEditOpen(false);
   return (
     <div>
-      <Button
-        theme={mainTheme}
-        variant='smallbutton'
-        onClick={handleOpen}
-      >
-        EDIT
-      </Button>
+      <EditDeleteButton onClick={handleOpen}>
+        <ModeEditOutlineRoundedIcon fontSize="small" color="info" />
+      </EditDeleteButton>
       <Modal
         open={editOpen}
         onClose={handleClose}
@@ -38,7 +35,13 @@ export default function EditModal({params}) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-         {editOpen && <TransactionForm params={params} editOpen={editOpen} onClose={handleClose} />}
+          {editOpen && (
+            <TransactionForm
+              params={params}
+              editOpen={editOpen}
+              onClose={handleClose}
+            />
+          )}
         </Box>
       </Modal>
     </div>

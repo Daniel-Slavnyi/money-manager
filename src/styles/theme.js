@@ -29,7 +29,7 @@ const theme = createTheme({
     },
     background: {
       default: '#E7EAF2',
-      paper: 'background: rgba(0, 0, 0, 0.25);',
+      // paper: 'background: rgba(0, 0, 0, 0.25);',
     },
     text: {
       primary: '#000000',
@@ -161,18 +161,19 @@ theme.components = {
           verticalAlign: 'center',
           letterSpacing: '0.01em',
           textTransform: 'uppercase',
+          margin: '0',
 
           color: theme.palette.colorList.blue,
           background: theme.palette.colorList.white,
-          padding: '3px 5px',
-          width: '30px',
-          borderRadius: '20px',
+          padding: '2px 2px',
+          width: '15px !important',
+          borderRadius: '15px',
           border: `1px solid ${theme.palette.colorList.blue}`,
           '&:hover': {
             background: theme.palette.colorList.grey,
           },
           [theme.breakpoints.up('phablet')]: {
-            width: '30px',
+            width: '15px',
           },
         },
       },

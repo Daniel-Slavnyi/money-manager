@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
 import { useSelector } from 'react-redux';
 import {
   selectTransactions,
@@ -11,7 +10,15 @@ import { Button } from '@mui/material';
 
 import EditModal from 'components/EditModal/EditModal';
 import ModalConfirmDelete from 'components/ModalConfirmDelete/ModalConfirmDelete';
-import { DataGridStyled, MobileItem, MobileItemPositive, MobileList, MobileName, MobileRow, MobileValue } from './TransactionTable.styled';
+import {
+  DataGridStyled,
+  DesktopTable,
+  MobileItem,
+  MobileList,
+  MobileName,
+  MobileRow,
+  MobileValue,
+} from './TransactionTable.styled';
 
 export default function DataTable() {
   const columns = [
@@ -19,7 +26,7 @@ export default function DataTable() {
     {
       field: 'type',
       headerName: 'Type',
-      width: 90,
+      width: 55,
       renderCell: params =>
         params.row.type === 'INCOME' ? <span>+</span> : <span>-</span>,
     },
@@ -47,7 +54,7 @@ export default function DataTable() {
       field: 'action',
       headerName: '',
       sortable: false,
-      width: 160,
+      width: 70,
       renderCell: params => {
         return (
           <>
@@ -70,17 +77,22 @@ export default function DataTable() {
   return (
     <>
       <MobileList>
-        {newArray.map(obj => (
-           <MobileItem style={obj.amount > 0 ? {borderLeft: '5px solid #24CCA7'} : {borderLeft: '5px solid #FF6596'}}>
+        {newArray.reverse().map(obj => (
+          <MobileItem
+            key={obj.id}
+            style={
+              obj.amount > 0
+                ? { borderLeft: '5px solid #24CCA7' }
+                : { borderLeft: '5px solid #FF6596' }
+            }
+          >
             <MobileRow>
               <MobileName>Data</MobileName>
-              <MobileValue>{obj.transactionDate}
-</MobileValue>
+              <MobileValue>{obj.transactionDate}</MobileValue>
             </MobileRow>
             <MobileRow>
               <MobileName>Type</MobileName>
-              <MobileValue>{obj.type === 'INCOME' ? '+' : '-' }
-</MobileValue>
+              <MobileValue>{obj.type === 'INCOME' ? '+' : '-'}</MobileValue>
             </MobileRow>
             <MobileRow>
               <MobileName>Category</MobileName>
@@ -92,8 +104,13 @@ export default function DataTable() {
             </MobileRow>
             <MobileRow>
               <MobileName>Sum</MobileName>
-              <MobileValue style={obj.amount > 0 ? {color: '#24CCA7'} : {color: '#FF6596'}}>{obj.amount}
-</MobileValue>
+              <MobileValue
+                style={
+                  obj.amount > 0 ? { color: '#24CCA7' } : { color: '#FF6596' }
+                }
+              >
+                {obj.amount}
+              </MobileValue>
             </MobileRow>
             <MobileRow>
               <MobileName>Balance</MobileName>
@@ -102,19 +119,19 @@ export default function DataTable() {
           </MobileItem>
         ))}
       </MobileList>
-      <div style={{display: 'none', height: 500, width: 920, padding: '0 16px 0 39px' }}>
+      <DesktopTable>
         <DataGridStyled
+          // autoPageSize
           rows={newArray}
           columns={columns}
-          pageSize={20}
-          rowsPerPageOptions={[12]}
+          rowsPerPageOptions={[100]}
           disableColumnMenu
           disableDensitySelector={true}
           disableSelectionOnClick
           BaseButton={Button}
           sx={{ fontSize: '16px', border: 'none' }}
         />
-      </div>
+      </DesktopTable>
     </>
   );
 }
