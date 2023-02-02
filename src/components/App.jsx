@@ -7,15 +7,25 @@ import PublicRoute from './PublicRoute/PublicRoute';
 import { refreshUser } from '../redux/auth/auth-operation';
 import { Loader } from './Loader/Loader';
 
-const Layout = lazy(() => import('pages/Layout'));
-const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
-const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
-const DashboardPage = lazy(() => import('pages/DashboardPage/DashboardPage'));
-const HomePage = lazy(() => import('pages/HomePage/HomePage'));
-const StatisticsPage = lazy(() =>
-  import('pages/StatisticsPage/StatisticsPage')
-);
-const CurrencyPage = lazy(() => import('pages/CurrencyPage/CurrencyPage'));
+import Layout from 'pages/Layout';
+import RegisterPage from 'pages/RegisterPage/RegisterPage';
+
+import LoginPage from 'pages/LoginPage/LoginPage';
+import DashboardPage from 'pages/DashboardPage/DashboardPage';
+import HomePage from 'pages/HomePage/HomePage';
+import StatisticsPage from 'pages/StatisticsPage/StatisticsPage';
+import CurrencyPage from 'pages/CurrencyPage/CurrencyPage';
+
+// const Layout = lazy(() => import('pages/Layout'));
+
+// const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
+// const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
+// const DashboardPage = lazy(() => import('pages/DashboardPage/DashboardPage'));
+// const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+// const StatisticsPage = lazy(() =>
+//   import('pages/StatisticsPage/StatisticsPage')
+// );
+// const CurrencyPage = lazy(() => import('pages/CurrencyPage/CurrencyPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
