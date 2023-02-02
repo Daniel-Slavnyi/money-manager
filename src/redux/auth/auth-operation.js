@@ -2,6 +2,8 @@ import { backend } from '../../services/apiAuth';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { registerUser, loginUser, logoutUser } from '../../services/apiAuth';
 import { toast } from 'react-toastify';
+import { Notify } from 'notiflix';
+
 // Utility to add JWT
 export const setAuthHeader = token => {
   backend.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -25,6 +27,7 @@ export const register = createAsyncThunk(
       setAuthHeader(res.token);
       return res;
     } catch (error) {
+      Notify.failure('Something Went Wrong');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -43,6 +46,8 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.token);
       return res;
     } catch (error) {
+      console.log('error');
+      Notify.failure('Something Went Wrong');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -86,6 +91,8 @@ export const refreshUser = createAsyncThunk(
       // thunkAPI.dispatch(transactionSummary({ month: '01', year: '2023' }));
       return res.data;
     } catch (error) {
+      Notify.failure('Something Went Wrong');
+
       return thunkAPI.rejectWithValue(error.message);
     }
   }
