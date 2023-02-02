@@ -31,7 +31,6 @@ export default function ModalConfirmDelete({ params }) {
 
   const deleteItem = () => {
     dispatch(deleteTransaction(params.row.id));
-    console.log(params);
   };
 
   return (
