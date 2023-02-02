@@ -124,6 +124,7 @@ export default function DataTable() {
           // autoPageSize
           rows={newArray}
           columns={columns}
+          pageSize={100}
           rowsPerPageOptions={[100]}
           disableColumnMenu
           disableDensitySelector={true}

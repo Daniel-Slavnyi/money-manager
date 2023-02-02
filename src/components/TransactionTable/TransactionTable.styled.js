@@ -89,9 +89,6 @@ export const MobileList = styled.ul`
   @media screen and (min-width: 768px) {
     display: none;
   }
-  @media screen and (min-width: 768px) {
-    display: none;
-  }
 `;
 
 export const DesktopTable = styled.div`
@@ -103,7 +100,7 @@ export const DesktopTable = styled.div`
     width: 700px;
     margin-top: 20px;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
     display: flex;
     height: 350px;
     width: 700px;

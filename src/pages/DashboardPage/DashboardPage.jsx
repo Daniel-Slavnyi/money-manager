@@ -2,10 +2,10 @@ import { Header } from 'components/Header/Header';
 import { Balance } from '../../components/Balance/Balance';
 import { Currency } from 'components/Currency/currency';
 import { Navigation } from 'components/Navigation/Navigation';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { Container, styled } from '@mui/material';
 import { Section, WrapCurency } from './DashboardPage.styled';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { BlurWrapperMainPage } from 'pages/LoginPage/LoginPage.styled';
 
 const StyledDiv = styled('div')(({ theme }) => ({
@@ -41,20 +41,20 @@ const WrapperContainer = styled(Container)(({ theme }) => ({
 }));
 
 export default function DashboardPage() {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const location = useLocation();
+  // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  // const location = useLocation();
 
-  const isHidden = location.pathname === '/statistic' && screenWidth < 768;
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
-    window.addEventListener('resize', handleResize);
+  // const isHidden = location.pathname === '/statistic' && screenWidth < 768;
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setScreenWidth(window.innerWidth);
+  //   };
+  //   window.addEventListener('resize', handleResize);
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+  // }, []);
 
   const StyledMain = styled('main')(({ theme }) => ({
     paddingTop: '12px',
@@ -74,7 +74,7 @@ export default function DashboardPage() {
               <StyledDiv>
                 <div>
                   <Navigation />
-                  {!isHidden && <Balance />}
+                  <Balance />
                 </div>
 
                 <WrapCurency>
