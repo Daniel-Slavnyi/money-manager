@@ -32,7 +32,7 @@ export default function SelectSmall({ setMonth, month, setYear, year }) {
       style: {
         maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
         width: 182,
-        backgroundColor: 'rgba(255, 255, 255, 0.7)',
+        backgroundColor: 'white',
         boxSshadow: '0px 6px 15px rgba(0, 0, 0, 0.1)',
         borderRadius: 25,
       },
