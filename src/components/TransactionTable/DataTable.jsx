@@ -6,7 +6,7 @@ import {
 } from 'redux/transaction/transaction-selector';
 
 import moment from 'moment/moment';
-import { Button } from '@mui/material';
+import { Button, useMediaQuery } from '@mui/material';
 
 import EditModal from 'components/EditModal/EditModal';
 import ModalConfirmDelete from 'components/ModalConfirmDelete/ModalConfirmDelete';
@@ -21,6 +21,7 @@ import {
 } from './TransactionTable.styled';
 
 export default function DataTable() {
+  const isBigScreen = useMediaQuery(theme => theme.breakpoints.up('tablet'));
   const columns = [
     { field: 'transactionDate', headerName: 'Date', width: 90 },
     {
@@ -119,20 +120,22 @@ export default function DataTable() {
           </MobileItem>
         ))}
       </MobileList>
-      <DesktopTable>
-        <DataGridStyled
-          // autoPageSize
-          rows={newArray}
-          columns={columns}
-          pageSize={100}
-          rowsPerPageOptions={[100]}
-          disableColumnMenu
-          disableDensitySelector={true}
-          disableSelectionOnClick
-          BaseButton={Button}
-          sx={{ fontSize: '16px', border: 'none' }}
-        />
-      </DesktopTable>
+      {isBigScreen && (
+        <DesktopTable>
+          <DataGridStyled
+            autoPageSize
+            rows={newArray}
+            columns={columns}
+            pageSize={100}
+            rowsPerPageOptions={[100]}
+            disableColumnMenu
+            disableDensitySelector={true}
+            disableSelectionOnClick
+            BaseButton={Button}
+            sx={{ fontSize: '16px', border: 'none' }}
+          />
+        </DesktopTable>
+      )}
     </>
   );
 }
