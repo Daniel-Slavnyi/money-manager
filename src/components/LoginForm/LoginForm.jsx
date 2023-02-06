@@ -1,17 +1,22 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/auth-operation';
 
+import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-import { Button, InputAdornment } from '@mui/material';
+import { Button, IconButton, InputAdornment } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
-import { Link } from 'react-router-dom';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import { CssTextField, StyledForm } from './LoginForm.styled';
+import { useState } from 'react';
 
 export const LoginForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
   const schema = Yup.object().shape({
     email: Yup.string().email(),
     password: Yup.string().min(6).max(12).required(),
@@ -21,6 +26,8 @@ export const LoginForm = () => {
     email: '',
     password: '',
   };
+
+  const handleClickShowPassword = () => setShowPassword(show => !show);
 
   const dispatch = useDispatch();
 
@@ -58,10 +65,21 @@ export const LoginForm = () => {
           helperText={formik.touched.email && formik.errors.email}
         />
         <CssTextField
+          type={showPassword ? 'text' : 'password'}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
                 <LockIcon sx={{ color: '#BDBDBD' }} />
+              </InputAdornment>
+            ),
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
               </InputAdornment>
             ),
           }}

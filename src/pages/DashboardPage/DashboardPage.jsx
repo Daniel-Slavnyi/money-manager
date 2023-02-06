@@ -5,7 +5,6 @@ import { Navigation } from 'components/Navigation/Navigation';
 import { Outlet } from 'react-router-dom';
 import { Container, styled } from '@mui/material';
 import { Section, WrapCurency } from './DashboardPage.styled';
-// import { useEffect, useState } from 'react';
 import { BlurWrapperMainPage } from 'pages/LoginPage/LoginPage.styled';
 
 const StyledDiv = styled('div')(({ theme }) => ({
@@ -41,21 +40,6 @@ const WrapperContainer = styled(Container)(({ theme }) => ({
 }));
 
 export default function DashboardPage() {
-  // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  // const location = useLocation();
-
-  // const isHidden = location.pathname === '/statistic' && screenWidth < 768;
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setScreenWidth(window.innerWidth);
-  //   };
-  //   window.addEventListener('resize', handleResize);
-
-  //   return () => {
-  //     window.removeEventListener('resize', handleResize);
-  //   };
-  // }, []);
-
   const StyledMain = styled('main')(({ theme }) => ({
     paddingTop: '12px',
     flexGrow: 1,

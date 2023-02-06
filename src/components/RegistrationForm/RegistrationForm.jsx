@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Button, InputAdornment } from '@mui/material';
+import { Button, IconButton, InputAdornment } from '@mui/material';
 import {
   CssTextField,
   StyledForm,
@@ -12,11 +12,14 @@ import {
 
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import PasswordStrengthMeter from './PasswordStrengthMeter/PasswordStrengthMeter';
 import { useState } from 'react';
 
 export const RegistrationForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [passwordStrength, setPasswordStrength] = useState('');
 
   const schema = Yup.object().shape({
@@ -37,6 +40,8 @@ export const RegistrationForm = () => {
   };
 
   const dispatch = useDispatch();
+
+  const handleClickShowPassword = () => setShowPassword(show => !show);
 
   const handleSubmit = ({ email, password, username }, { resetForm }) => {
     dispatch(register({ email, password, username }));
@@ -72,10 +77,21 @@ export const RegistrationForm = () => {
           helperText={formik.touched.email && formik.errors.email}
         />
         <CssTextField
+          type={showPassword ? 'text' : 'password'}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
                 <LockIcon sx={{ color: '#BDBDBD' }} />
+              </InputAdornment>
+            ),
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
               </InputAdornment>
             ),
           }}
@@ -90,6 +106,7 @@ export const RegistrationForm = () => {
           helperText={formik.touched.password && formik.errors.password}
         />
         <CssTextField
+          type={showPassword ? 'text' : 'password'}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
