@@ -79,7 +79,7 @@ scale: 2;
         font-family: 'Circe', sans-serif;
         font-weight: 400;
         font-size: 18px;
-        background: url(${BgLeft}) no-repeat 0 bottom / 40%, url(${BgRight}) no-repeat right top / 30% ;
+        background: url(${BgLeft}) no-repeat 0 bottom / 40%, url(${BgRight}) no-repeat right top / 30% #E7EAF2;
     }
 
     h1, h2, h3, h4, h5, h6, p {
