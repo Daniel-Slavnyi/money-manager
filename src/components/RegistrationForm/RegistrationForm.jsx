@@ -155,7 +155,7 @@ export const RegistrationForm = () => {
         />
         <Button type="submit">REGISTER</Button>
       </StyledForm>
-      <Button variant="secondarybutton" component={Link} to="/auth/login">
+      <Button variant="secondarybutton" component={Link} to="/login">
         Log In
       </Button>
     </>

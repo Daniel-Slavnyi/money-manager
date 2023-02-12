@@ -95,7 +95,7 @@ export const LoginForm = () => {
         />
         <Button type="submit">LOG IN</Button>
       </StyledForm>
-      <Button variant="secondarybutton" component={Link} to="/auth/register">
+      <Button variant="secondarybutton" component={Link} to="/register">
         Register
       </Button>
     </>
