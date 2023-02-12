@@ -40,8 +40,8 @@ export const App = () => {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<PublicRoute />}>
-            <Route path="/auth" element={<Layout />}>
-              <Route index element={<Navigate to="/auth" />} />
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Navigate to="/register" />} />
               <Route path="register" element={<RegisterPage />} />
               <Route path="login" element={<LoginPage />} />
             </Route>
