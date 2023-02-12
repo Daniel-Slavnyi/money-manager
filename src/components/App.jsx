@@ -41,7 +41,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<PublicRoute />}>
             <Route path="/auth" element={<Layout />}>
-              <Route index element={<Navigate to="/auth/register" />} />
+              <Route index element={<Navigate to="/auth" />} />
               <Route path="register" element={<RegisterPage />} />
               <Route path="login" element={<LoginPage />} />
             </Route>
